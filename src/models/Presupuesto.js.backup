@@ -1,0 +1,84 @@
+import db from '../database.js';
+
+export class Presupuesto {
+  static crear(datos) {
+    const { titulo, descripcion, monto_total, fecha_inicio, fecha_fin, items = [] } = datos;
+    
+    const transaction = db.transaction(() => {
+      const stmt = db.prepare(`
+        INSERT INTO presupuestos (titulo, descripcion, monto_total, fecha_inicio, fecha_fin)
+        VALUES (?, ?, ?, ?, ?)
+      `);
+      
+      const result = stmt.run(titulo, descripcion, monto_total, fecha_inicio, fecha_fin);
+      const presupuestoId = result.lastInsertRowid;
+
+      if (items.length > 0) {
+        const itemStmt = db.prepare(`
+          INSERT INTO items_presupuesto (presupuesto_id, concepto, monto)
+          VALUES (?, ?, ?)
+        `);
+
+        items.forEach(item => {
+          itemStmt.run(presupuestoId, item.concepto, item.monto);
+        });
+      }
+
+      return presupuestoId;
+    });
+
+    const id = transaction();
+    return this.obtenerPorId(id);
+  }
+
+  static obtenerTodos() {
+    const stmt = db.prepare(`
+      SELECT p.*, 
+             COUNT(ip.id) as total_items,
+             GROUP_CONCAT(ip.concepto || ': $' || ip.monto, '; ') as items_detalle
+      FROM presupuestos p
+      LEFT JOIN items_presupuesto ip ON p.id = ip.presupuesto_id
+      GROUP BY p.id
+      ORDER BY p.created_at DESC
+    `);
+    return stmt.all();
+  }
+
+  static obtenerPorId(id) {
+    const stmt = db.prepare('SELECT * FROM presupuestos WHERE id = ?');
+    const presupuesto = stmt.get(id);
+    
+    if (presupuesto) {
+      const itemsStmt = db.prepare('SELECT * FROM items_presupuesto WHERE presupuesto_id = ?');
+      presupuesto.items = itemsStmt.all(id);
+    }
+    
+    return presupuesto;
+  }
+
+  static actualizar(id, datos) {
+    const campos = Object.keys(datos).map(key => `${key} = ?`).join(', ');
+    const valores = Object.values(datos);
+    valores.push(id);
+
+    const stmt = db.prepare(`UPDATE presupuestos SET ${campos} WHERE id = ?`);
+    return stmt.run(...valores);
+  }
+
+  static eliminar(id) {
+    const transaction = db.transaction(() => {
+      const itemsStmt = db.prepare('DELETE FROM items_presupuesto WHERE presupuesto_id = ?');
+      itemsStmt.run(id);
+      
+      const presupuestoStmt = db.prepare('DELETE FROM presupuestos WHERE id = ?');
+      return presupuestoStmt.run(id);
+    });
+
+    return transaction();
+  }
+
+  static obtenerPorEstado(estado) {
+    const stmt = db.prepare('SELECT * FROM presupuestos WHERE estado = ? ORDER BY created_at DESC');
+    return stmt.all(estado);
+  }
+}

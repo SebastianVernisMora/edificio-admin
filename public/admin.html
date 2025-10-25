@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="header">
+            <h1>Panel de Administración - Nov 2025</h1>
+            <div class="user-info">
+                <span id="userName"></span>
+                <button onclick="logout()" class="btn-secondary">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="#presupuestos" class="nav-link">Presupuestos</a></li>
+                <li><a href="#cuotas" class="nav-link">Cuotas</a></li>
+                <li><a href="#parcialidades" class="nav-link">Fondo Gastos Mayores</a></li>
+                <li><a href="#gastos" class="nav-link">Gastos</a></li>
+                <li><a href="#contabilidad" class="nav-link">Contabilidad</a></li>
+                <li><a href="#anuncios" class="nav-link">Anuncios</a></li>
+                <li><a href="#solicitudes" class="nav-link">Solicitudes</a></li>
+                <li><a href="#usuarios" class="nav-link">Usuarios</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div id="dashboard" class="section active">
+                <h2>Dashboard - Cierre 2024</h2>
+                
+                <div class="saldos-fondos">
+                    <h3>💰 Saldos de Fondos al 31 Octubre 2025</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card income">
+                            <h3>Fondo Ahorro Acumulado</h3>
+                            <p class="stat-number" id="fondoAhorroSaldo">$67,500</p>
+                            <small>Disponible para gastos operacionales</small>
+                        </div>
+                        <div class="stat-card balance">
+                            <h3>Fondo Gastos Mayores</h3>
+                            <p class="stat-number" id="fondoGastosMayoresSaldo">$125,000</p>
+                            <small>Para proyectos de infraestructura</small>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Dinero Operacional</h3>
+                            <p class="stat-number" id="dineroOperacional">$48,000</p>
+                            <small>Gastos corrientes mensuales</small>
+                        </div>
+                        <div class="stat-card urgent">
+                            <h3>Patrimonio Total</h3>
+                            <p class="stat-number" id="patrimonioTotal">$240,500</p>
+                            <small>Capital total del condominio</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cierre-2024-status">
+                    <h3>📋 Estado Noviembre/Diciembre 2025</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Cuotas Noviembre</h3>
+                            <p class="stat-number" id="cuotasNoviembre">-</p>
+                            <small>Vencen 1 Diciembre</small>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Cuotas Diciembre</h3>
+                            <p class="stat-number" id="cuotasDiciembre">-</p>
+                            <small>Vencen 1 Enero 2026</small>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Gastos Nov Registrados</h3>
+                            <p class="stat-number" id="gastosNoviembre">-</p>
+                            <small>Operacionales del mes</small>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Preparación 2026</h3>
+                            <p class="stat-number" id="preparacion2025">Pendiente</p>
+                            <small>Generar cuotas nuevas</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acciones-cierre">
+                    <h3>🚀 Acciones de Gestión 2025</h3>
+                    <div class="acciones-buttons">
+                        <button onclick="generarCuotas2025()" class="btn-success">Generar Cuotas 2026</button>
+                        <button onclick="procesarCierreMensual()" class="btn-primary">Cierre Mensual</button>
+                        <button onclick="procesarCierreAnual()" class="btn-primary">Cierre Anual 2025</button>
+                        <button onclick="mostrarResumenPatrimonial()" class="btn-secondary">Resumen Patrimonial</button>
+                    </div>
+                </div>
+
+                <div class="recent-activities">
+                    <h3>Actividades Recientes</h3>
+                    <div id="actividadesRecientes"></div>
+                </div>
+            </div>
+
+            <div id="presupuestos" class="section">
+                <div class="section-header">
+                    <h2>Presupuestos</h2>
+                    <button onclick="mostrarFormPresupuesto()" class="btn-primary">Nuevo Presupuesto</button>
+                </div>
+                <div class="table-container">
+                    <table id="tablaPresupuestos">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Monto Total</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="cuotas" class="section">
+                <div class="section-header">
+                    <h2>Cuotas Mensuales ($550 MXN)</h2>
+                    <div class="header-buttons">
+                        <button onclick="mostrarFormCuotaMensual()" class="btn-success">Generar Cuotas</button>
+                        <button onclick="mostrarFormPagoMultiple()" class="btn-primary">Pago Múltiple</button>
+                        <button onclick="mostrarFormCuota()" class="btn-primary">Nueva Cuota</button>
+                    </div>
+                </div>
+                
+                <div class="cuotas-info-panel">
+                    <div class="info-card">
+                        <h4>💰 Estructura de Cuota Mensual</h4>
+                        <p>$400 MXN - Mantenimiento Operacional</p>
+                        <p>$150 MXN - Fondo Ahorro Basura</p>
+                        <p><strong>Total: $550 MXN por departamento</strong></p>
+                    </div>
+                </div>
+                
+                <div class="cuotas-filters">
+                    <select id="filtroMesCuotas" onchange="filtrarCuotasPorMes()">
+                        <option value="">Todos los períodos</option>
+                    </select>
+                    <select id="filtroEstadoCuotas" onchange="filtrarCuotasPorEstado()">
+                        <option value="">Todos los estados</option>
+                        <option value="pendiente">Pendientes</option>
+                        <option value="pagado">Pagadas</option>
+                        <option value="vencido">Vencidas</option>
+                    </select>
+                    <select id="filtroTipoCuotas" onchange="filtrarCuotasPorTipo()">
+                        <option value="">Todos los tipos</option>
+                        <option value="mensual">Cuotas Mensuales</option>
+                        <option value="fondo_mayor">Fondo Gastos Mayores</option>
+                    </select>
+                </div>
+                
+                <div class="table-container">
+                    <table id="tablaCuotas">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAllCuotas" onchange="seleccionarTodasCuotas()"></th>
+                                <th>Inquilino</th>
+                                <th>Depto</th>
+                                <th>Concepto</th>
+                                <th>Tipo</th>
+                                <th>Monto</th>
+                                <th>Vencimiento</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="parcialidades" class="section">
+                <h2>Fondo Gastos Mayores - Parcialidades</h2>
+                <div class="parcialidades-info">
+                    <div class="info-card urgent">
+                        <h4>📅 Información del Fondo Anual</h4>
+                        <p><strong>Monto:</strong> $5,000 MXN por departamento</p>
+                        <p><strong>Plazo:</strong> 1 enero al 31 marzo 2026</p>
+                        <p><strong>Parcialidades:</strong> Permitidas desde el 1 de enero</p>
+                        <p><strong>Total Edificio:</strong> $100,000 MXN anuales</p>
+                    </div>
+                </div>
+                
+                <div class="parcialidades-grid">
+                    <div class="resumen-fondo">
+                        <h3>Resumen General del Fondo</h3>
+                        <div class="stats-grid-small">
+                            <div class="stat-card">
+                                <h4>Total a Recaudar</h4>
+                                <p class="stat-number">$100,000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Recaudado</h4>
+                                <p class="stat-number" id="totalRecaudadoFondo">$0</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Pendiente</h4>
+                                <p class="stat-number" id="totalPendienteFondo">$100,000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Departamentos al Día</h4>
+                                <p class="stat-number" id="deptosAlDia">0/20</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selector-departamento">
+                        <h3>Gestión por Departamento</h3>
+                        <div class="form-group">
+                            <label for="selectorDepartamento">Seleccionar Departamento:</label>
+                            <select id="selectorDepartamento" onchange="cargarParcialidadesDepartamento()">
+                                <option value="">Seleccionar departamento...</option>
+                            </select>
+                        </div>
+                        
+                        <div id="detalleDepartamento" style="display: none;">
+                            <div class="departamento-info">
+                                <h4 id="nombreDepartamento"></h4>
+                                <div class="pago-status">
+                                    <span>Monto Total: $5,000 MXN</span>
+                                    <span>Pagado: $<span id="montoPagadoDepto">0</span> MXN</span>
+                                    <span>Pendiente: $<span id="saldoPendienteDepto">5000</span> MXN</span>
+                                    <span class="status-badge" id="statusDepto">PENDIENTE</span>
+                                </div>
+                                
+                                <div class="acciones-pago">
+                                    <button onclick="mostrarFormParcialidad()" class="btn-primary" id="btnParcialidad">Registrar Pago/Parcialidad</button>
+                                    <button onclick="marcarFondoCompleto()" class="btn-success" id="btnCompleto">Marcar Completo</button>
+                                </div>
+                            </div>
+                            
+                            <div class="historial-parcialidades">
+                                <h4>Historial de Pagos</h4>
+                                <div class="table-container">
+                                    <table id="tablaParcialidades">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Monto</th>
+                                                <th>Método</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gastos" class="section">
+                <div class="section-header">
+                    <h2>Gastos</h2>
+                    <button onclick="mostrarFormGasto()" class="btn-primary">Registrar Gasto</button>
+                </div>
+                <div class="table-container">
+                    <table id="tablaGastos">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Concepto</th>
+                                <th>Categoría</th>
+                                <th>Proveedor</th>
+                                <th>Monto</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="contabilidad" class="section">
+                <h2>Contabilidad</h2>
+                
+                <div class="contabilidad-controls">
+                    <div class="period-selector">
+                        <label>Período:</label>
+                        <input type="month" id="periodoContable" onchange="cargarEstadisticasContables()">
+                        <select id="tipoReporte" onchange="cargarEstadisticasContables()">
+                            <option value="mensual">Mensual</option>
+                            <option value="anual">Anual</option>
+                        </select>
+                        <button onclick="generarCierre()" class="btn-success">Generar Cierre</button>
+                    </div>
+                </div>
+
+                <div class="contabilidad-dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card income">
+                            <h3>Ingresos</h3>
+                            <p class="stat-number" id="totalIngresos">$0</p>
+                        </div>
+                        <div class="stat-card expense">
+                            <h3>Egresos</h3>
+                            <p class="stat-number" id="totalEgresos">$0</p>
+                        </div>
+                        <div class="stat-card balance">
+                            <h3>Saldo</h3>
+                            <p class="stat-number" id="saldoPeriodo">$0</p>
+                        </div>
+                        <div class="stat-card pending">
+                            <h3>Pendiente de Cobro</h3>
+                            <p class="stat-number" id="montoPendienteContable">$0</p>
+                        </div>
+                    </div>
+
+                    <div class="contabilidad-details">
+                        <div class="detail-section">
+                            <h3>Detalle de Ingresos</h3>
+                            <div class="table-container">
+                                <table id="tablaIngresos">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Concepto</th>
+                                            <th>Usuario</th>
+                                            <th>Monto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h3>Detalle de Egresos</h3>
+                            <div class="table-container">
+                                <table id="tablaEgresos">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Concepto</th>
+                                            <th>Categoría</th>
+                                            <th>Proveedor</th>
+                                            <th>Monto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h3>Cuotas Pendientes</h3>
+                            <div class="table-container">
+                                <table id="tablaPendientes">
+                                    <thead>
+                                        <tr>
+                                            <th>Inquilino</th>
+                                            <th>Depto</th>
+                                            <th>Concepto</th>
+                                            <th>Vencimiento</th>
+                                            <th>Monto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cierres-section">
+                    <h3>Cierres Contables</h3>
+                    <div class="table-container">
+                        <table id="tablaCierres">
+                            <thead>
+                                <tr>
+                                    <th>Período</th>
+                                    <th>Tipo</th>
+                                    <th>Fecha Cierre</th>
+                                    <th>Ingresos</th>
+                                    <th>Egresos</th>
+                                    <th>Saldo</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="anuncios" class="section">
+                <div class="section-header">
+                    <h2>Anuncios</h2>
+                    <button onclick="mostrarFormAnuncio()" class="btn-primary">Nuevo Anuncio</button>
+                </div>
+                <div class="table-container">
+                    <table id="tablaAnuncios">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Tipo</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="solicitudes" class="section">
+                <h2>Solicitudes</h2>
+                <div class="table-container">
+                    <table id="tablaSolicitudes">
+                        <thead>
+                            <tr>
+                                <th>Inquilino</th>
+                                <th>Tipo</th>
+                                <th>Título</th>
+                                <th>Prioridad</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="usuarios" class="section">
+                <div class="section-header">
+                    <h2>Usuarios</h2>
+                    <button onclick="mostrarFormUsuario()" class="btn-primary">Nuevo Usuario</button>
+                </div>
+                <div class="table-container">
+                    <table id="tablaUsuarios">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Departamento</th>
+                                <th>Teléfono</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para formularios -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

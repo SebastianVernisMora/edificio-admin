@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Inquilino</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="header">
+            <h1>Panel de Inquilino - Nov 2025</h1>
+            <div class="user-info">
+                <span id="userName"></span>
+                <button onclick="logout()" class="btn-secondary">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#dashboard" class="nav-link active">Inicio</a></li>
+                <li><a href="#cuotas" class="nav-link">Mis Cuotas</a></li>
+                <li><a href="#anuncios" class="nav-link">Anuncios</a></li>
+                <li><a href="#solicitudes" class="nav-link">Mis Solicitudes</a></li>
+                <li><a href="#propuestas" class="nav-link">Propuestas</a></li>
+                <li><a href="#presupuestos" class="nav-link">Presupuestos</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div id="dashboard" class="section active">
+                <h2>Bienvenido</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Cuotas Mensuales Pendientes</h3>
+                        <p class="stat-number" id="misCuotasPendientes">-</p>
+                    </div>
+                    <div class="stat-card urgent">
+                        <h3>Total a Pagar</h3>
+                        <p class="stat-number" id="miMontoPendiente">-</p>
+                        <small id="desglosePago" style="color: #666; font-size: 11px; display: block; margin-top: 5px;">-</small>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Mis Solicitudes</h3>
+                        <p class="stat-number" id="misSolicitudes">-</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Fondo Gastos Mayores</h3>
+                        <p class="stat-number" id="estadoFondoDashboard">-</p>
+                        <small id="saldoFondoDashboard" style="color: #666; font-size: 11px; display: block; margin-top: 5px;">-</small>
+                    </div>
+                </div>
+
+                <div class="urgent-announcements">
+                    <h3>Anuncios Importantes</h3>
+                    <div id="anunciosImportantes"></div>
+                </div>
+            </div>
+
+            <div id="cuotas" class="section">
+                <h2>Mis Cuotas 2026</h2>
+                
+                <div class="cuotas-structure-info">
+                    <div class="info-card">
+                        <h4>💰 Estructura de Pagos 2026</h4>
+                        <p><strong>Cuota Mensual:</strong> $550 MXN (Mantenimiento $400 + Fondo Basura $150)</p>
+                        <p><strong>Cuota Anual:</strong> $5,000 MXN (Fondo Gastos Mayores)</p>
+                        <p><strong>Plazo Fondo Anual:</strong> 1 enero al 31 marzo (parcialidades permitidas)</p>
+                    </div>
+                </div>
+                
+                <div class="cuotas-summary">
+                    <div class="summary-card">
+                        <h4>Cuotas Mensuales Pendientes</h4>
+                        <p id="cuotasMensualesPendientes" class="amount">$0</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Cuotas Mensuales Pagadas</h4>
+                        <p id="cuotasMensualesPagadas">0/12</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Fondo Gastos Mayores</h4>
+                        <p id="fondoGastosMayores" class="amount">$0 / $5,000</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Próximo Vencimiento</h4>
+                        <p id="proximoVencimiento">-</p>
+                    </div>
+                </div>
+
+                <div class="cuotas-tabs">
+                    <button onclick="mostrarCuotasTipo('mensual')" class="tab-button active" id="tabMensual">Cuotas Mensuales</button>
+                    <button onclick="mostrarCuotasTipo('fondo_mayor')" class="tab-button" id="tabFondo">Fondo Gastos Mayores</button>
+                </div>
+                
+                <div id="cuotasMensuales" class="cuotas-content active">
+                    <div class="cuotas-filters">
+                        <select id="filtroEstadoCuotasInquilino" onchange="filtrarMisCuotas()">
+                            <option value="">Todas las cuotas mensuales</option>
+                            <option value="pendiente">Pendientes</option>
+                            <option value="pagado">Pagadas</option>
+                            <option value="vencido">Vencidas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table id="tablaCuotasInquilino">
+                            <thead>
+                                <tr>
+                                    <th>Mes</th>
+                                    <th>Monto</th>
+                                    <th>Vencimiento</th>
+                                    <th>Estado</th>
+                                    <th>Fecha de Pago</th>
+                                    <th>Método</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="fondoMayor" class="cuotas-content">
+                    <div class="fondo-mayor-info">
+                        <div class="info-card urgent">
+                            <h4>🏦 Fondo de Gastos Mayores 2026</h4>
+                            <p><strong>Monto Total:</strong> $5,000 MXN</p>
+                            <p><strong>Plazo:</strong> 1 enero al 31 marzo 2026</p>
+                            <p><strong>Parcialidades:</strong> Permitidas desde enero</p>
+                            <p><strong>Finalidad:</strong> Reparaciones mayores e infraestructura</p>
+                        </div>
+                    </div>
+
+                    <div class="fondo-status">
+                        <div class="status-card">
+                            <h4>Estado de Mi Fondo</h4>
+                            <div class="progress-info">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFondo" style="width: 0%"></div>
+                                </div>
+                                <div class="progress-text">
+                                    <span>Pagado: $<span id="montoPagadoFondo">0</span></span>
+                                    <span>Pendiente: $<span id="saldoPendienteFondo">5000</span></span>
+                                </div>
+                            </div>
+                            <div class="status-badge-container">
+                                <span id="estadoFondo" class="badge pendiente">PENDIENTE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="historial-fondo">
+                        <h4>Historial de Pagos</h4>
+                        <div class="table-container">
+                            <table id="tablaParcialidadesInquilino">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Monto</th>
+                                        <th>Método</th>
+                                        <th>Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; color: #666;">
+                                            Aún no hay pagos registrados
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cuotas-info">
+                    <h3>📋 Información de Pagos</h3>
+                    <ul>
+                        <li><strong>Cuotas Mensuales:</strong> $550 MXN cada 10 del mes</li>
+                        <li><strong>Fondo Gastos Mayores:</strong> $5,000 MXN - plazo hasta 31 marzo</li>
+                        <li><strong>Parcialidades:</strong> El fondo anual se puede pagar en partes</li>
+                        <li><strong>Validación:</strong> Solo el administrador registra y valida pagos</li>
+                        <li><strong>Contacto:</strong> Para reportar pagos, contacte administración</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="anuncios" class="section">
+                <h2>Anuncios</h2>
+                <div class="filter-buttons">
+                    <button onclick="filtrarAnuncios('todos')" class="btn-filter active">Todos</button>
+                    <button onclick="filtrarAnuncios('urgente')" class="btn-filter">Urgentes</button>
+                    <button onclick="filtrarAnuncios('mantenimiento')" class="btn-filter">Mantenimiento</button>
+                    <button onclick="filtrarAnuncios('reunion')" class="btn-filter">Reuniones</button>
+                    <button onclick="filtrarAnuncios('general')" class="btn-filter">General</button>
+                </div>
+                <div id="listaAnuncios" class="announcements-list"></div>
+            </div>
+
+            <div id="solicitudes" class="section">
+                <div class="section-header">
+                    <h2>Mis Solicitudes</h2>
+                    <button onclick="mostrarFormSolicitud()" class="btn-primary">Nueva Solicitud</button>
+                </div>
+                <div class="table-container">
+                    <table id="tablaSolicitudesInquilino">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Tipo</th>
+                                <th>Prioridad</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="propuestas" class="section">
+                <div class="section-header">
+                    <h2>Propuestas</h2>
+                    <button onclick="mostrarFormPropuesta()" class="btn-primary">Nueva Propuesta</button>
+                </div>
+                <div id="listaPropuestas" class="proposals-list"></div>
+            </div>
+
+            <div id="presupuestos" class="section">
+                <h2>Presupuestos</h2>
+                <div class="table-container">
+                    <table id="tablaPresupuestosInquilino">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Monto Total</th>
+                                <th>Estado</th>
+                                <th>Fecha Inicio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para formularios -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/inquilino.js"></script>
+</body>
+</html>

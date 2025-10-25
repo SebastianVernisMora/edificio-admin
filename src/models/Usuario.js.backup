@@ -1,0 +1,48 @@
+import db from '../database.js';
+import bcrypt from 'bcryptjs';
+
+export class Usuario {
+  static async crear(datos) {
+    const { nombre, email, password, rol, departamento, telefono } = datos;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    
+    const result = await db.run(`
+      INSERT INTO usuarios (nombre, email, password, rol, departamento, telefono)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `, nombre, email, hashedPassword, rol, departamento, telefono);
+    
+    return this.obtenerPorId(result.lastID);
+  }
+
+  static async obtenerPorId(id) {
+    return await db.get('SELECT * FROM usuarios WHERE id = ?', id);
+  }
+
+  static async obtenerPorEmail(email) {
+    return await db.get('SELECT * FROM usuarios WHERE email = ?', email);
+  }
+
+  static async obtenerTodos() {
+    return await db.all('SELECT id, nombre, email, rol, departamento, telefono, created_at FROM usuarios ORDER BY departamento');
+  }
+
+  static async obtenerInquilinos() {
+    return await db.all('SELECT id, nombre, email, departamento, telefono FROM usuarios WHERE rol = "inquilino" ORDER BY departamento');
+  }
+
+  static async validarPassword(password, hash) {
+    return await bcrypt.compare(password, hash);
+  }
+
+  static async actualizar(id, datos) {
+    const campos = Object.keys(datos).map(key => `${key} = ?`).join(', ');
+    const valores = Object.values(datos);
+    valores.push(id);
+
+    return await db.run(`UPDATE usuarios SET ${campos} WHERE id = ?`, ...valores);
+  }
+
+  static async eliminar(id) {
+    return await db.run('DELETE FROM usuarios WHERE id = ?', id);
+  }
+}

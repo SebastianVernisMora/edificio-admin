@@ -1,0 +1,84 @@
+import db from '../database.js';
+
+export class Anuncio {
+  static crear(datos) {
+    const { titulo, contenido, tipo, autor_id, fecha_expiracion } = datos;
+    
+    const stmt = db.prepare(`
+      INSERT INTO anuncios (titulo, contenido, tipo, autor_id, fecha_expiracion)
+      VALUES (?, ?, ?, ?, ?)
+    `);
+    
+    const result = stmt.run(titulo, contenido, tipo, autor_id, fecha_expiracion);
+    return this.obtenerPorId(result.lastInsertRowid);
+  }
+
+  static obtenerTodos() {
+    const stmt = db.prepare(`
+      SELECT a.*, u.nombre as autor_nombre
+      FROM anuncios a
+      JOIN usuarios u ON a.autor_id = u.id
+      ORDER BY a.created_at DESC
+    `);
+    return stmt.all();
+  }
+
+  static obtenerActivos() {
+    const stmt = db.prepare(`
+      SELECT a.*, u.nombre as autor_nombre
+      FROM anuncios a
+      JOIN usuarios u ON a.autor_id = u.id
+      WHERE a.activo = TRUE 
+      AND (a.fecha_expiracion IS NULL OR a.fecha_expiracion >= date('now'))
+      ORDER BY 
+        CASE a.tipo 
+          WHEN 'urgente' THEN 1
+          WHEN 'mantenimiento' THEN 2
+          WHEN 'reunion' THEN 3
+          ELSE 4
+        END,
+        a.created_at DESC
+    `);
+    return stmt.all();
+  }
+
+  static obtenerPorId(id) {
+    const stmt = db.prepare(`
+      SELECT a.*, u.nombre as autor_nombre
+      FROM anuncios a
+      JOIN usuarios u ON a.autor_id = u.id
+      WHERE a.id = ?
+    `);
+    return stmt.get(id);
+  }
+
+  static actualizar(id, datos) {
+    const campos = Object.keys(datos).map(key => `${key} = ?`).join(', ');
+    const valores = Object.values(datos);
+    valores.push(id);
+
+    const stmt = db.prepare(`UPDATE anuncios SET ${campos} WHERE id = ?`);
+    return stmt.run(...valores);
+  }
+
+  static desactivar(id) {
+    const stmt = db.prepare('UPDATE anuncios SET activo = FALSE WHERE id = ?');
+    return stmt.run(id);
+  }
+
+  static eliminar(id) {
+    const stmt = db.prepare('DELETE FROM anuncios WHERE id = ?');
+    return stmt.run(id);
+  }
+
+  static obtenerPorTipo(tipo) {
+    const stmt = db.prepare(`
+      SELECT a.*, u.nombre as autor_nombre
+      FROM anuncios a
+      JOIN usuarios u ON a.autor_id = u.id
+      WHERE a.tipo = ? AND a.activo = TRUE
+      ORDER BY a.created_at DESC
+    `);
+    return stmt.all(tipo);
+  }
+}
