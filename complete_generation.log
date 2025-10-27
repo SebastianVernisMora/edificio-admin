@@ -1,0 +1,2 @@
+nohup: no se tendrá en cuenta la entrada
+python3: can't open file '/home/sebastianvernis/Toño/edificio-admin/pregenerate_complete_linear_maps.py': [Errno 2] No such file or directory
