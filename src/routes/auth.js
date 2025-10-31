@@ -1,17 +1,20 @@
 import express from 'express';
-import { 
-  registrar, 
-  login, 
-  perfil, 
-  validacionesRegistro, 
-  validacionesLogin 
-} from '../controllers/authController.js';
-import { verificarToken } from '../middleware/auth.js';
+import { login, getPerfil, cambiarPassword } from '../controllers/authController.js';
+import { verifyToken } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.post('/registro', validacionesRegistro, registrar);
-router.post('/login', validacionesLogin, login);
-router.get('/perfil', verificarToken, perfil);
+// Ruta para inicio de sesión
+router.post('/login', login);
+
+// Ruta para obtener perfil (protegida)
+router.get('/perfil', verifyToken, getPerfil);
+
+// Ruta para cambiar contraseña (protegida)
+router.post('/cambiar-password', verifyToken, cambiarPassword);
+
+// NOTA: Las rutas de gestión de usuarios se han movido a /api/usuarios
+// - POST /registro -> POST /api/usuarios
+// - GET /usuarios -> GET /api/usuarios
 
 export default router;

@@ -1,23 +1,30 @@
 import express from 'express';
-import {
-  obtenerAnuncios,
-  obtenerAnuncio,
-  crearAnuncio,
-  actualizarAnuncio,
-  desactivarAnuncio,
-  eliminarAnuncio,
-  obtenerAnunciosPorTipo
-} from '../controllers/anuncioController.js';
-import { verificarToken, requiereAdmin } from '../middleware/auth.js';
+import { verifyToken, hasPermission } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/', verificarToken, obtenerAnuncios);
-router.get('/tipo/:tipo', verificarToken, obtenerAnunciosPorTipo);
-router.get('/:id', verificarToken, obtenerAnuncio);
-router.post('/', verificarToken, requiereAdmin, crearAnuncio);
-router.put('/:id', verificarToken, requiereAdmin, actualizarAnuncio);
-router.patch('/:id/desactivar', verificarToken, requiereAdmin, desactivarAnuncio);
-router.delete('/:id', verificarToken, requiereAdmin, eliminarAnuncio);
+// Placeholder para controladores de anuncios
+const anunciosController = {
+  getAnuncios: (req, res) => {
+    res.json({
+      success: true,
+      message: 'Endpoint de anuncios en construcción',
+      anuncios: []
+    });
+  },
+  crearAnuncio: (req, res) => {
+    res.status(201).json({
+      success: true,
+      message: 'Endpoint para crear anuncio en construcción',
+      anuncio: {}
+    });
+  }
+};
+
+// Ruta para obtener todos los anuncios (protegida)
+router.get('/', verifyToken, anunciosController.getAnuncios);
+
+// Ruta para crear un nuevo anuncio (requiere permiso de anuncios)
+router.post('/', verifyToken, hasPermission('anuncios'), anunciosController.crearAnuncio);
 
 export default router;

@@ -1,0 +1,203 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Administrador",
+      "email": "admin@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "ADMIN",
+      "rol": "ADMIN",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 2,
+      "nombre": "Felipe Martínez",
+      "email": "felipe@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "101",
+      "rol": "INQUILINO",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 3,
+      "nombre": "Laura Sánchez",
+      "email": "laura@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "102",
+      "rol": "INQUILINO",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 4,
+      "nombre": "Carlos Rodríguez",
+      "email": "carlos@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "201",
+      "rol": "INQUILINO",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 5,
+      "nombre": "Comité de Prueba",
+      "email": "comite@edificio205.com",
+      "password": "$2a$10$dQGacuZI.YfhkH15DFRrVObSkvSPRPXJQoIjoeAK3ck9p7FoM/.d6",
+      "departamento": "COMITE",
+      "rol": "COMITE",
+      "permisos": {
+        "anuncios": true,
+        "gastos": true,
+        "presupuestos": false,
+        "cuotas": true,
+        "usuarios": false,
+        "cierres": false
+      },
+      "fechaCreacion": "2025-10-30T08:03:38.062Z",
+      "activo": true
+    }
+  ],
+  "cuotas": [
+    {
+      "id": 1,
+      "mes": "Noviembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-01T00:00:00.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "mes": "Noviembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-01T00:00:00.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "mes": "Noviembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-01T00:00:00.000Z",
+      "departamento": "201",
+      "estado": "PAGADO",
+      "fechaPago": "2025-10-28T00:00:00.000Z",
+      "comprobantePago": "TRF-12345",
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    }
+  ],
+  "gastos": [
+    {
+      "id": 1,
+      "concepto": "Mantenimiento Elevador",
+      "categoria": "Mantenimiento",
+      "proveedor": "Elevadores Modernos S.A.",
+      "fecha": "2025-10-25T00:00:00.000Z",
+      "monto": 3500,
+      "descripcion": "Mantenimiento mensual del elevador",
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "concepto": "Servicio Limpieza",
+      "categoria": "Limpieza",
+      "proveedor": "Limpieza Total",
+      "fecha": "2025-10-20T00:00:00.000Z",
+      "monto": 2800,
+      "descripcion": "Limpieza de áreas comunes",
+      "fechaCreacion": "2025-10-20T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "concepto": "Reparación Bomba Agua",
+      "categoria": "Reparación",
+      "proveedor": "Hidráulica Express",
+      "fecha": "2025-10-15T00:00:00.000Z",
+      "monto": 4200,
+      "descripcion": "Reparación de bomba de agua principal",
+      "fechaCreacion": "2025-10-15T00:00:00.000Z"
+    }
+  ],
+  "presupuestos": [],
+  "cierres": [],
+  "anuncios": [
+    {
+      "id": 1,
+      "titulo": "Reunión de Condominio",
+      "contenido": "Se convoca a reunión de condominio el día 15 de noviembre a las 19:00 hrs en el área común. Se tratarán temas importantes sobre el presupuesto 2026 y los proyectos críticos pendientes.",
+      "fecha": "2025-10-28T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": true,
+      "fechaCreacion": "2025-10-28T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "titulo": "Mantenimiento Cisterna",
+      "contenido": "Se realizará mantenimiento a la cisterna el día 5 de noviembre. Habrá corte de agua de 9:00 a 14:00 hrs. Se recomienda almacenar agua para uso durante este periodo.",
+      "fecha": "2025-10-25T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": true,
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "titulo": "Fumigación Programada",
+      "contenido": "Se realizará fumigación en áreas comunes el día 10 de noviembre a partir de las 10:00 hrs. Se recomienda mantener puertas y ventanas cerradas durante el procedimiento.",
+      "fecha": "2025-10-20T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": false,
+      "fechaCreacion": "2025-10-20T00:00:00.000Z"
+    }
+  ],
+  "fondos": {
+    "ahorroAcumulado": 67500,
+    "gastosMayores": 125000,
+    "dineroOperacional": 48000,
+    "patrimonioTotal": 240500
+  },
+  "proyectos": [
+    {
+      "id": 1,
+      "nombre": "Legitimidad Legal",
+      "monto": 35000,
+      "prioridad": "URGENTE"
+    },
+    {
+      "id": 2,
+      "nombre": "Irregularidades Eléctricas",
+      "monto": 85000,
+      "prioridad": "ALTA"
+    },
+    {
+      "id": 3,
+      "nombre": "Bombas Base Inestable",
+      "monto": 45000,
+      "prioridad": "MEDIA"
+    },
+    {
+      "id": 4,
+      "nombre": "Estructura Castillos",
+      "monto": 120000,
+      "prioridad": "ALTA"
+    }
+  ],
+  "nextId": {
+    "usuarios": 6,
+    "cuotas": 4,
+    "gastos": 4,
+    "presupuestos": 1,
+    "anuncios": 4,
+    "cierres": 1
+  }
+}

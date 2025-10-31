@@ -1,23 +1,30 @@
 import express from 'express';
-import { cierreController } from '../controllers/cierreController.js';
-import { verificarToken, requiereAdmin } from '../middleware/auth.js';
+import { verifyToken, hasPermission } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Todas las rutas requieren autenticación y rol de admin
-router.use(verificarToken);
-router.use(requiereAdmin);
+// Placeholder para controladores de cierres
+const cierresController = {
+  getCierres: (req, res) => {
+    res.json({
+      success: true,
+      message: 'Endpoint de cierres en construcción',
+      cierres: []
+    });
+  },
+  realizarCierre: (req, res) => {
+    res.status(201).json({
+      success: true,
+      message: 'Endpoint para realizar cierre en construcción',
+      cierre: {}
+    });
+  }
+};
 
-// GET /api/cierres - Obtener todos los cierres
-router.get('/', cierreController.obtenerTodos);
+// Ruta para obtener todos los cierres (protegida)
+router.get('/', verifyToken, cierresController.getCierres);
 
-// GET /api/cierres/estadisticas - Obtener estadísticas de cierres
-router.get('/estadisticas', cierreController.obtenerEstadisticas);
-
-// GET /api/cierres/:id - Obtener cierre por ID
-router.get('/:id', cierreController.obtenerPorId);
-
-// POST /api/cierres - Crear nuevo cierre
-router.post('/', cierreController.crear);
+// Ruta para realizar un nuevo cierre (requiere permiso de cierres)
+router.post('/', verifyToken, hasPermission('cierres'), cierresController.realizarCierre);
 
 export default router;

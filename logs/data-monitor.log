@@ -1,0 +1,1 @@
+{"timestamp":"2025-10-30T20:00:37.746Z","isValid":true,"errors":[],"warnings":[],"statistics":{"usuarios":{"total":5,"admins":1,"comite":1,"inquilinos":3,"activos":5},"cuotas":{"total":3,"pendientes":2,"pagadas":1,"vencidas":0},"gastos":{"total":3,"totalMonto":10500}}}

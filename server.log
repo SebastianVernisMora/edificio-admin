@@ -1,0 +1,92 @@
+
+> edificio-admin@1.0.0 dev
+> node src/app.js
+
+Servidor corriendo en puerto 3000
+DNS configurado: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+Respaldos automáticos configurados cada 60 minutos
+2025-10-30T01:38:51.630Z - GET /login.rsp
+2025-10-30T01:58:58.790Z - GET /backup/
+2025-10-30T02:02:07.612Z - GET /adminer-4.5.3.php
+Respaldo creado: /home/admin/edificio-admin/backups/data-2025-10-30T02-23-38-897Z.json
+Respaldo antiguo eliminado: data-2025-10-29T15-14-32-145Z.json
+2025-10-30T02:49:30.609Z - GET /adminer-4.5.3-en.php
+2025-10-30T03:11:49.273Z - GET /webui/
+2025-10-30T03:13:48.662Z - GET /favicon.ico
+2025-10-30T03:14:22.158Z - GET /geoserver/web/
+Respaldo creado: /home/admin/edificio-admin/backups/data-2025-10-30T03-23-38-923Z.json
+Respaldo antiguo eliminado: data-2025-10-29T16-14-32-145Z.json
+2025-10-30T03:37:17.320Z - GET /adminer-4.5.3-mysql.php
+2025-10-30T04:04:46.879Z - GET /.env
+2025-10-30T04:04:47.475Z - POST /
+2025-10-30T04:18:27.208Z - GET /.git/config
+2025-10-30T04:18:27.583Z - GET /.git/HEAD
+2025-10-30T04:18:27.874Z - GET /.git/logs/HEAD
+2025-10-30T04:18:28.115Z - GET /.env
+2025-10-30T04:18:28.358Z - GET /.env.local
+2025-10-30T04:18:28.651Z - GET /.env.production
+2025-10-30T04:18:28.970Z - GET /.env.swp
+2025-10-30T04:18:29.275Z - GET /.aws/credentials
+2025-10-30T04:18:29.615Z - GET /.github/workflows/main.yaml
+2025-10-30T04:18:29.927Z - GET /.github/workflows/deploy.yml
+2025-10-30T04:18:30.276Z - GET /.github/workflows/ci.yml
+2025-10-30T04:18:31.143Z - PUT /thumbnail.txt
+2025-10-30T04:18:31.619Z - GET /thumbnail.txt
+Respaldo creado: /home/admin/edificio-admin/backups/data-2025-10-30T04-23-38-945Z.json
+Respaldo antiguo eliminado: data-2025-10-29T17-14-32-145Z.json
+2025-10-30T04:24:39.854Z - GET /adminer-4.5.3-mysql-en.php
+2025-10-30T04:41:08.404Z - GET /hudson
+2025-10-30T05:12:17.361Z - GET /adminer-4.5.4.php
+Respaldo creado: /home/admin/edificio-admin/backups/data-2025-10-30T05-23-38-965Z.json
+Respaldo antiguo eliminado: data-2025-10-29T18-14-32-145Z.json
+2025-10-30T06:00:46.778Z - GET /adminer-4.5.4-en.php
+2025-10-30T06:23:01.506Z - GET /robots.txt
+Respaldo creado: /home/admin/edificio-admin/backups/data-2025-10-30T06-23-38-982Z.json
+Respaldo antiguo eliminado: data-2025-10-29T19-14-32-145Z.json
+2025-10-30T06:48:25.042Z - GET /adminer-4.5.4-mysql.php
+2025-10-30T07:15:45.409Z - GET /api/auth/renew
+Error validando JWT: jwt expired
+2025-10-30T07:15:59.441Z - POST /api/auth/login
+Login exitoso para usuario: pelon@edificio.com
+2025-10-30T07:16:09.067Z - GET /api/cuotas
+Error validando JWT: invalid signature
+2025-10-30T07:16:09.069Z - GET /api/cuotas
+Error validando JWT: invalid signature
+2025-10-30T07:16:09.070Z - GET /api/cuotas
+Error validando JWT: invalid signature
+2025-10-30T07:16:09.774Z - GET /api/usuarios
+Error validando JWT: invalid signature
+2025-10-30T07:16:09.778Z - GET /api/usuarios
+Error validando JWT: invalid signature
+2025-10-30T07:16:09.778Z - GET /api/usuarios
+Error validando JWT: invalid signature
+2025-10-30T07:17:12.637Z - GET /api/fondos
+Error validando JWT: invalid signature
+2025-10-30T07:17:12.638Z - GET /api/fondos
+Error validando JWT: invalid signature
+2025-10-30T07:17:12.640Z - GET /api/fondos
+Error validando JWT: invalid signature
+2025-10-30T07:17:23.503Z - GET /api/anuncios
+Error validando JWT: invalid signature
+2025-10-30T07:17:23.505Z - GET /api/anuncios
+Error validando JWT: invalid signature
+2025-10-30T07:17:25.595Z - GET /api/cierres
+Error validando JWT: invalid signature
+2025-10-30T07:17:25.611Z - GET /api/cierres
+Error validando JWT: invalid signature
+2025-10-30T07:19:40.362Z - GET /login.rsp
+2025-10-30T07:20:31.861Z - GET /api/fondos
+Error validando JWT: invalid signature
+2025-10-30T07:20:35.187Z - GET /api/gastos
+Error validando JWT: invalid signature
+2025-10-30T07:20:35.244Z - GET /api/gastos
+Error validando JWT: invalid signature
+2025-10-30T07:20:48.462Z - GET /api/cuotas
+Error validando JWT: invalid signature
+2025-10-30T07:20:48.641Z - GET /api/usuarios
+Error validando JWT: invalid signature
+2025-10-30T07:21:37.627Z - GET /favicon.ico
+2025-10-30T07:23:10.156Z - GET /api/auth/renew
+Respaldo creado: /home/admin/edificio-admin/backups/data-2025-10-30T07-23-38-984Z.json
+Respaldo antiguo eliminado: data-2025-10-29T20-14-32-145Z.json
+2025-10-30T07:24:40.271Z - GET /api/auth/renew

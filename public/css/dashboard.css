@@ -1,0 +1,479 @@
+/* Dashboard Layout Styles */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #232a31;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+#sidebar ul li a {
+    padding: 10px 20px;
+    display: block;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+#sidebar ul li a:hover {
+    background: #232a31;
+    border-left: 3px solid #3f51b5;
+}
+
+#sidebar ul li.active > a {
+    background: #232a31;
+    border-left: 3px solid #3f51b5;
+}
+
+#sidebar .sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+    background: #232a31;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card .card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card .card-footer {
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-badge.pending {
+    background-color: #fff8e1;
+    color: #ff9800;
+}
+
+.status-badge.paid {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.status-badge.overdue {
+    background-color: #ffebee;
+    color: #f44336;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+/* ======================================
+   Configuración Section Styles
+   ====================================== */
+
+/* Tabs de Configuración */
+.config-tabs .nav-link {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    border: 1px solid transparent;
+}
+
+.config-tabs .nav-link:hover {
+    background-color: rgba(63, 81, 181, 0.05);
+}
+
+.config-tabs .nav-link.active {
+    background-color: #fff;
+    border-color: #dee2e6;
+    border-bottom-color: #fff;
+    box-shadow: 0 -2px 0 #3f51b5;
+}
+
+/* Animaciones para contenido de tabs */
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para columnas ordenables */
+.sortable-column {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sortable-column:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.sortable-column.sort-asc::after {
+    content: "↑";
+    margin-left: 5px;
+    color: #3f51b5;
+}
+
+.sortable-column.sort-desc::after {
+    content: "↓";
+    margin-left: 5px;
+    color: #3f51b5;
+}
+
+/* Estilos para tarjetas de permisos */
+.permission-card {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: all 0.2s ease;
+    background-color: #fff;
+}
+
+.permission-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.permission-details {
+    margin-top: 0.5rem;
+    padding-left: 2.5rem;
+}
+
+.permission-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Avatar circular para usuarios */
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Estilos para switches de permisos */
+.form-check-input.permission-toggle {
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.form-check-input.permission-toggle:checked {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+
+/* Estilos para vista previa de cambios */
+#cambiosPreviewContainer table th,
+#cambiosPreviewContainer table td {
+    vertical-align: middle;
+}
+
+.change-arrow {
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+.change-status {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+
+.change-status.old {
+    opacity: 0.6;
+}
+
+/* Estilos para paginación */
+.pagination-info {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Tooltips mejorados */
+.tooltip-inner {
+    max-width: 300px;
+    padding: 0.5rem 1rem;
+    background-color: #343a40;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading states */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border-radius: 0.5rem;
+}
+
+/* Estilos para validación de formularios */
+.was-validated .form-control:valid,
+.form-control.is-valid {
+    border-color: #28a745;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Estilos para tablas responsivas */
+.table-responsive {
+    position: relative;
+}
+
+/* Estilos para botones de acción en tablas */
+.action-buttons {
+    white-space: nowrap;
+}
+
+.action-buttons .btn {
+    margin-right: 0.25rem;
+}
+
+/* Estilos para badges de estado */
+.badge-status {
+    padding: 0.5rem 0.75rem;
+    border-radius: 50rem;
+    font-weight: 500;
+}
+
+.badge-status.active {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.badge-status.inactive {
+    background-color: #ffebee;
+    color: #f44336;
+}
+
+/* Estilos para tooltips en permisos */
+.permission-tooltip {
+    cursor: help;
+    border-bottom: 1px dotted #6c757d;
+}
+
+/* Estilos para mensajes de alerta */
+.alert-floating {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Estilos para modales */
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para campos de búsqueda */
+.search-input-group {
+    position: relative;
+}
+
+.search-input-group .form-control {
+    padding-right: 40px;
+}
+
+.search-input-group .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
+}
+
+/* Estilos para filtros colapsables */
+.filter-collapse-toggle {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.filter-collapse-toggle.collapsed i {
+    transform: rotate(180deg);
+}
+
+/* Estilos para tablas vacías */
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.empty-state-text {
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para paginación */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.pagination-info {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Estilos para botones de exportación */
+.export-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Estilos para tooltips de ayuda */
+.help-tooltip {
+    color: #6c757d;
+    cursor: help;
+    margin-left: 0.25rem;
+}
+
+.help-tooltip:hover {
+    color: #3f51b5;
+}
+
+/* Estilos para campos requeridos */
+.required-field::after {
+    content: "*";
+    color: #dc3545;
+    margin-left: 0.25rem;
+}
+
+/* Estilos para tarjetas de ayuda */
+.help-card {
+    border-left: 4px solid #3f51b5;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.help-card-title {
+    color: #3f51b5;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.help-card-content {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Estilos para botones de toggle */
+.toggle-button {
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-button i {
+    transition: transform 0.3s ease;
+}
+
+.toggle-button.collapsed i {
+    transform: rotate(-90deg);
+}

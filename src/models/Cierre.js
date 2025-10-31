@@ -1,109 +1,155 @@
-import { getData, saveData } from '../data.js';
+import { getAll, getById, create } from '../data.js';
+import Cuota from './Cuota.js';
+import Gasto from './Gasto.js';
+import Fondo from './Fondo.js';
+import { programarCuotasAnuales } from '../utils/cuotasInicializacion.js';
 
-export class Cierre {
-  static crear(datos) {
-    const { periodo, tipo, fecha_cierre, ingresos, egresos, saldo, detalles } = datos;
-    const data = getData();
+const COLLECTION = 'cierres';
+
+export default class Cierre {
+  static async getAll() {
+    return getAll(COLLECTION);
+  }
+  
+  static async getById(id) {
+    return getById(COLLECTION, id);
+  }
+  
+  static async getByMesAño(mes, año) {
+    const cierres = getAll(COLLECTION);
+    return cierres.find(c => c.mes === mes && c.año === parseInt(año));
+  }
+  
+  static async realizarCierreMensual(mes, año) {
+    // Verificar si ya existe un cierre para este mes/año
+    const cierreExistente = await this.getByMesAño(mes, año);
+    if (cierreExistente) {
+      throw new Error(`Ya existe un cierre para ${mes} ${año}`);
+    }
     
+    // Obtener cuotas del mes
+    const cuotas = Cuota.obtenerPorMesAnio(mes, año);
+    const cuotasPagadas = cuotas.filter(c => c.estado === 'PAGADO');
+    const cuotasPendientes = cuotas.filter(c => c.estado === 'PENDIENTE' || c.estado === 'VENCIDO');
+    
+    // Calcular ingresos por cuotas
+    const ingresosCuotas = cuotasPagadas.reduce((total, cuota) => total + cuota.monto, 0);
+    
+    // Obtener gastos del mes (convertir nombre de mes a número)
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const numeroMes = meses.indexOf(mes) + 1; // 1-12
+    
+    const gastos = await Gasto.getByMesAño(numeroMes, año);
+    const totalGastos = gastos.reduce((total, gasto) => total + gasto.monto, 0);
+    
+    // Obtener estado de fondos
+    const fondos = await Fondo.getFondos();
+    
+    // Crear objeto de cierre
     const nuevoCierre = {
-      id: data.nextId.cierres++,
-      periodo,
-      tipo,
-      fecha_cierre,
-      ingresos: parseFloat(ingresos),
-      egresos: parseFloat(egresos),
-      saldo: parseFloat(saldo),
-      detalles,
-      estado: 'completado',
-      created_at: new Date().toISOString()
+      id: `cierre_${mes}_${año}`,
+      mes,
+      año,
+      fecha: new Date().toISOString(),
+      ingresos: {
+        cuotas: ingresosCuotas,
+        otros: 0,
+        total: ingresosCuotas
+      },
+      gastos: {
+        total: totalGastos,
+        desglose: gastos.map(g => ({
+          id: g.id,
+          concepto: g.concepto,
+          monto: g.monto,
+          categoria: g.categoria
+        }))
+      },
+      fondos: {
+        ahorroAcumulado: fondos.ahorroAcumulado,
+        gastosMayores: fondos.gastosMayores,
+        dineroOperacional: fondos.dineroOperacional,
+        patrimonioTotal: fondos.patrimonioTotal
+      },
+      cuotasPendientes: cuotasPendientes.length,
+      cuotasPagadas: cuotasPagadas.length,
+      balance: ingresosCuotas - totalGastos,
+      createdAt: new Date().toISOString()
     };
     
-    data.cierres.push(nuevoCierre);
-    saveData();
+    return create(COLLECTION, nuevoCierre);
+  }
+  
+  static async realizarCierreAnual(año) {
+    const cierres = getAll(COLLECTION);
+    const cierresAnuales = cierres.filter(c => c.año === parseInt(año));
     
-    return nuevoCierre;
-  }
-
-  static obtenerTodos() {
-    const data = getData();
-    return (data.cierres || []).sort((a, b) => new Date(b.fecha_cierre) - new Date(a.fecha_cierre));
-  }
-
-  static obtenerPorId(id) {
-    const data = getData();
-    return (data.cierres || []).find(c => c.id === parseInt(id));
-  }
-
-  static obtenerPorPeriodo(periodo) {
-    const data = getData();
-    return (data.cierres || []).find(c => c.periodo === periodo);
-  }
-
-  static obtenerPorTipo(tipo) {
-    const data = getData();
-    return (data.cierres || [])
-      .filter(c => c.tipo === tipo)
-      .sort((a, b) => new Date(b.fecha_cierre) - new Date(a.fecha_cierre));
-  }
-
-  static existeCierre(periodo, tipo) {
-    const data = getData();
-    return (data.cierres || []).some(c => c.periodo === periodo && c.tipo === tipo);
-  }
-
-  static obtenerUltimoCierre(tipo = null) {
-    const data = getData();
-    let cierres = data.cierres || [];
-    
-    if (tipo) {
-      cierres = cierres.filter(c => c.tipo === tipo);
+    if (cierresAnuales.length === 0) {
+      throw new Error(`No hay cierres mensuales para el año ${año}`);
     }
     
-    return cierres.sort((a, b) => new Date(b.fecha_cierre) - new Date(a.fecha_cierre))[0] || null;
-  }
-
-  static actualizar(id, datos) {
-    const data = getData();
-    const index = (data.cierres || []).findIndex(c => c.id === parseInt(id));
+    console.log(`🔄 Realizando cierre anual para ${año}...`);
     
-    if (index === -1) {
-      throw new Error('Cierre no encontrado');
-    }
+    // Calcular totales anuales
+    const totalIngresos = cierresAnuales.reduce((total, cierre) => total + cierre.ingresos.total, 0);
+    const totalGastos = cierresAnuales.reduce((total, cierre) => total + cierre.gastos.total, 0);
     
-    Object.keys(datos).forEach(key => {
-      if (datos[key] !== undefined) {
-        data.cierres[index][key] = datos[key];
+    // Obtener estado actual de fondos
+    const fondos = await Fondo.getFondos();
+    
+    // Generar cuotas para el año siguiente
+    const añoSiguiente = parseInt(año) + 1;
+    try {
+      console.log(`📅 Generando cuotas para el año ${añoSiguiente}...`);
+      const cuotasGeneradas = await programarCuotasAnuales(añoSiguiente);
+      console.log(`✅ ${cuotasGeneradas} cuotas generadas para ${añoSiguiente}`);
+    } catch (error) {
+      if (error.message && error.message.includes('Ya existen cuotas')) {
+        console.log(`ℹ️ Las cuotas para ${añoSiguiente} ya estaban generadas`);
+      } else {
+        console.error(`❌ Error generando cuotas para ${añoSiguiente}:`, error.message);
+        // No lanzamos el error para no impedir el cierre anual
       }
-    });
-    
-    saveData();
-    return data.cierres[index];
-  }
-
-  static eliminar(id) {
-    const data = getData();
-    const index = (data.cierres || []).findIndex(c => c.id === parseInt(id));
-    
-    if (index === -1) {
-      throw new Error('Cierre no encontrado');
     }
     
-    data.cierres.splice(index, 1);
-    saveData();
-    return true;
-  }
-
-  static obtenerEstadisticasAnuales(año) {
-    const data = getData();
-    const cierresAño = (data.cierres || []).filter(c => 
-      new Date(c.fecha_cierre).getFullYear().toString() === año
-    );
-    
-    return {
-      total_ingresos: cierresAño.reduce((sum, c) => sum + c.ingresos, 0),
-      total_egresos: cierresAño.reduce((sum, c) => sum + c.egresos, 0),
-      saldo_neto: cierresAño.reduce((sum, c) => sum + c.saldo, 0),
-      total_cierres: cierresAño.length
+    // Crear objeto de cierre anual
+    const cierreAnual = {
+      id: `cierre_anual_${año}`,
+      tipo: 'ANUAL',
+      año: parseInt(año),
+      fecha: new Date().toISOString(),
+      ingresos: {
+        total: totalIngresos,
+        desgloseMensual: cierresAnuales.map(c => ({
+          mes: c.mes,
+          total: c.ingresos.total
+        }))
+      },
+      gastos: {
+        total: totalGastos,
+        desgloseMensual: cierresAnuales.map(c => ({
+          mes: c.mes,
+          total: c.gastos.total
+        }))
+      },
+      fondos: {
+        ahorroAcumulado: fondos.ahorroAcumulado,
+        gastosMayores: fondos.gastosMayores,
+        dineroOperacional: fondos.dineroOperacional,
+        patrimonioTotal: fondos.patrimonioTotal
+      },
+      balance: totalIngresos - totalGastos,
+      cuotasSiguienteAño: {
+        año: añoSiguiente,
+        generadas: true,
+        mensaje: `Cuotas para ${añoSiguiente} generadas automáticamente`
+      },
+      createdAt: new Date().toISOString()
     };
+    
+    console.log(`✅ Cierre anual de ${año} completado con balance: $${cierreAnual.balance}`);
+    
+    return create(COLLECTION, cierreAnual);
   }
 }
