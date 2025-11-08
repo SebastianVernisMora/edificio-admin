@@ -47,11 +47,7 @@ export const getCuotasByDepartamento = async (req, res) => {
       cuotas
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCuotasByDepartamento');
   }
 };
 
@@ -84,11 +80,7 @@ export const crearCuota = async (req, res) => {
       cuota
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCuotasByDepartamento');
   }
 };
 
@@ -134,11 +126,7 @@ export const actualizarCuota = async (req, res) => {
       cuota: cuotaActualizada
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCuotasByDepartamento');
   }
 };
 
@@ -151,11 +139,7 @@ export const verificarVencimientos = async (req, res) => {
       msg: 'Vencimientos verificados correctamente'
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCuotasByDepartamento');
   }
 };
 

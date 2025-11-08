@@ -149,3 +149,4 @@ ls -.a
 ls -a
 mv *.md MarkDown-Docs
 qwen
+cd ..

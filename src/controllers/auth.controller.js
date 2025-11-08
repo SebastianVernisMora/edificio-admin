@@ -1,5 +1,6 @@
 import Usuario from '../models/Usuario.js';
 import { generarJWT } from '../middleware/auth.js';
+import { handleControllerError, validateEmail, validateRequired } from '../middleware/error-handler.js';
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
@@ -24,7 +25,6 @@ export const login = async (req, res) => {
     // Verificar si el email existe
     const usuario = await Usuario.getByEmail(email);
     if (!usuario) {
-      console.log(`Intento de login fallido para email: ${email}`);
       return res.status(401).json({
         ok: false,
         msg: 'Credenciales inválidas'
@@ -34,15 +34,11 @@ export const login = async (req, res) => {
     // Verificar la contraseña
     const validPassword = await Usuario.validatePassword(usuario, password);
     if (!validPassword) {
-      console.log(`Contraseña incorrecta para usuario: ${email}`);
       return res.status(401).json({
         ok: false,
         msg: 'Credenciales inválidas'
       });
     }
-    
-    // Log exitoso
-    console.log(`Login exitoso para usuario: ${email}`);
     
     // Generar JWT
     const token = await generarJWT(usuario.id, usuario.rol, usuario.departamento);
@@ -59,15 +55,7 @@ export const login = async (req, res) => {
       token
     });
   } catch (error) {
-    console.error('Error en login:', {
-      error: error.message,
-      stack: error.stack,
-      email: req.body?.email
-    });
-    res.status(500).json({
-      ok: false,
-      msg: 'Error interno del servidor'
-    });
+    return handleControllerError(error, res, 'login');
   }
 };
 
@@ -123,8 +111,6 @@ export const registro = async (req, res) => {
       rol: 'inquilino'
     });
     
-    console.log(`Nuevo usuario registrado: ${email}`);
-    
     // Generar JWT
     const token = await generarJWT(usuario.id, usuario.rol, usuario.departamento);
     
@@ -140,15 +126,7 @@ export const registro = async (req, res) => {
       token
     });
   } catch (error) {
-    console.error('Error en registro:', {
-      error: error.message,
-      stack: error.stack,
-      email: req.body?.email
-    });
-    res.status(500).json({
-      ok: false,
-      msg: 'Error interno del servidor'
-    });
+    return handleControllerError(error, res, 'register');
   }
 };
 

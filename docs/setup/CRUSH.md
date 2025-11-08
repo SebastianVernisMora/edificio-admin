@@ -71,23 +71,29 @@ node webhook-listener.js &
 - **Archivos**: camelCase con sufijo (`authController.js`, `Usuario.js`)
 - **Rutas**: kebab-case (`/api/auth`, `/cierres-anuales`)
 
-### Response Format (CRÍTICO)
+### Response Format (CRÍTICO - ALINEADO CON BLACKBOX.md)
 ```js
 // Success - SIEMPRE usar 'ok: true'
-res.json({ ok: true, usuario });
+res.json({ ok: true, data: usuario });
+res.json({ ok: true, usuario, cuotas });
 
 // Error - SIEMPRE usar 'ok: false, msg'  
 res.status(400).json({ ok: false, msg: 'Error específico' });
+res.status(401).json({ ok: false, msg: 'Token inválido o expirado' });
+res.status(500).json({ ok: false, msg: 'Error interno del servidor' });
 
-// Auth errors pueden usar 'success: false, message'
-res.status(401).json({ success: false, message: 'Token inválido' });
+// PROHIBIDO usar otras estructuras:
+// ❌ { success: true/false }
+// ❌ { error: "mensaje" }  
+// ❌ { status: "ok" }
 ```
 
-### Error Handling
+### Error Handling (ALINEADO CON BLACKBOX.md)
 - **OBLIGATORIO**: try-catch en todos los controllers
 - **Format**: `return res.status(code).json({ ok: false, msg: 'Error' })`
-- **Logging**: `console.error('Context:', error)` para debug
 - **Centralized handler**: `handleControllerError(error, res, 'functionName')`
+- **PROHIBIDO**: console.error/console.log directo en controllers
+- **Logging**: Solo usar handleControllerError para logging estructurado
 
 ### Async/Await
 - **OBLIGATORIO**: async/await en todos los controllers
@@ -95,11 +101,13 @@ res.status(401).json({ success: false, message: 'Token inválido' });
 - **Models**: `static async crear(datos)` para operaciones asíncronas
 - **NO usar promises**: await en lugar de .then()
 
-### Authentication/Security  
+### Authentication/Security (ALINEADO CON BLACKBOX.md)
 - **JWT**: Middleware `verifyToken` + role checks (`isAdmin`, `isComite`)
-- **Header**: `x-auth-token` (NOT Authorization Bearer)
+- **Header**: `x-auth-token` (ÚNICO PERMITIDO - NO usar Authorization Bearer)
 - **Passwords**: bcryptjs hash antes de guardar
 - **Roles**: ADMIN, COMITE, INQUILINO con permisos granulares
+- **Validation**: OBLIGATORIO en TODOS los endpoints sensibles
+- **CORS**: Configuración restrictiva con headers específicos
 
 ### Model Patterns
 - **ES6 Classes** con métodos estáticos: `Usuario.getById()`, `Cuota.crear()`
