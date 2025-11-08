@@ -1,0 +1,62 @@
+
+> edificio-admin@1.0.0 dev
+> node src/app.js
+
+Servidor ejecutándose en http://0.0.0.0:3000
+Panel de administración: http://0.0.0.0:3000/admin
+Panel de inquilinos: http://0.0.0.0:3000/inquilino
+Error en login: Error: Illegal arguments: string, undefined
+    at _async (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:286:46)
+    at /home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:307:17
+    at new Promise (<anonymous>)
+    at bcrypt.compare (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:306:20)
+    at Usuario.validarPassword (file:///home/admin/edificio-admin/src/models/Usuario.js:75:27)
+    at login (file:///home/admin/edificio-admin/src/controllers/authController.js:54:42)
+    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)
+    at middleware (/home/admin/edificio-admin/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error en login: Error: Illegal arguments: string, undefined
+    at _async (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:286:46)
+    at /home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:307:17
+    at new Promise (<anonymous>)
+    at bcrypt.compare (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:306:20)
+    at Usuario.validarPassword (file:///home/admin/edificio-admin/src/models/Usuario.js:75:27)
+    at login (file:///home/admin/edificio-admin/src/controllers/authController.js:54:42)
+    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)
+    at middleware (/home/admin/edificio-admin/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error en login: Error: Illegal arguments: string, undefined
+    at _async (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:286:46)
+    at /home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:307:17
+    at new Promise (<anonymous>)
+    at bcrypt.compare (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:306:20)
+    at Usuario.validarPassword (file:///home/admin/edificio-admin/src/models/Usuario.js:75:27)
+    at login (file:///home/admin/edificio-admin/src/controllers/authController.js:54:42)
+    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)
+    at middleware (/home/admin/edificio-admin/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error en login: Error: Illegal arguments: string, undefined
+    at _async (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:286:46)
+    at /home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:307:17
+    at new Promise (<anonymous>)
+    at bcrypt.compare (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:306:20)
+    at Usuario.validarPassword (file:///home/admin/edificio-admin/src/models/Usuario.js:75:27)
+    at login (file:///home/admin/edificio-admin/src/controllers/authController.js:54:42)
+    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)
+    at middleware (/home/admin/edificio-admin/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+Error en login: Error: Illegal arguments: string, undefined
+    at _async (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:286:46)
+    at /home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:307:17
+    at new Promise (<anonymous>)
+    at bcrypt.compare (/home/admin/edificio-admin/node_modules/bcryptjs/dist/bcrypt.js:306:20)
+    at Usuario.validarPassword (file:///home/admin/edificio-admin/src/models/Usuario.js:75:27)
+    at login (file:///home/admin/edificio-admin/src/controllers/authController.js:54:42)
+    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)
+    at middleware (/home/admin/edificio-admin/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

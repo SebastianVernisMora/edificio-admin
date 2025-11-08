@@ -1,0 +1,26 @@
+{
+  "name": "orquestador-agentes",
+  "version": "1.0.0",
+  "description": "Sistema de orquestación para supervisar workflow de agentes paralelos",
+  "type": "module",
+  "main": "Orquestador.js",
+  "scripts": {
+    "test": "node test-orquestador.js",
+    "start": "node test-orquestador.js"
+  },
+  "keywords": [
+    "orquestador",
+    "workflow",
+    "agentes",
+    "supervisión"
+  ],
+  "author": "Edificio Admin Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

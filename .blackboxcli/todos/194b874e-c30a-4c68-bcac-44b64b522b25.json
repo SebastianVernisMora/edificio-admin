@@ -1,0 +1,20 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Corregir la función renderPermisosIcons() para mostrar correctamente el permiso de Presupuestos",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Inicializar correctamente la colección 'permisosActividad' y mejorar el manejo de errores",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Eliminar los botones duplicados en el modal de permisos",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "194b874e-c30a-4c68-bcac-44b64b522b25"
+}

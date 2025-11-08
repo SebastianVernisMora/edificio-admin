@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Crear el archivo presupuestos.js en la carpeta public/js",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Completar la sección presupuestosSection en admin.html con la interfaz completa",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Implementar la clase PresupuestosManager con funcionalidades de carga, creación, edición y eliminación",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "content": "Implementar visualización de estadísticas y gráficos de ejecución presupuestaria",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Actualizar main-controller.js para integrar el nuevo PresupuestosManager",
+      "status": "completed"
+    },
+    {
+      "id": "6",
+      "content": "Crear tests para la funcionalidad de presupuestos y verificar la integración",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "8d1dcde7-c2d0-4234-9f24-7adcc588fcb8"
+}

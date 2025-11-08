@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "explore_project",
+      "content": "Explore current project structure and existing implementations",
+      "status": "completed"
+    },
+    {
+      "id": "anuncios_interface",
+      "content": "Complete announcements interface in admin.html",
+      "status": "completed"
+    },
+    {
+      "id": "anuncios_functionality",
+      "content": "Implement announcements functionality and backend integration",
+      "status": "completed"
+    },
+    {
+      "id": "cierres_interface",
+      "content": "Complete accounting closures interface in admin.html",
+      "status": "completed"
+    },
+    {
+      "id": "cierres_functionality",
+      "content": "Implement closures functionality with financial calculations",
+      "status": "completed"
+    },
+    {
+      "id": "testing_integration",
+      "content": "Test both screens and verify integration with existing system",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "ff754e56-7a48-49eb-9ba5-460b912c99fb"
+}

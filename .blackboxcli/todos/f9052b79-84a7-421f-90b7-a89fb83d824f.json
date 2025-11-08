@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Completar tests de permisos para todos los roles",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Crear test suite para usuarios CRUD operations",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Implementar tests de integración API endpoints",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "content": "Crear tests de performance y load testing",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Validar edge cases y seguridad",
+      "status": "completed"
+    },
+    {
+      "id": "6",
+      "content": "Generar reporte de cobertura y métricas",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "f9052b79-84a7-421f-90b7-a89fb83d824f"
+}

@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "solicitudes-1",
+      "content": "Complete Solicitud model with all required fields and CRUD methods",
+      "status": "completed"
+    },
+    {
+      "id": "solicitudes-2",
+      "content": "Implement solicitudController with all CRUD operations and validations",
+      "status": "completed"
+    },
+    {
+      "id": "solicitudes-3",
+      "content": "Create solicitudes.routes.js with RESTful endpoints",
+      "status": "completed"
+    },
+    {
+      "id": "solicitudes-4",
+      "content": "Build admin panel for managing solicitudes with filters and status updates",
+      "status": "completed"
+    },
+    {
+      "id": "solicitudes-5",
+      "content": "Create inquilino panel for creating and viewing own solicitudes",
+      "status": "completed"
+    },
+    {
+      "id": "solicitudes-6",
+      "content": "Test complete solicitudes system and verify all functionality works",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "bdd0f94b-6fb8-48b3-836e-53edf0b93b8d"
+}

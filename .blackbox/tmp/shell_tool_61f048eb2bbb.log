@@ -1,0 +1,6 @@
+
+> edificio-admin@1.0.0 dev
+> node src/app.js
+
+Servidor ejecutándose en http://localhost:3000
+Killed

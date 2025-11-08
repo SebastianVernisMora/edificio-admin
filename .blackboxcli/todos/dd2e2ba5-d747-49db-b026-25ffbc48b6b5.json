@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Completar la interfaz HTML de la sección de Anuncios en admin.html con filtros, tabla y modales",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Mejorar anuncios.js con funcionalidades completas: CRUD, filtros, validaciones y editor de texto",
+      "status": "in_progress"
+    },
+    {
+      "id": "3",
+      "content": "Integrar anuncios en el panel de inquilinos (inquilino.html) con visualización y notificaciones",
+      "status": "pending"
+    },
+    {
+      "id": "4",
+      "content": "Completar la interfaz HTML de la sección de Cierres en admin.html con filtros, tabla y modales",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Mejorar cierres.js con generación automática, validaciones, gráficos y exportación",
+      "status": "pending"
+    },
+    {
+      "id": "6",
+      "content": "Probar ambas pantallas en el navegador y verificar integración completa",
+      "status": "pending"
+    }
+  ],
+  "sessionId": "dd2e2ba5-d747-49db-b026-25ffbc48b6b5"
+}

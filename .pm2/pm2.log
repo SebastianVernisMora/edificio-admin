@@ -1,0 +1,256 @@
+2025-10-30T00:49:33: PM2 log: PM2 successfully stopped
+2025-10-30T00:49:45: PM2 log: ===============================================================================
+2025-10-30T00:49:45: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2025-10-30T00:49:45: PM2 log: Time                 : Thu Oct 30 2025 00:49:45 GMT+0000 (Coordinated Universal Time)
+2025-10-30T00:49:45: PM2 log: PM2 version          : 6.0.13
+2025-10-30T00:49:45: PM2 log: Node.js version      : 20.19.2
+2025-10-30T00:49:45: PM2 log: Current arch         : x64
+2025-10-30T00:49:45: PM2 log: PM2 home             : /home/admin/.pm2
+2025-10-30T00:49:45: PM2 log: PM2 PID file         : /home/admin/.pm2/pm2.pid
+2025-10-30T00:49:45: PM2 log: RPC socket file      : /home/admin/.pm2/rpc.sock
+2025-10-30T00:49:45: PM2 log: BUS socket file      : /home/admin/.pm2/pub.sock
+2025-10-30T00:49:45: PM2 log: Application log path : /home/admin/.pm2/logs
+2025-10-30T00:49:45: PM2 log: Worker Interval      : 30000
+2025-10-30T00:49:45: PM2 log: Process dump file    : /home/admin/.pm2/dump.pm2
+2025-10-30T00:49:45: PM2 log: Concurrent actions   : 2
+2025-10-30T00:49:45: PM2 log: SIGTERM timeout      : 1600
+2025-10-30T00:49:45: PM2 log: Runtime Binary       : /usr/bin/node
+2025-10-30T00:49:45: PM2 log: ===============================================================================
+2025-10-30T00:49:45: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-30T00:49:45: PM2 log: App [edificio-admin:0] online
+2025-10-30T00:50:13: PM2 log: Stopping app:edificio-admin id:0
+2025-10-30T00:50:13: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-30T00:50:13: PM2 log: pid=34601 msg=process killed
+2025-10-31T08:14:00: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:00: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:01: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:01: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:01: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:01: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:01: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:01: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:02: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:02: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:02: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:02: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:02: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:02: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:03: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:03: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:03: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:03: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:03: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:03: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:04: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:05: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:05: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:05: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:05: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:05: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:05: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:06: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:06: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:06: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:06: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:06: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:06: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:14:07: PM2 log: App [edificio-admin:0] exited with code [1] via signal [SIGINT]
+2025-10-31T08:14:07: PM2 log: Script /home/admin/edificio-admin/src/app.js had too many unstable restarts (16). Stopped. "errored"
+2025-10-31T08:16:45: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T08:16:45: PM2 error: app=edificio-admin id=0 does not have a pid
+2025-10-31T08:16:53: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:16:53: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:18:28: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T08:18:28: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T08:18:28: PM2 log: pid=43798 msg=process killed
+2025-10-31T08:18:28: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:18:28: PM2 log: App [edificio-admin:0] online
+2025-10-31T08:20:17: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T08:20:17: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T08:20:17: PM2 log: pid=43832 msg=process killed
+2025-10-31T08:20:18: PM2 log: PM2 successfully stopped
+2025-10-31T08:23:24: PM2 log: ===============================================================================
+2025-10-31T08:23:24: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2025-10-31T08:23:24: PM2 log: Time                 : Fri Oct 31 2025 08:23:24 GMT+0000 (Coordinated Universal Time)
+2025-10-31T08:23:24: PM2 log: PM2 version          : 6.0.13
+2025-10-31T08:23:24: PM2 log: Node.js version      : 20.19.2
+2025-10-31T08:23:24: PM2 log: Current arch         : x64
+2025-10-31T08:23:24: PM2 log: PM2 home             : /home/admin/.pm2
+2025-10-31T08:23:24: PM2 log: PM2 PID file         : /home/admin/.pm2/pm2.pid
+2025-10-31T08:23:24: PM2 log: RPC socket file      : /home/admin/.pm2/rpc.sock
+2025-10-31T08:23:24: PM2 log: BUS socket file      : /home/admin/.pm2/pub.sock
+2025-10-31T08:23:24: PM2 log: Application log path : /home/admin/.pm2/logs
+2025-10-31T08:23:24: PM2 log: Worker Interval      : 30000
+2025-10-31T08:23:24: PM2 log: Process dump file    : /home/admin/.pm2/dump.pm2
+2025-10-31T08:23:24: PM2 log: Concurrent actions   : 2
+2025-10-31T08:23:24: PM2 log: SIGTERM timeout      : 1600
+2025-10-31T08:23:24: PM2 log: Runtime Binary       : /usr/bin/node
+2025-10-31T08:23:24: PM2 log: ===============================================================================
+2025-10-31T08:24:25: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T08:24:25: PM2 log: App [edificio-admin:0] online
+2025-10-31T09:14:18: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-10-31T09:14:18: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T09:14:18: PM2 log: App [edificio-admin:0] online
+2025-10-31T09:53:02: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-10-31T09:53:02: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T09:53:02: PM2 log: App [edificio-admin:0] online
+2025-10-31T09:53:45: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-10-31T09:53:45: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T09:53:45: PM2 log: App [edificio-admin:0] online
+2025-10-31T09:54:03: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T09:54:03: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T09:54:03: PM2 log: pid=45215 msg=process killed
+2025-10-31T09:55:21: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T09:55:21: PM2 log: App [edificio-admin:0] online
+2025-10-31T19:38:15: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T19:38:15: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T19:38:15: PM2 log: pid=45298 msg=process killed
+2025-10-31T19:41:29: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T19:41:29: PM2 log: App [edificio-admin:0] online
+2025-10-31T19:42:39: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T19:42:39: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T19:42:39: PM2 log: pid=51865 msg=process killed
+2025-10-31T19:42:57: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T19:42:57: PM2 log: App [edificio-admin:0] online
+2025-10-31T19:44:03: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T19:44:03: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T19:44:03: PM2 log: pid=51910 msg=process killed
+2025-10-31T19:45:29: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T19:45:29: PM2 log: App [edificio-admin:0] online
+2025-10-31T19:46:43: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T19:46:43: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T19:46:43: PM2 log: pid=51960 msg=process killed
+2025-10-31T19:47:31: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T19:47:31: PM2 log: App [edificio-admin:0] online
+2025-10-31T19:49:58: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T19:49:58: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T19:49:59: PM2 log: pid=52007 msg=process killed
+2025-10-31T19:51:03: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T19:51:03: PM2 log: App [edificio-admin:0] online
+2025-10-31T20:07:22: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T20:07:22: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T20:07:22: PM2 log: pid=52151 msg=process killed
+2025-10-31T20:08:01: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T20:08:01: PM2 log: App [edificio-admin:0] online
+2025-10-31T20:09:13: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T20:09:13: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T20:09:13: PM2 log: pid=53809 msg=process killed
+2025-10-31T20:10:06: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T20:10:06: PM2 log: App [edificio-admin:0] online
+2025-10-31T20:11:15: PM2 log: Stopping app:edificio-admin id:0
+2025-10-31T20:11:15: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-10-31T20:11:15: PM2 log: pid=53885 msg=process killed
+2025-10-31T20:11:39: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-10-31T20:11:39: PM2 log: App [edificio-admin:0] online
+2025-11-02T05:43:50: PM2 log: Stopping app:edificio-admin id:0
+2025-11-02T05:43:50: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-02T05:43:50: PM2 log: pid=53934 msg=process killed
+2025-11-02T05:43:50: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-02T05:43:50: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:34:56: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-11-07T02:34:56: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:34:56: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:35:04: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:35:04: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:35:04: PM2 log: pid=69564 msg=process killed
+2025-11-07T02:35:26: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:35:26: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:35:40: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:35:40: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:35:40: PM2 log: pid=69612 msg=process killed
+2025-11-07T02:35:44: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:35:44: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:37:08: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:37:08: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:37:08: PM2 log: pid=69638 msg=process killed
+2025-11-07T02:37:08: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:37:08: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:37:12: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:37:12: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:37:12: PM2 log: pid=69671 msg=process killed
+2025-11-07T02:37:12: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:37:12: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:38:45: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:38:45: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:38:45: PM2 log: pid=69690 msg=process killed
+2025-11-07T02:38:46: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:38:46: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:47:42: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:47:42: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:47:42: PM2 log: pid=69740 msg=process killed
+2025-11-07T02:47:42: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:47:42: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:54:33: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:54:33: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:54:33: PM2 log: pid=69856 msg=process killed
+2025-11-07T02:54:33: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:54:33: PM2 log: App [edificio-admin:0] online
+2025-11-07T02:58:47: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T02:58:47: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T02:58:47: PM2 log: pid=69959 msg=process killed
+2025-11-07T02:58:47: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T02:58:47: PM2 log: App [edificio-admin:0] online
+2025-11-07T06:05:07: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-11-07T06:05:07: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T06:05:07: PM2 log: App [edificio-admin:0] online
+2025-11-07T06:18:03: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-11-07T06:18:03: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T06:18:03: PM2 log: App [edificio-admin:0] online
+2025-11-07T08:00:28: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-11-07T08:00:28: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T08:00:28: PM2 log: App [edificio-admin:0] online
+2025-11-07T08:02:02: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGTERM]
+2025-11-07T08:02:02: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T08:02:02: PM2 log: App [edificio-admin:0] online
+2025-11-07T08:02:26: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGKILL]
+2025-11-07T08:02:26: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T08:02:26: PM2 log: App [edificio-admin:0] online
+2025-11-07T08:02:47: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T08:02:47: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T08:02:47: PM2 log: pid=71856 msg=process killed
+2025-11-07T08:03:16: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T08:03:16: PM2 log: App [edificio-admin:0] online
+2025-11-07T11:03:32: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T11:03:32: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T11:03:32: PM2 log: pid=71913 msg=process killed
+2025-11-07T11:08:25: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T11:08:25: PM2 log: App [edificio-admin:0] online
+2025-11-07T11:10:21: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T11:10:21: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T11:10:21: PM2 log: pid=72996 msg=process killed
+2025-11-07T11:10:21: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T11:10:21: PM2 log: App [edificio-admin:0] online
+2025-11-07T11:18:28: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T11:18:28: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T11:18:28: PM2 log: pid=73047 msg=process killed
+2025-11-07T11:18:28: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T11:18:28: PM2 log: App [edificio-admin:0] online
+2025-11-07T11:28:03: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T11:28:03: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T11:28:03: PM2 log: pid=73107 msg=process killed
+2025-11-07T11:28:03: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T11:28:03: PM2 log: App [edificio-admin:0] online
+2025-11-07T11:40:54: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T11:40:54: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T11:40:54: PM2 log: pid=73167 msg=process killed
+2025-11-07T11:40:54: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T11:40:54: PM2 log: App [edificio-admin:0] online
+2025-11-07T11:44:10: PM2 log: Stopping app:edificio-admin id:0
+2025-11-07T11:44:10: PM2 log: App [edificio-admin:0] exited with code [0] via signal [SIGINT]
+2025-11-07T11:44:10: PM2 log: pid=73241 msg=process killed
+2025-11-07T11:44:10: PM2 log: App [edificio-admin:0] starting in -fork mode-
+2025-11-07T11:44:10: PM2 log: App [edificio-admin:0] online

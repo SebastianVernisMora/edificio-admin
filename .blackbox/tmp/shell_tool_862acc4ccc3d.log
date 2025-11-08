@@ -1,0 +1,14 @@
+
+> edificio-admin@1.0.0 start
+> node src/app.js
+
+file:///home/admin/edificio-admin/src/routes/solicitudes.routes.js:3
+import { verificarToken, verificarPermisos } from '../middleware/auth.js';
+                         ^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '../middleware/auth.js' does not provide an export named 'verificarPermisos'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:175:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:258:5)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v20.19.2

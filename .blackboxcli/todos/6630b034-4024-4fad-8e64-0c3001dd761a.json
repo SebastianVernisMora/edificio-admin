@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "data-structure-validation",
+      "content": "Validar estructura de datos en data.json - verificar usuarios tienen estructura correcta",
+      "status": "completed"
+    },
+    {
+      "id": "permissions-validation",
+      "content": "Validar permisos default para usuarios COMITE y limpiar inconsistencias",
+      "status": "completed"
+    },
+    {
+      "id": "robust-validations",
+      "content": "Implementar validaciones robustas - email único, departamento único, estructura permisos",
+      "status": "completed"
+    },
+    {
+      "id": "migration-scripts",
+      "content": "Crear scripts de migración de datos y sistema de backup automático",
+      "status": "completed"
+    },
+    {
+      "id": "data-cleanup",
+      "content": "Ejecutar limpieza de datos duplicados o inconsistentes",
+      "status": "completed"
+    },
+    {
+      "id": "validation-testing",
+      "content": "Probar sistema de validación y generar reporte de salud de datos",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "6630b034-4024-4fad-8e64-0c3001dd761a"
+}

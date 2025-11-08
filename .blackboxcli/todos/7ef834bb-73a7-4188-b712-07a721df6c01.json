@@ -1,0 +1,60 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Verificar el estado actual del sistema y procesos en puertos 3002 y 3000",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Detener proceso actual en puerto 3002 de manera segura",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Hacer backup del archivo .env actual",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "content": "Cambiar configuración de puerto de 3002 a 3000 en .env",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Verificar que puerto 3000 esté completamente disponible",
+      "status": "completed"
+    },
+    {
+      "id": "6",
+      "content": "Reiniciar aplicación Edificio-Admin en puerto 3000",
+      "status": "completed"
+    },
+    {
+      "id": "7",
+      "content": "Configurar nginx para proxy reverso del puerto 3000 al puerto 80",
+      "status": "completed"
+    },
+    {
+      "id": "8",
+      "content": "Configurar archivos estáticos y uploads en nginx",
+      "status": "completed"
+    },
+    {
+      "id": "9",
+      "content": "Reiniciar nginx y verificar configuración",
+      "status": "completed"
+    },
+    {
+      "id": "10",
+      "content": "Verificar funcionamiento completo en puerto 80",
+      "status": "completed"
+    },
+    {
+      "id": "11",
+      "content": "Verificar API endpoints y sistema de archivos adjuntos",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "7ef834bb-73a7-4188-b712-07a721df6c01"
+}

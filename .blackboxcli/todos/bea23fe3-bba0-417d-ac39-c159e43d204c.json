@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Implementar modelos de datos y sistema de persistencia JSON",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Crear controladores y rutas API para autenticación y entidades",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Desarrollar interfaces frontend (HTML, CSS, JS)",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "content": "Configurar despliegue en EC2 con persistencia DNS",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Configurar dominio y DNS con la URL proporcionada",
+      "status": "completed"
+    },
+    {
+      "id": "6",
+      "content": "Realizar pruebas funcionales del sistema",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "bea23fe3-bba0-417d-ac39-c159e43d204c"
+}

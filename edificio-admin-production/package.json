@@ -1,0 +1,56 @@
+{
+  "name": "edificio-admin",
+  "version": "1.0.0",
+  "description": "Sistema de administración para edificio de 20 departamentos",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/app.js",
+    "start": "node src/app.js",
+    "test": "node test-all.js",
+    "test:all": "node test-all.js",
+    "test:sistema": "node tests/sistema-completo.test.js",
+    "test:cuotas": "node tests/cuotas-sistema.test.js",
+    "test:frontend": "node tests/frontend-api.test.js",
+    "test:cierre": "node tests/cierre-anual.test.js",
+    "test:legacy": "node tests/test-runner.js",
+    "test:api": "node tests/api-validation.test.js",
+    "test:permisos": "node tests/permisos.test.js",
+    "test:usuarios": "node tests/usuarios.test.js",
+    "test:integration": "node tests/integration.test.js",
+    "test:performance": "node tests/performance.test.js",
+    "test:security": "node tests/security.test.js"
+  },
+  "keywords": [
+    "edificio",
+    "administracion",
+    "presupuesto",
+    "cuotas"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-validator": "^7.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianVernisMora/edificio-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SebastianVernisMora/edificio-admin/issues"
+  },
+  "homepage": "https://github.com/SebastianVernisMora/edificio-admin#readme",
+  "devDependencies": {
+    "eslint": "^9.38.0",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}

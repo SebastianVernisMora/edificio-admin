@@ -1,0 +1,30 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Completar sección configuracionSection en admin.html con tabs (Usuarios y Permisos)",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Mejorar formulario de usuarios con validación en tiempo real y confirmaciones",
+      "status": "in_progress"
+    },
+    {
+      "id": "3",
+      "content": "Pulir gestión de permisos con vista previa y búsqueda rápida",
+      "status": "pending"
+    },
+    {
+      "id": "4",
+      "content": "Añadir estilos específicos para la sección de configuración",
+      "status": "pending"
+    },
+    {
+      "id": "5",
+      "content": "Testing funcional en navegador de todas las funcionalidades",
+      "status": "pending"
+    }
+  ],
+  "sessionId": "dac7cad4-7ea2-4953-b4a7-c8c0ed43ed17"
+}

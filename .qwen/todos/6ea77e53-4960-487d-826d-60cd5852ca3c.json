@@ -1,0 +1,30 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Install tsserver (TypeScript Language Server)",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Install pylsp (Python Language Server)",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Install LSP server for Node.js (e.g., eslint-lsp or similar)",
+      "status": "in_progress"
+    },
+    {
+      "id": "4",
+      "content": "Install LSP server for JavaScript (e.g., eslint-lsp or jsdoc-lsp)",
+      "status": "pending"
+    },
+    {
+      "id": "5",
+      "content": "Verify all LSP servers are properly installed and accessible",
+      "status": "pending"
+    }
+  ],
+  "sessionId": "6ea77e53-4960-487d-826d-60cd5852ca3c"
+}

@@ -1,0 +1,8 @@
+
+> edificio-admin@1.0.0 start
+> node src/app.js
+
+Servidor corriendo en puerto 3001
+DNS configurado: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+Directorio de respaldos creado
+Respaldos automáticos configurados cada 60 minutos

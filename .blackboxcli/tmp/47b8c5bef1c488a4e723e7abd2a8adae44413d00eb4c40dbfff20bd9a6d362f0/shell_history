@@ -1,0 +1,1 @@
+echo $BLACKBOX_API_KEY

@@ -1,0 +1,72 @@
+[
+  {
+    "sessionId": "6ea77e53-4960-487d-826d-60cd5852ca3c",
+    "messageId": 0,
+    "type": "user",
+    "message": "instala tsserver, pylsp y algun otro lsp para node y otro para js",
+    "timestamp": "2025-10-31T19:51:51.509Z"
+  },
+  {
+    "sessionId": "6ea77e53-4960-487d-826d-60cd5852ca3c",
+    "messageId": 1,
+    "type": "user",
+    "message": "/approval-mode yolo --user",
+    "timestamp": "2025-10-31T19:58:51.398Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 0,
+    "type": "user",
+    "message": "/approval-mode yolo --user",
+    "timestamp": "2025-10-31T20:06:04.216Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 1,
+    "type": "user",
+    "message": "instala tsserver, pylsp y algun otro lsp para node y otro para js",
+    "timestamp": "2025-10-31T20:06:09.653Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 2,
+    "type": "user",
+    "message": "Recuerda que puedes usar comandos sudo",
+    "timestamp": "2025-10-31T20:06:37.183Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 3,
+    "type": "user",
+    "message": "Adapta las configuraciones de crush para que los use.",
+    "timestamp": "2025-10-31T20:08:12.237Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 4,
+    "type": "user",
+    "message": "CRUSH no es un proyecto es un programa instalado desde npm",
+    "timestamp": "2025-10-31T20:13:28.774Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 5,
+    "type": "user",
+    "message": "ERROR  \n          \n  Failed to load config from paths [/home/admin/.config/crush/crush.json /home/admin/.local/share/crush/crush.json]:  \n  json: cannot unmarshal bool into Go struct field Config.lsp of type config.LSPConfig.",
+    "timestamp": "2025-10-31T20:29:35.432Z"
+  },
+  {
+    "sessionId": "4242ef54-f9ce-462f-b621-b604afaec97e",
+    "messageId": 6,
+    "type": "user",
+    "message": "2025/10/31 20:31:40 INFO Diagnostics output=\"\" source=github.com/charmbracelet/crush/internal/llm/tools/diagnostics.go:125\n2025/10/31 20:31:46 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01ShETcbKx7xtbGJVsoXuzNT input: name:agent type:]\"\n2025/10/31 20:31:52 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01NrXeZiUbubxVnRkLdi1G2w input: name:grep type:]\"\n2025/10/31 20:31:53 WARN Ripgrep (rg) not found in $PATH. Some grep features might be limited or slower. source=github.com/charmbracelet/crush/internal/llm/tools/rg.go:18\n2025/10/31 20:32:02 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01YEwTUKQXELeiZUjBKJT98c input: name:view type:]\"\n2025/10/31 20:32:04 INFO Diagnostics output=\"\" source=github.com/charmbracelet/crush/internal/llm/tools/diagnostics.go:125\n2025/10/31 20:32:10 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_012pX71oh4eYQD1rSApZ9i4j input: name:view type:]\"\n2025/10/31 20:32:11 INFO Diagnostics output=\"\" source=github.com/charmbracelet/crush/internal/llm/tools/diagnostics.go:125\n2025/10/31 20:32:17 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01RPqYeSYCnkFXej6WU7ydAc input: name:view type:]\"\n2025/10/31 20:32:18 INFO Diagnostics output=\"\" source=github.com/charmbracelet/crush/internal/llm/tools/diagnostics.go:125\n2025/10/31 20:32:24 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01TVsoibjrtL9TAbsYq9g8M7 input: name:glob type:]\"\n2025/10/31 20:32:31 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01AQsVn5dzJEgTbxgG1QsXbR input: name:view type:]\"\n2025/10/31 20:32:32 INFO Diagnostics output=\"\" source=github.com/charmbracelet/crush/internal/llm/tools/diagnostics.go:125\n2025/10/31 20:32:37 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01JzsqRsyJoV5mepb35cMUxS input: name:sourcegraph type:]\"\n2025/10/31 20:32:56 INFO Tool call started source=github.com/charmbracelet/crush/internal/llm/agent/agent.go:735 toolCall=\"map[finished:false id:toolu_01Mw4exWVnqwgVJ2txJrnCT5 input: name:sourcegraph type:]\"\n2025/10/31 20:33:07 WARN message dropped due to slow consumer name=messages source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:09 WARN message dropped due to slow consumer name=messages source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:11 WARN message dropped due to slow consumer name=sessions source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:11 WARN message dropped due to slow consumer name=messages source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:13 WARN message dropped due to slow consumer name=sessions source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:13 WARN message dropped due to slow consumer name=messages source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:15 WARN message dropped due to slow consumer name=messages source=github.com/charmbracelet/crush/internal/app/app.go:250\n2025/10/31 20:33:16 INFO Non-interactive: run completed session_id=e7db07de-1ead-4013-b85d-6831d8db4d12 source=github.com/charmbracelet/crush/internal/app/app.go:180\n2025/10/31 20:34:44 WARN No git repository detected in working directory, will limit file walk operations depth=2 items=100 source=github.com/charmbracelet/crush/internal/config/load.go:70\n2025/10/31 20:34:44 WARN Providers auto-update is disabled source=github.com/charmbracelet/crush/internal/config/provider.go:147\n2025/10/31 20:34:44 WARN Using locally cached providers source=github.com/charmbracelet/crush/internal/config/provider.go:150\n2025/10/31 20:34:44 WARN Skipping custom provider due to missing API endpoint provider=gemini source=github.com/charmbracelet/crush/internal/config/load.go:276\n2025/10/31 20:34:44 WARN Skipping custom provider due to missing API endpoint provider=openrouter source=github.com/charmbracelet/crush/internal/config/load.go:276\n2025/10/31 20:34:45 INFO goose: no migrations to run. current version: 20250627000000\n2025/10/31 20:34:45 INFO LSP clients initialization started in background source=github.com/charmbracelet/crush/internal/app/lsp.go:21\n2025/10/31 20:34:45 INFO Creating LSP client args=<nil> command=\"\" fileTypes=<nil> name=servers source=github.com/charmbracelet/crush/internal/app/lsp.go:26\n2025/10/31 20:34:45 ERRO Failed to create LSP client for servers=\"failed to create lsp client: failed to start language server: failed to start process: exec: no command\" source=github.com/charmbracelet/crush/internal/app/lsp.go:41\n2025/10/31 20:35:09 ERRO Error reported error=\"exec: \\\"nvim\\\": executable file not found in $PATH\" source=github.com/charmbracelet/crush/internal/tui/util/util.go:27\n2025/10/31 20:35:20 WARN No git repository detected in working directory, will limit file walk operations depth=2 items=100 source=github.com/charmbracelet/crush/internal/config/load.go:70\n2025/10/31 20:35:20 WARN Providers auto-update is disabled source=github.com/charmbracelet/crush/internal/config/provider.go:147\n2025/10/31 20:35:20 WARN Using locally cached providers source=github.com/charmbracelet/crush/internal/config/provider.go:150\n2025/10/31 20:35:20 WARN Skipping custom provider due to missing API endpoint provider=openrouter source=github.com/charmbracelet/crush/internal/config/load.go:276\n2025/10/31 20:35:20 WARN Skipping custom provider due to missing API endpoint provider=gemini source=github.com/charmbracelet/crush/internal/config/load.go:276",
+    "timestamp": "2025-10-31T20:35:33.355Z"
+  },
+  {
+    "sessionId": "fcb6cc1f-b3a6-4a5a-809f-7fe2f1dd6883",
+    "messageId": 0,
+    "type": "user",
+    "message": "Soluciona los problemas con los LSPs de Crush",
+    "timestamp": "2025-11-08T05:03:27.709Z"
+  }
+]

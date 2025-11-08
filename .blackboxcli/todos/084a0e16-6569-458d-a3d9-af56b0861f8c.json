@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Update admin.html to include 'COMITÉ' role option and permissions section",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Update usuarios.js to handle the new role and permissions",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Update auth.js to include functions for checking permissions",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "content": "Update routes files to use the new permission middleware",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Create a test user with the 'COMITÉ' role for testing",
+      "status": "completed"
+    },
+    {
+      "id": "6",
+      "content": "Test the application in the browser to verify UI changes and permission controls",
+      "status": "completed"
+    }
+  ],
+  "sessionId": "084a0e16-6569-458d-a3d9-af56b0861f8c"
+}

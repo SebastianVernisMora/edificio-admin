@@ -1,0 +1,27 @@
+{
+  "typescript": {
+    "command": "tsserver",
+    "args": ["--stdio"],
+    "filetypes": ["javascript", "typescript", "js", "ts", "jsx", "tsx"]
+  },
+  "javascript": {
+    "command": "tsserver",
+    "args": ["--stdio"],
+    "filetypes": ["javascript", "js", "jsx"]
+  },
+  "eslint": {
+    "command": "vscode-eslint-language-server",
+    "args": ["--stdio"],
+    "filetypes": ["javascript", "typescript", "js", "ts", "jsx", "tsx"]
+  },
+  "python": {
+    "command": "pylsp",
+    "args": [],
+    "filetypes": ["python", "py"]
+  },
+  "css": {
+    "command": "vscode-css-language-server",
+    "args": ["--stdio"],
+    "filetypes": ["css", "scss", "sass", "less"]
+  }
+}

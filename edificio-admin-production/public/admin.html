@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edificio-Admin | Panel de Administración</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Edificio-Admin</h2>
+        <p>Panel de Administración</p>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="#usuarios"><i class="fas fa-users"></i> Usuarios</a></li>
+          <li><a href="#cuotas"><i class="fas fa-money-bill-wave"></i> Cuotas</a></li>
+          <li><a href="#gastos"><i class="fas fa-file-invoice-dollar"></i> Gastos</a></li>
+          <li><a href="#fondos"><i class="fas fa-piggy-bank"></i> Fondos</a></li>
+          <li><a href="#anuncios"><i class="fas fa-bullhorn"></i> Anuncios</a></li>
+          <li><a href="#cierres"><i class="fas fa-calendar-check"></i> Cierres</a></li>
+          <li><a href="#parcialidades"><i class="fas fa-percentage"></i> Parcialidades 2026</a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p id="user-name">Administrador</p>
+        <button id="logout-btn" class="btn btn-outline">Cerrar Sesión</button>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="main-header">
+        <h1 id="page-title">Dashboard</h1>
+        <div class="date-display">
+          <p id="current-date">Noviembre 2025</p>
+        </div>
+      </header>
+      
+      <!-- Dashboard Section -->
+      <section id="dashboard-section" class="content-section active">
+        <div class="dashboard-summary">
+          <div class="summary-card">
+            <h3>Patrimonio Total</h3>
+            <p class="amount" id="patrimonio-total">$240,500</p>
+            <p class="description">Fondos acumulados</p>
+          </div>
+          
+          <div class="summary-card">
+            <h3>Cuotas Pendientes</h3>
+            <p class="amount" id="cuotas-pendientes">12</p>
+            <p class="description">Noviembre 2025</p>
+          </div>
+          
+          <div class="summary-card">
+            <h3>Gastos del Mes</h3>
+            <p class="amount" id="gastos-mes">$15,200</p>
+            <p class="description">Noviembre 2025</p>
+          </div>
+        </div>
+        
+        <div class="dashboard-charts">
+          <div class="chart-container">
+            <h3>Distribución de Fondos</h3>
+            <div class="chart" id="fondos-chart">
+              <!-- Chart will be rendered here -->
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <h3>Estado de Cuotas</h3>
+            <div class="chart" id="cuotas-chart">
+              <!-- Chart will be rendered here -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-recent">
+          <div class="recent-container">
+            <h3>Anuncios Recientes</h3>
+            <div id="recent-anuncios" class="recent-list">
+              <!-- Recent announcements will be loaded here -->
+            </div>
+          </div>
+          
+          <div class="recent-container">
+            <h3>Últimos Gastos</h3>
+            <div id="recent-gastos" class="recent-list">
+              <!-- Recent expenses will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Usuarios Section -->
+      <section id="usuarios-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Usuarios</h2>
+          <button id="nuevo-usuario-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Usuario</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="usuarios-rol">Rol:</label>
+            <select id="usuarios-rol">
+              <option value="todos">Todos</option>
+              <option value="superadmin">Super Admin</option>
+              <option value="admin">Administrador</option>
+              <option value="inquilino">Inquilino</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="usuarios-estado">Estado:</label>
+            <select id="usuarios-estado">
+              <option value="todos">Todos</option>
+              <option value="validado">Validado</option>
+              <option value="pendiente">Pendiente</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table id="usuarios-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Departamento</th>
+                <th>Rol</th>
+                <th>Editor</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="usuarios-table-body">
+              <!-- Usuarios will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Cuotas Section -->
+      <section id="cuotas-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Cuotas</h2>
+          <button id="nueva-cuota-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nueva Cuota</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="cuotas-mes">Mes:</label>
+            <select id="cuotas-mes">
+              <option value="Noviembre">Noviembre</option>
+              <option value="Diciembre">Diciembre</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="cuotas-año">Año:</label>
+            <select id="cuotas-año">
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="cuotas-estado">Estado:</label>
+            <select id="cuotas-estado">
+              <option value="TODOS">Todos</option>
+              <option value="PENDIENTE">Pendiente</option>
+              <option value="PAGADO">Pagado</option>
+              <option value="VENCIDO">Vencido</option>
+            </select>
+          </div>
+          
+          <button id="verificar-vencimientos-btn" class="btn btn-secondary">Verificar Vencimientos</button>
+        </div>
+        
+        <div class="table-container">
+          <table id="cuotas-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Depto.</th>
+                <th>Mes/Año</th>
+                <th>Monto</th>
+                <th>Estado</th>
+                <th>Vencimiento</th>
+                <th>Fecha Pago</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Cuotas will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Modal for new/edit cuota -->
+        <div id="cuota-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="cuota-modal-title">Nueva Cuota</h2>
+            
+            <form id="cuota-form">
+              <input type="hidden" id="cuota-id">
+              
+              <div class="form-group">
+                <label for="cuota-mes">Mes:</label>
+                <select id="cuota-mes" required>
+                  <option value="Enero">Enero</option>
+                  <option value="Febrero">Febrero</option>
+                  <option value="Marzo">Marzo</option>
+                  <option value="Abril">Abril</option>
+                  <option value="Mayo">Mayo</option>
+                  <option value="Junio">Junio</option>
+                  <option value="Julio">Julio</option>
+                  <option value="Agosto">Agosto</option>
+                  <option value="Septiembre">Septiembre</option>
+                  <option value="Octubre">Octubre</option>
+                  <option value="Noviembre">Noviembre</option>
+                  <option value="Diciembre">Diciembre</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="cuota-año">Año:</label>
+                <input type="number" id="cuota-año" min="2025" max="2030" value="2025" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="cuota-monto">Monto:</label>
+                <input type="number" id="cuota-monto" min="0" step="0.01" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="cuota-departamento">Departamento:</label>
+                <select id="cuota-departamento" required>
+                  <option value="">Seleccionar...</option>
+                  <option value="TODOS">Todos los departamentos</option>
+                  <!-- Departamentos will be loaded here -->
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="cuota-vencimiento">Fecha Vencimiento:</label>
+                <input type="date" id="cuota-vencimiento" required>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Modal for validating payment -->
+        <div id="validar-pago-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Validar Pago</h2>
+            
+            <form id="validar-pago-form">
+              <input type="hidden" id="validar-cuota-id">
+              
+              <div class="form-group">
+                <label for="validar-estado">Estado:</label>
+                <select id="validar-estado" required>
+                  <option value="PENDIENTE">Pendiente</option>
+                  <option value="PAGADO">Pagado</option>
+                  <option value="VENCIDO">Vencido</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="validar-fecha-pago">Fecha de Pago:</label>
+                <input type="date" id="validar-fecha-pago">
+              </div>
+              
+              <div class="form-group">
+                <label for="validar-comprobante">Comprobante:</label>
+                <input type="text" id="validar-comprobante" placeholder="Referencia de pago">
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Gastos Section -->
+      <section id="gastos-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Gastos</h2>
+          <button id="nuevo-gasto-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Gasto</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="gastos-mes">Mes:</label>
+            <select id="gastos-mes">
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="gastos-año">Año:</label>
+            <select id="gastos-año">
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="gastos-categoria">Categoría:</label>
+            <select id="gastos-categoria">
+              <option value="TODOS">Todas</option>
+              <option value="MANTENIMIENTO">Mantenimiento</option>
+              <option value="SERVICIOS">Servicios</option>
+              <option value="REPARACIONES">Reparaciones</option>
+              <option value="ADMINISTRATIVO">Administrativo</option>
+              <option value="OTROS">Otros</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table id="gastos-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Monto</th>
+                <th>Categoría</th>
+                <th>Proveedor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Gastos will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Modal for new/edit gasto -->
+        <div id="gasto-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="gasto-modal-title">Nuevo Gasto</h2>
+            
+            <form id="gasto-form">
+              <input type="hidden" id="gasto-id">
+              
+              <div class="form-group">
+                <label for="gasto-concepto">Concepto:</label>
+                <input type="text" id="gasto-concepto" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-monto">Monto:</label>
+                <input type="number" id="gasto-monto" min="0" step="0.01" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-categoria">Categoría:</label>
+                <select id="gasto-categoria" required>
+                  <option value="MANTENIMIENTO">Mantenimiento</option>
+                  <option value="SERVICIOS">Servicios</option>
+                  <option value="REPARACIONES">Reparaciones</option>
+                  <option value="ADMINISTRATIVO">Administrativo</option>
+                  <option value="OTROS">Otros</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-proveedor">Proveedor:</label>
+                <input type="text" id="gasto-proveedor" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-fecha">Fecha:</label>
+                <input type="date" id="gasto-fecha" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-fondo">Fondo:</label>
+                <select id="gasto-fondo" required>
+                  <option value="dineroOperacional">Dinero Operacional</option>
+                  <option value="ahorroAcumulado">Ahorro Acumulado</option>
+                  <option value="gastosMayores">Gastos Mayores</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-comprobante">Comprobante:</label>
+                <input type="text" id="gasto-comprobante" placeholder="Referencia de factura">
+              </div>
+              
+              <div class="form-group">
+                <label for="gasto-notas">Notas:</label>
+                <textarea id="gasto-notas" rows="3"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Fondos Section -->
+      <section id="fondos-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Fondos</h2>
+          <button id="transferir-fondos-btn" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Transferir Fondos</button>
+        </div>
+        
+        <div class="fondos-summary">
+          <div class="fondo-card">
+            <h3>Ahorro Acumulado</h3>
+            <p class="amount" id="ahorro-acumulado">$67,500</p>
+            <p class="description">Fondo para imprevistos</p>
+          </div>
+          
+          <div class="fondo-card">
+            <h3>Gastos Mayores</h3>
+            <p class="amount" id="gastos-mayores">$125,000</p>
+            <p class="description">Fondo para proyectos</p>
+          </div>
+          
+          <div class="fondo-card">
+            <h3>Dinero Operacional</h3>
+            <p class="amount" id="dinero-operacional">$48,000</p>
+            <p class="description">Fondo para gastos corrientes</p>
+          </div>
+          
+          <div class="fondo-card total">
+            <h3>Patrimonio Total</h3>
+            <p class="amount" id="patrimonio-total-fondos">$240,500</p>
+            <p class="description">Actualizado: <span id="fondos-actualizacion">27/10/2025</span></p>
+          </div>
+        </div>
+        
+        <div class="fondos-history">
+          <h3>Historial de Movimientos</h3>
+          <div class="table-container">
+            <table id="movimientos-table" class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Tipo</th>
+                  <th>Origen</th>
+                  <th>Destino</th>
+                  <th>Monto</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Movimientos will be loaded here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Modal for transferring funds -->
+        <div id="transferir-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Transferir Fondos</h2>
+            
+            <form id="transferir-form">
+              <div class="form-group">
+                <label for="transferir-origen">Fondo Origen:</label>
+                <select id="transferir-origen" required>
+                  <option value="ahorroAcumulado">Ahorro Acumulado</option>
+                  <option value="gastosMayores">Gastos Mayores</option>
+                  <option value="dineroOperacional">Dinero Operacional</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="transferir-destino">Fondo Destino:</label>
+                <select id="transferir-destino" required>
+                  <option value="ahorroAcumulado">Ahorro Acumulado</option>
+                  <option value="gastosMayores">Gastos Mayores</option>
+                  <option value="dineroOperacional">Dinero Operacional</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="transferir-monto">Monto:</label>
+                <input type="number" id="transferir-monto" min="0" step="0.01" required>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Transferir</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Anuncios Section -->
+      <section id="anuncios-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Anuncios</h2>
+          <button id="nuevo-anuncio-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Anuncio</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="anuncios-tipo">Tipo:</label>
+            <select id="anuncios-tipo">
+              <option value="TODOS">Todos</option>
+              <option value="GENERAL">General</option>
+              <option value="IMPORTANTE">Importante</option>
+              <option value="URGENTE">Urgente</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="anuncios-container" id="anuncios-list">
+          <!-- Anuncios will be loaded here -->
+        </div>
+        
+        <!-- Modal for new/edit anuncio -->
+        <div id="anuncio-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="anuncio-modal-title">Nuevo Anuncio</h2>
+            
+            <form id="anuncio-form">
+              <input type="hidden" id="anuncio-id">
+              
+              <div class="form-group">
+                <label for="anuncio-titulo">Título:</label>
+                <input type="text" id="anuncio-titulo" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="anuncio-tipo">Tipo:</label>
+                <select id="anuncio-tipo" required>
+                  <option value="GENERAL">General</option>
+                  <option value="IMPORTANTE">Importante</option>
+                  <option value="URGENTE">Urgente</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="anuncio-contenido">Contenido:</label>
+                <textarea id="anuncio-contenido" rows="5" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Cierres Section -->
+      <section id="cierres-section" class="content-section">
+        <div class="section-header">
+          <h2>Cierres Contables</h2>
+          <div class="button-group">
+            <button id="cierre-mensual-btn" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Cierre Mensual</button>
+            <button id="cierre-anual-btn" class="btn btn-secondary"><i class="fas fa-calendar-check"></i> Cierre Anual</button>
+          </div>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="cierres-año">Año:</label>
+            <select id="cierres-año">
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="cierres-container">
+          <div class="cierres-mensuales">
+            <h3>Cierres Mensuales</h3>
+            <div class="table-container">
+              <table id="cierres-table" class="data-table">
+                <thead>
+                  <tr>
+                    <th>Mes/Año</th>
+                    <th>Ingresos</th>
+                    <th>Gastos</th>
+                    <th>Balance</th>
+                    <th>Fecha Cierre</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Cierres will be loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="cierres-anuales">
+            <h3>Cierres Anuales</h3>
+            <div class="table-container">
+              <table id="cierres-anuales-table" class="data-table">
+                <thead>
+                  <tr>
+                    <th>Año</th>
+                    <th>Ingresos</th>
+                    <th>Gastos</th>
+                    <th>Balance</th>
+                    <th>Fecha Cierre</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Cierres anuales will be loaded here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Modal for monthly closing -->
+        <div id="cierre-mensual-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Realizar Cierre Mensual</h2>
+            
+            <form id="cierre-mensual-form">
+              <div class="form-group">
+                <label for="cierre-mes">Mes:</label>
+                <select id="cierre-mes" required>
+                  <option value="Enero">Enero</option>
+                  <option value="Febrero">Febrero</option>
+                  <option value="Marzo">Marzo</option>
+                  <option value="Abril">Abril</option>
+                  <option value="Mayo">Mayo</option>
+                  <option value="Junio">Junio</option>
+                  <option value="Julio">Julio</option>
+                  <option value="Agosto">Agosto</option>
+                  <option value="Septiembre">Septiembre</option>
+                  <option value="Octubre">Octubre</option>
+                  <option value="Noviembre" selected>Noviembre</option>
+                  <option value="Diciembre">Diciembre</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="cierre-año">Año:</label>
+                <input type="number" id="cierre-año" min="2025" max="2030" value="2025" required>
+              </div>
+              
+              <div class="form-group">
+                <p class="warning-text">
+                  <i class="fas fa-exclamation-triangle"></i> 
+                  Esta acción realizará el cierre contable del mes seleccionado. 
+                  Asegúrese de haber registrado todos los ingresos y gastos correspondientes.
+                </p>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Realizar Cierre</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Modal for annual closing -->
+        <div id="cierre-anual-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Realizar Cierre Anual</h2>
+            
+            <form id="cierre-anual-form">
+              <div class="form-group">
+                <label for="cierre-anual-año">Año:</label>
+                <input type="number" id="cierre-anual-año" min="2025" max="2030" value="2025" required>
+              </div>
+              
+              <div class="form-group">
+                <p class="warning-text">
+                  <i class="fas fa-exclamation-triangle"></i> 
+                  Esta acción realizará el cierre contable anual. 
+                  Asegúrese de haber realizado todos los cierres mensuales correspondientes.
+                </p>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Realizar Cierre Anual</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Modal for viewing cierre details -->
+        <div id="cierre-detalle-modal" class="modal">
+          <div class="modal-content modal-lg">
+            <span class="close">&times;</span>
+            <h2 id="cierre-detalle-titulo">Detalle de Cierre</h2>
+            
+            <div id="cierre-detalle-content">
+              <!-- Cierre details will be loaded here -->
+            </div>
+            
+            <div class="form-group text-center">
+              <button type="button" class="btn btn-secondary modal-cancel">Cerrar</button>
+              <button type="button" id="cierre-print-btn" class="btn btn-primary"><i class="fas fa-print"></i> Imprimir</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Parcialidades Section -->
+      <section id="parcialidades-section" class="content-section">
+        <div class="section-header">
+          <h2>Parcialidades 2026</h2>
+          <button id="nuevo-pago-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Registrar Pago</button>
+        </div>
+        
+        <div class="parcialidades-info">
+          <div class="info-card">
+            <h3>Proyectos Críticos 2026</h3>
+            <ul>
+              <li><strong>Legitimidad Legal:</strong> $35,000 MXN (URGENTE)</li>
+              <li><strong>Irregularidades Eléctricas:</strong> $85,000 MXN</li>
+              <li><strong>Bombas Base Inestable:</strong> $45,000 MXN</li>
+              <li><strong>Estructura Castillos:</strong> $120,000 MXN</li>
+            </ul>
+            <p><strong>Total:</strong> $285,000 MXN</p>
+            <p><strong>Por Departamento:</strong> $14,250 MXN</p>
+          </div>
+        </div>
+        
+        <div class="parcialidades-progress">
+          <h3>Estado de Pagos por Departamento</h3>
+          <div id="parcialidades-progress-container">
+            <!-- Progress bars will be loaded here -->
+          </div>
+        </div>
+        
+        <div class="parcialidades-pagos">
+          <h3>Historial de Pagos</h3>
+          <div class="table-container">
+            <table id="parcialidades-table" class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Departamento</th>
+                  <th>Monto</th>
+                  <th>Comprobante</th>
+                  <th>Notas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Pagos will be loaded here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Modal for registering payment -->
+        <div id="parcialidad-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Registrar Pago de Parcialidad</h2>
+            
+            <form id="parcialidad-form">
+              <div class="form-group">
+                <label for="parcialidad-departamento">Departamento:</label>
+                <select id="parcialidad-departamento" required>
+                  <option value="">Seleccionar...</option>
+                  <!-- Departamentos will be loaded here -->
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-monto">Monto:</label>
+                <input type="number" id="parcialidad-monto" min="0" step="0.01" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-fecha">Fecha:</label>
+                <input type="date" id="parcialidad-fecha" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-comprobante">Comprobante:</label>
+                <input type="text" id="parcialidad-comprobante" placeholder="Referencia de pago">
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-notas">Notas:</label>
+                <textarea id="parcialidad-notas" rows="3"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Registrar Pago</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/db-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/auth-debug.js"></script>
+  <script src="js/modules/dashboard.js"></script>
+  <script src="js/modules/usuarios.js"></script>
+  <script src="js/modules/cuotas.js"></script>
+  <script src="js/modules/gastos.js"></script>
+  <script src="js/modules/fondos.js"></script>
+  <script src="js/modules/anuncios.js"></script>
+  <script src="js/modules/cierres.js"></script>
+  <script src="js/modules/parcialidades.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/debug-navigation.js"></script>
+</body>
+</html>

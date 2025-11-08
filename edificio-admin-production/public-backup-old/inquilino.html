@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edificio-Admin | Panel de Inquilino</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Edificio-Admin</h2>
+        <p>Panel de Inquilino</p>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="#cuotas"><i class="fas fa-money-bill-wave"></i> Mis Cuotas</a></li>
+          <li><a href="#anuncios"><i class="fas fa-bullhorn"></i> Anuncios</a></li>
+          <li><a href="#parcialidades"><i class="fas fa-percentage"></i> Parcialidades 2026</a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p id="user-name">Inquilino</p>
+        <p id="user-depto">Departamento: 1</p>
+        <button id="logout-btn" class="btn btn-outline">Cerrar Sesión</button>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="main-header">
+        <h1 id="page-title">Dashboard</h1>
+        <div class="date-display">
+          <p id="current-date">Noviembre 2025</p>
+        </div>
+      </header>
+      
+      <!-- Dashboard Section -->
+      <section id="dashboard-section" class="content-section active">
+        <div class="dashboard-summary">
+          <div class="summary-card">
+            <h3>Cuota Actual</h3>
+            <p class="amount" id="cuota-actual-estado">PENDIENTE</p>
+            <p class="description" id="cuota-actual-info">Noviembre 2025 - $550</p>
+          </div>
+          
+          <div class="summary-card">
+            <h3>Próximo Vencimiento</h3>
+            <p class="amount" id="proximo-vencimiento">01/12/2025</p>
+            <p class="description">Faltan <span id="dias-vencimiento">35</span> días</p>
+          </div>
+          
+          <div class="summary-card">
+            <h3>Parcialidades 2026</h3>
+            <p class="amount" id="parcialidades-progreso">0%</p>
+            <p class="description">Progreso de pago</p>
+          </div>
+        </div>
+        
+        <div class="dashboard-anuncios">
+          <h3>Anuncios Importantes</h3>
+          <div id="dashboard-anuncios-list" class="anuncios-container">
+            <!-- Anuncios will be loaded here -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- Cuotas Section -->
+      <section id="cuotas-section" class="content-section">
+        <div class="section-header">
+          <h2>Mis Cuotas</h2>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="cuotas-año">Año:</label>
+            <select id="cuotas-año">
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="cuotas-estado">Estado:</label>
+            <select id="cuotas-estado">
+              <option value="TODOS">Todos</option>
+              <option value="PENDIENTE">Pendiente</option>
+              <option value="PAGADO">Pagado</option>
+              <option value="VENCIDO">Vencido</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table id="mis-cuotas-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Mes/Año</th>
+                <th>Monto</th>
+                <th>Estado</th>
+                <th>Vencimiento</th>
+                <th>Fecha Pago</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Cuotas will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+      
+      <!-- Anuncios Section -->
+      <section id="anuncios-section" class="content-section">
+        <div class="section-header">
+          <h2>Anuncios</h2>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="anuncios-tipo">Tipo:</label>
+            <select id="anuncios-tipo">
+              <option value="TODOS">Todos</option>
+              <option value="GENERAL">General</option>
+              <option value="IMPORTANTE">Importante</option>
+              <option value="URGENTE">Urgente</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="anuncios-container" id="anuncios-list">
+          <!-- Anuncios will be loaded here -->
+        </div>
+      </section>
+      
+      <!-- Parcialidades Section -->
+      <section id="parcialidades-section" class="content-section">
+        <div class="section-header">
+          <h2>Parcialidades 2026</h2>
+          <button id="reportar-parcialidad-btn" class="btn btn-primary"><i class="fas fa-receipt"></i> Reportar Pago</button>
+        </div>
+        
+        <div class="parcialidades-info">
+          <div class="info-card">
+            <h3>Proyectos Críticos 2026</h3>
+            <ul>
+              <li><strong>Legitimidad Legal:</strong> $35,000 MXN (URGENTE)</li>
+              <li><strong>Irregularidades Eléctricas:</strong> $85,000 MXN</li>
+              <li><strong>Bombas Base Inestable:</strong> $45,000 MXN</li>
+              <li><strong>Estructura Castillos:</strong> $120,000 MXN</li>
+            </ul>
+            <p><strong>Total:</strong> $285,000 MXN</p>
+            <p><strong>Por Departamento:</strong> $14,250 MXN</p>
+          </div>
+          
+          <div class="info-card">
+            <h3>Mi Progreso</h3>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div id="mi-parcialidad-progress" class="progress" style="width: 0%"></div>
+              </div>
+              <div class="progress-info">
+                <p><strong>Pagado:</strong> <span id="mi-parcialidad-pagado">$0</span></p>
+                <p><strong>Pendiente:</strong> <span id="mi-parcialidad-pendiente">$14,250</span></p>
+                <p><strong>Progreso:</strong> <span id="mi-parcialidad-porcentaje">0%</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="parcialidades-pagos">
+          <h3>Mis Pagos</h3>
+          <div class="table-container">
+            <table id="mis-parcialidades-table" class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Monto</th>
+                  <th>Comprobante</th>
+                  <th>Notas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Pagos will be loaded here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Modal for reporting parcialidad payment -->
+        <div id="reportar-parcialidad-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Reportar Pago de Parcialidad</h2>
+            
+            <form id="reportar-parcialidad-form">
+              <div class="form-group">
+                <label for="parcialidad-monto">Monto:</label>
+                <input type="number" id="parcialidad-monto" min="0" step="0.01" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-fecha">Fecha:</label>
+                <input type="date" id="parcialidad-fecha" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-comprobante">Comprobante:</label>
+                <input type="text" id="parcialidad-comprobante" placeholder="Referencia de pago" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="parcialidad-notas">Notas:</label>
+                <textarea id="parcialidad-notas" rows="3"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <p class="info-text">
+                  <i class="fas fa-info-circle"></i> 
+                  Su pago será validado por el administrador. Una vez validado, 
+                  se actualizará su progreso de pago.
+                </p>
+              </div>
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Reportar Pago</button>
+                <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/inquilino.js"></script>
+</body>
+</html>

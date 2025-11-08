@@ -1,0 +1,18 @@
+Servidor ejecutándose en http://localhost:3002
+Error capturado: {
+  message: 'anuncioId is not defined',
+  stack: 'ReferenceError: anuncioId is not defined\n' +
+    '    at eliminarArchivo (file:///home/admin/edificio-admin/src/controllers/anuncios.controller.js:268:43)\n' +
+    '    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)\n' +
+    '    at verifyToken (file:///home/admin/edificio-admin/src/middleware/auth.js:80:5)\n' +
+    '    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:149:13)\n' +
+    '    at Route.dispatch (/home/admin/edificio-admin/node_modules/express/lib/router/route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (/home/admin/edificio-admin/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /home/admin/edificio-admin/node_modules/express/lib/router/index.js:284:15\n' +
+    '    at param (/home/admin/edificio-admin/node_modules/express/lib/router/index.js:365:14)',
+  timestamp: '2025-10-31T04:16:25.650Z',
+  name: 'ReferenceError'
+}
+Error en eliminarArchivo: anuncioId is not defined

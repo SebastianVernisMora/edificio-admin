@@ -1,0 +1,5 @@
+{"time":"2025-10-31T14:21:10.409035254Z","level":"INFO","msg":"log file created"}
+{"time":"2025-10-31T14:21:10.409124849Z","level":"INFO","msg":"No config file found, creating a new one","path":"/home/admin/.jules"}
+{"time":"2025-10-31T14:21:10.409171252Z","level":"INFO","msg":"Loaded config","config":{"Theme":"dark","RequestConfig":{"ListSessionConfig":{"FetchLimit":50}},"DisplayConfig":{"NewSessionViewConfig":{"RepoPerPage":10}}}}
+{"time":"2025-10-31T14:21:10.468539454Z","level":"INFO","msg":"history cannot be loaded","path":"/home/admin/.jules/history.txt"}
+{"time":"2025-10-31T14:25:29.643590938Z","level":"INFO","msg":"Config is saved as","path":"/home/admin/.jules/config.yaml"}
