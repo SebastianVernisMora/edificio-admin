@@ -1,0 +1,14 @@
+{
+  "json.schemas": [],
+  "yaml.schemas": {},
+  "http.proxyStrictSSL": false,
+  "extensions.ignoreRecommendations": false,
+  "recommendations": [
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-eslint",
+    "ms-python.python",
+    "ms-python.pylsp",
+    "esbenp.prettier-vscode"
+  ],
+  "unwantedRecommendations": []
+}

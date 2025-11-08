@@ -1,7 +1,0 @@
-display_config:
-    new_session_view_config:
-        repo_per_page: 10
-request_config:
-    list_session_config:
-        fetch_limit: 50
-theme: dark
