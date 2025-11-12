@@ -1,5 +1,6 @@
 import Parcialidad from '../models/Parcialidad.js';
 import Fondo from '../models/Fondo.js';
+import { handleControllerError } from '../middleware/error-handler.js';
 
 export const getConfig = async (req, res) => {
   try {
@@ -10,7 +11,7 @@ export const getConfig = async (req, res) => {
       config
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'parcialidades');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -29,7 +30,7 @@ export const updateConfig = async (req, res) => {
       config: configActualizada
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'parcialidades');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -46,7 +47,7 @@ export const getPagos = async (req, res) => {
       pagos
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'parcialidades');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -65,7 +66,7 @@ export const getPagosByDepartamento = async (req, res) => {
       pagos
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'parcialidades');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -94,7 +95,7 @@ export const registrarPago = async (req, res) => {
       pago
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'parcialidades');
     res.status(500).json({
       ok: false,
       msg: error.message || 'Error en el servidor'
@@ -111,7 +112,7 @@ export const getEstadoPagos = async (req, res) => {
       estadoPagos
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'parcialidades');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'

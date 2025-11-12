@@ -47,7 +47,7 @@ export const getGastosByCategoria = async (req, res) => {
       gastos
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'gastos');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -66,7 +66,7 @@ export const getGastosByMesAño = async (req, res) => {
       gastos
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'gastos');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -98,7 +98,7 @@ export const crearGasto = async (req, res) => {
       gasto
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'gastos');
     res.status(500).json({
       ok: false,
       msg: error.message || 'Error en el servidor'
@@ -140,7 +140,7 @@ export const actualizarGasto = async (req, res) => {
       gasto: gastoActualizado
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'gastos');
     res.status(500).json({
       ok: false,
       msg: error.message || 'Error en el servidor'
@@ -172,7 +172,7 @@ export const eliminarGasto = async (req, res) => {
       msg: 'Gasto eliminado correctamente'
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'gastos');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'

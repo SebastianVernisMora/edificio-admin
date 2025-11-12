@@ -1,4 +1,5 @@
 import Cierre from '../models/Cierre.js';
+import { handleControllerError } from '../middleware/error-handler.js';
 
 export const getCierres = async (req, res) => {
   try {
@@ -9,11 +10,7 @@ export const getCierres = async (req, res) => {
       cierres
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCierres');
   }
 };
 
@@ -35,11 +32,7 @@ export const getCierreById = async (req, res) => {
       cierre
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCierreById');
   }
 };
 
@@ -61,11 +54,7 @@ export const getCierreByMesAño = async (req, res) => {
       cierre
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'getCierreByMesAño');
   }
 };
 
@@ -81,11 +70,7 @@ export const realizarCierreMensual = async (req, res) => {
       msg: `Cierre de ${mes} ${año} realizado correctamente`
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: error.message || 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'realizarCierreMensual');
   }
 };
 
@@ -101,10 +86,6 @@ export const realizarCierreAnual = async (req, res) => {
       msg: `Cierre anual de ${año} realizado correctamente`
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      ok: false,
-      msg: error.message || 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'realizarCierreAnual');
   }
 };

@@ -1,4 +1,5 @@
 import Fondo from '../models/Fondo.js';
+import { handleControllerError } from '../middleware/error-handler.js';
 
 export const getFondos = async (req, res) => {
   try {
@@ -9,7 +10,7 @@ export const getFondos = async (req, res) => {
       fondos
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'fondos');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -28,7 +29,7 @@ export const actualizarFondos = async (req, res) => {
       fondos: fondosActualizados
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'fondos');
     res.status(500).json({
       ok: false,
       msg: 'Error en el servidor'
@@ -48,7 +49,7 @@ export const transferirEntreFondos = async (req, res) => {
       msg: `Transferencia de ${monto} realizada correctamente de ${origen} a ${destino}`
     });
   } catch (error) {
-    console.error(error);
+    return handleControllerError(error, res, 'fondos');
     res.status(500).json({
       ok: false,
       msg: error.message || 'Error en el servidor'

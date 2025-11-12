@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "content": "Explorar estructura actual del proyecto y identificar archivos duplicados",
+      "status": "completed"
+    },
+    {
+      "id": "2",
+      "content": "Reorganizar estructura de archivos según estándares BLACKBOX.md",
+      "status": "completed"
+    },
+    {
+      "id": "3",
+      "content": "Verificar naming conventions y corregir inconsistencias",
+      "status": "completed"
+    },
+    {
+      "id": "4",
+      "content": "Eliminar archivos duplicados y redundantes",
+      "status": "completed"
+    },
+    {
+      "id": "5",
+      "content": "Crear commit con cambios organizacionales",
+      "status": "in_progress"
+    },
+    {
+      "id": "6",
+      "content": "Crear nueva rama y hacer push",
+      "status": "pending"
+    }
+  ],
+  "sessionId": "da497b2e-6e37-4bf1-be15-ce929387df61"
+}

@@ -341,11 +341,7 @@ export const descargarArchivo = async (req, res) => {
     
     res.download(filePath, archivo.originalName, (err) => {
       if (err) {
-        console.error('Error descargando archivo:', err);
-        return res.status(404).json({
-          ok: false,
-          msg: 'Archivo no encontrado en el servidor'
-        });
+        return handleControllerError(err, res, 'descargarArchivo');
       }
     });
     
