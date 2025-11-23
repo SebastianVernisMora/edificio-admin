@@ -826,8 +826,6 @@
     </main>
   </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="js/auth/auth.js"></script>
   <script>
     // Prevenir loops de recarga
     if (window.reloadCount) {
@@ -840,20 +838,21 @@
       window.reloadCount = 1;
     }
   </script>
-  <script src="js/utils/constants.js" onerror="console.error('Error cargando constants.js')"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="js/auth/auth.js"></script>
-  <script src="js/utils/constants.js"></script>
-  <script src="js/utils/utils.js"></script>
-  <script src="js/components/navigation.js"></script>
-  <script src="js/modules/cuotas/cuotas.js"></script>
-  <script src="js/modules/gastos/gastos.js"></script>
-  <script src="js/modules/fondos/fondos.js"></script>
+  <script src="js/auth/auth.js?v=3"></script>
+  <script src="js/simple-navigation.js?v=3"></script>
+  <script src="js/modules/cuotas/cuotas.js?v=3"></script>
+  <script src="js/modules/gastos/gastos.js?v=3"></script>
+  <script src="js/modules/fondos/fondos.js?v=3"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       console.log('✓ Sistema Edificio Admin - Operacional');
       const user = Auth.getCurrentUser();
-      if (user) console.log('✓ Sesión:', user.nombre, '(' + user.rol + ')');
+      if (user) {
+        console.log('✓ Usuario:', user.nombre, '(' + user.rol + ')');
+        const userName = document.getElementById('user-name');
+        if (userName) userName.textContent = user.nombre;
+      }
     });
   </script>
 </body>

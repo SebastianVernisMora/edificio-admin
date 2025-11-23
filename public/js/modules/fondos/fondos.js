@@ -15,11 +15,11 @@ class FondosManager {
 
   async loadData() {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('edificio_token');
       
       // Cargar estado de fondos
       const fondosRes = await fetch('/api/fondos', {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'x-auth-token': token }
       });
       if (fondosRes.ok) {
         const data = await fondosRes.json();
@@ -90,12 +90,12 @@ class FondosManager {
     };
 
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('edificio_token');
       const response = await fetch('/api/fondos/transferencia', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'x-auth-token': token
         },
         body: JSON.stringify(transferenciaData)
       });
