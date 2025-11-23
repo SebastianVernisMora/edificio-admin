@@ -1,6 +1,10 @@
 import { getFondos, updateFondos } from '../data.js';
 
 export default class Fondo {
+  static obtenerFondos() {
+    return getFondos();
+  }
+  
   static async getFondos() {
     return getFondos();
   }

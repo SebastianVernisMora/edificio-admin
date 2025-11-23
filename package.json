@@ -7,6 +7,9 @@
   "scripts": {
     "dev": "node src/app.js",
     "start": "node src/app.js",
+    "build": "node build-scripts/build.js",
+    "build:dev": "node build-scripts/build.js --dev",
+    "build:watch": "node build-scripts/build.js --watch",
     "test": "node test-all.js",
     "test:all": "node test-all.js",
     "test:sistema": "node tests/sistema-completo.test.js",
@@ -49,8 +52,13 @@
   },
   "homepage": "https://github.com/SebastianVernisMora/edificio-admin#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "cssnano": "^7.1.2",
+    "esbuild": "^0.27.0",
     "eslint": "^9.38.0",
     "jest": "^30.2.0",
-    "supertest": "^7.1.4"
+    "postcss": "^8.5.6",
+    "supertest": "^7.1.4",
+    "terser": "^5.44.1"
   }
 }

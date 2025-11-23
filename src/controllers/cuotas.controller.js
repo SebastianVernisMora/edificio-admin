@@ -40,7 +40,7 @@ export const getCuotasByDepartamento = async (req, res) => {
   const { departamento } = req.params;
   
   try {
-    const cuotas = await Cuota.getByDepartamento(departamento);
+    const cuotas = Cuota.obtenerPorDepartamento(departamento);
     
     res.json({
       ok: true,
@@ -132,14 +132,15 @@ export const actualizarCuota = async (req, res) => {
 
 export const verificarVencimientos = async (req, res) => {
   try {
-    await Cuota.verificarVencimientos();
+    const actualizadas = Cuota.actualizarVencidas();
     
     res.json({
       ok: true,
+      actualizadas,
       msg: 'Vencimientos verificados correctamente'
     });
   } catch (error) {
-    return handleControllerError(error, res, 'getCuotasByDepartamento');
+    return handleControllerError(error, res, 'verificarVencimientos');
   }
 };
 

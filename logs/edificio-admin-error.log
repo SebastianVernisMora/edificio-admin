@@ -1,0 +1,14 @@
+2025-11-23 02:39:44: Error capturado: {
+2025-11-23 02:39:44:   message: 'Cuota.verificarVencimientos is not a function',
+2025-11-23 02:39:44:   stack: undefined,
+2025-11-23 02:39:44:   timestamp: '2025-11-23T08:39:44.870Z',
+2025-11-23 02:39:44:   name: 'TypeError'
+2025-11-23 02:39:44: }
+2025-11-23 02:39:44: Error en getCuotasByDepartamento: Cuota.verificarVencimientos is not a function
+2025-11-23 02:43:27: Error capturado: {
+2025-11-23 02:43:27:   message: 'Cuota.verificarVencimientos is not a function',
+2025-11-23 02:43:27:   stack: undefined,
+2025-11-23 02:43:27:   timestamp: '2025-11-23T08:43:27.949Z',
+2025-11-23 02:43:27:   name: 'TypeError'
+2025-11-23 02:43:27: }
+2025-11-23 02:43:27: Error en getCuotasByDepartamento: Cuota.verificarVencimientos is not a function
