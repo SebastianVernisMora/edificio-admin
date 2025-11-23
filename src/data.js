@@ -59,7 +59,8 @@ export const getById = (collection, id) => {
   const data = readData();
   if (!data || !data[collection]) return null;
   
-  return data[collection].find(item => item.id === id);
+  const numId = typeof id === 'string' ? parseInt(id) : id;
+  return data[collection].find(item => item.id === numId);
 };
 
 // Función para agregar un nuevo elemento a una colección
@@ -83,7 +84,8 @@ export const updateItem = (collection, id, updates) => {
   const data = readData();
   if (!data) return false;
   
-  const index = data[collection].findIndex(item => item.id === id);
+  const numId = typeof id === 'string' ? parseInt(id) : id;
+  const index = data[collection].findIndex(item => item.id === numId);
   if (index === -1) return false;
   
   data[collection][index] = { ...data[collection][index], ...updates };
@@ -96,8 +98,9 @@ export const deleteItem = (collection, id) => {
   const data = readData();
   if (!data) return false;
   
+  const numId = typeof id === 'string' ? parseInt(id) : id;
   const initialLength = data[collection].length;
-  data[collection] = data[collection].filter(item => item.id !== id);
+  data[collection] = data[collection].filter(item => item.id !== numId);
   
   if (data[collection].length === initialLength) return false;
   
@@ -109,6 +112,9 @@ export const updateFondos = (updates) => {
   const data = readData();
   if (!data) return false;
   
+  console.log('💾 Actualizando fondos. Antes:', data.fondos);
+  console.log('📝 Updates:', updates);
+  
   data.fondos = { ...data.fondos, ...updates };
   
   // Actualizar patrimonio total
@@ -117,7 +123,12 @@ export const updateFondos = (updates) => {
     data.fondos.gastosMayores + 
     data.fondos.dineroOperacional;
   
-  return writeData(data) ? data.fondos : null;
+  console.log('💾 Después:', data.fondos);
+  
+  const saved = writeData(data);
+  console.log('💾 Guardado:', saved ? 'SI' : 'NO');
+  
+  return saved ? data.fondos : null;
 };
 
 // Aliases for compatibility with models

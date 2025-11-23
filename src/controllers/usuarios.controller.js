@@ -124,7 +124,7 @@ export const actualizarUsuario = async (req, res) => {
     // Guardar datos anteriores para auditoría
     const usuarioAnterior = { ...usuario };
     
-    const { nombre, email, rol, departamento, telefono, estatus_validacion, password } = req.body;
+    const { nombre, email, rol, departamento, telefono, estatus_validacion, esEditor, password } = req.body;
 
     // Validar email único (excluyendo el usuario actual)
     if (email && data.usuarios.find(u => u.email === email && u.id !== id)) {
@@ -144,6 +144,7 @@ export const actualizarUsuario = async (req, res) => {
     if (departamento !== undefined) usuario.departamento = departamento;
     if (telefono !== undefined) usuario.telefono = telefono;
     if (estatus_validacion !== undefined) usuario.estatus_validacion = estatus_validacion;
+    if (esEditor !== undefined) usuario.esEditor = esEditor;
     if (password) {
       usuario.password = await bcrypt.hash(password, 10);
     }

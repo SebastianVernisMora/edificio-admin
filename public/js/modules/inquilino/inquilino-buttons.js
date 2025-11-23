@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========== PARCIALIDADES ==========
   const reportarParcialidadBtn = document.getElementById('reportar-parcialidad-btn');
   if (reportarParcialidadBtn) {
-    reportarParcialidadBtn.addEventListener('click', () => {
+    reportarParcialidadBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       console.log('💰 Reportar pago parcialidad');
       showModal('reportar-parcialidad-modal');
       resetParcialidadForm();
@@ -91,24 +92,39 @@ async function cargarDashboardInquilino() {
   try {
     const token = localStorage.getItem('edificio_token');
     
-    // Cargar cuota actual
-    const cuotasRes = await fetch(`/api/cuotas?departamento=${user.departamento}`, {
-      headers: { 'x-auth-token': token }
-    });
+    // Cargar datos en paralelo
+    const [cuotasRes, parcialidadesRes, anunciosRes, fondosRes] = await Promise.all([
+      fetch(`/api/cuotas?departamento=${user.departamento}`, { headers: { 'x-auth-token': token } }),
+      fetch(`/api/parcialidades/pagos/departamento/${user.departamento}`, { headers: { 'x-auth-token': token } }),
+      fetch('/api/anuncios?limit=5', { headers: { 'x-auth-token': token } }),
+      fetch('/api/fondos', { headers: { 'x-auth-token': token } })
+    ]);
     
+    // Procesar cuotas
     if (cuotasRes.ok) {
       const cuotasData = await cuotasRes.json();
       actualizarDashboardCuotas(cuotasData.cuotas);
     }
     
-    // Cargar parcialidades
-    const parcialidadesRes = await fetch(`/api/parcialidades?departamento=${user.departamento}`, {
-      headers: { 'x-auth-token': token }
-    });
-    
+    // Procesar parcialidades
     if (parcialidadesRes.ok) {
       const parcialidadesData = await parcialidadesRes.json();
       actualizarDashboardParcialidades(parcialidadesData);
+      renderMisParcialidades(parcialidadesData.pagos || []);
+    } else {
+      console.log('⚠️ No se pudieron cargar parcialidades');
+    }
+    
+    // Procesar anuncios
+    if (anunciosRes.ok) {
+      const anunciosData = await anunciosRes.json();
+      renderAnunciosDashboard(anunciosData.anuncios || []);
+    }
+    
+    // Procesar fondos
+    if (fondosRes.ok) {
+      const fondosData = await fondosRes.json();
+      renderFondosChartInquilino(fondosData.fondos);
     }
     
   } catch (error) {
@@ -168,17 +184,27 @@ function actualizarDashboardCuotas(cuotas) {
 }
 
 function actualizarDashboardParcialidades(data) {
-  if (!data || !data.progreso) return;
+  const pagos = data.pagos || [];
   
+  // Solo contar pagos VALIDADOS
+  const pagosValidados = pagos.filter(p => p.estado === 'validado');
+  const montoValidado = pagosValidados.reduce((sum, p) => sum + p.monto, 0);
+  const objetivo = 14250;
+  const porcentaje = Math.min((montoValidado / objetivo) * 100, 100);
+  const pendiente = Math.max(objetivo - montoValidado, 0);
+  
+  console.log('💰 Pagos validados:', pagosValidados.length, 'Total:', montoValidado);
+  
+  // Actualizar dashboard
   const progresoElem = document.getElementById('parcialidades-progreso');
   if (progresoElem) {
-    progresoElem.textContent = `${data.progreso.porcentaje}%`;
+    progresoElem.textContent = `${porcentaje.toFixed(1)}%`;
   }
   
   // Actualizar detalles en sección de parcialidades
   const progressBar = document.getElementById('mi-parcialidad-progress');
   if (progressBar) {
-    progressBar.style.width = `${data.progreso.porcentaje}%`;
+    progressBar.style.width = `${porcentaje}%`;
   }
   
   const pagadoElem = document.getElementById('mi-parcialidad-pagado');
@@ -186,17 +212,15 @@ function actualizarDashboardParcialidades(data) {
   const porcentajeElem = document.getElementById('mi-parcialidad-porcentaje');
   
   if (pagadoElem) {
-    pagadoElem.textContent = `$${data.progreso.monto_pagado.toLocaleString()}`;
+    pagadoElem.textContent = `$${montoValidado.toLocaleString()}`;
   }
   
   if (pendienteElem) {
-    const objetivo = 14250; // Por departamento
-    const pendiente = objetivo - data.progreso.monto_pagado;
     pendienteElem.textContent = `$${pendiente.toLocaleString()}`;
   }
   
   if (porcentajeElem) {
-    porcentajeElem.textContent = `${data.progreso.porcentaje}%`;
+    porcentajeElem.textContent = `${porcentaje.toFixed(1)}%`;
   }
 }
 
@@ -209,12 +233,20 @@ async function cargarCuotasInquilino() {
   const anio = document.getElementById('cuotas-año')?.value;
   const estado = document.getElementById('cuotas-estado')?.value;
   
+  console.log('🔍 Filtros:', { anio, estado, departamento: user.departamento });
+  
   try {
     const token = localStorage.getItem('edificio_token');
-    let url = `/api/cuotas?departamento=${user.departamento}`;
+    const params = new URLSearchParams();
     
-    if (anio && anio !== '2025') url += `&anio=${anio}`;
-    if (estado && estado !== 'TODOS') url += `&estado=${estado}`;
+    // SIEMPRE filtrar por departamento del usuario
+    params.append('departamento', user.departamento);
+    
+    if (anio) params.append('anio', anio);
+    if (estado && estado !== 'TODOS') params.append('estado', estado);
+    
+    const url = `/api/cuotas?${params.toString()}`;
+    console.log('📡 URL:', url);
     
     const response = await fetch(url, {
       headers: { 'x-auth-token': token }
@@ -222,6 +254,7 @@ async function cargarCuotasInquilino() {
     
     if (response.ok) {
       const data = await response.json();
+      console.log('📊 Cuotas recibidas:', data.cuotas?.length);
       renderCuotasTable(data.cuotas);
     }
   } catch (error) {
@@ -324,10 +357,14 @@ function renderAnuncios(anuncios) {
 }
 
 async function reportarPagoParcialidad() {
+  console.log('📤 Reportando pago de parcialidad...');
+  
   const monto = document.getElementById('parcialidad-monto').value;
   const fecha = document.getElementById('parcialidad-fecha').value;
   const comprobante = document.getElementById('parcialidad-comprobante').value;
   const notas = document.getElementById('parcialidad-notas').value;
+  
+  console.log('📋 Datos:', { monto, fecha, comprobante, notas });
   
   if (!monto || !fecha || !comprobante) {
     alert('Por favor complete todos los campos obligatorios');
@@ -335,60 +372,205 @@ async function reportarPagoParcialidad() {
   }
   
   const user = Auth.getCurrentUser();
-  if (!user) return;
+  if (!user) {
+    console.error('❌ Usuario no encontrado');
+    return;
+  }
+  
+  console.log('👤 Usuario:', user.departamento);
   
   try {
     const token = localStorage.getItem('edificio_token');
+    
+    const bodyData = {
+      departamento: user.departamento,
+      monto: parseFloat(monto),
+      fecha,
+      comprobante,
+      notas
+    };
+    
+    console.log('📤 Enviando a API:', bodyData);
+    
     const response = await fetch('/api/parcialidades', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-auth-token': token
       },
-      body: JSON.stringify({
-        departamento: user.departamento,
-        monto: parseFloat(monto),
-        fecha,
-        comprobante,
-        notas
-      })
+      body: JSON.stringify(bodyData)
     });
     
+    console.log('📡 Response status:', response.status);
+    
     if (response.ok) {
-      alert('Pago reportado exitosamente. Será validado por el administrador.');
+      const result = await response.json();
+      console.log('✅ Respuesta:', result);
+      alert('✅ Pago reportado exitosamente. Será validado por el administrador.');
       hideModal('reportar-parcialidad-modal');
       cargarDashboardInquilino();
     } else {
       const error = await response.json();
-      alert(`Error: ${error.msg || 'No se pudo reportar el pago'}`);
+      console.error('❌ Error servidor:', error);
+      alert(`❌ Error: ${error.msg || 'No se pudo reportar el pago'}`);
     }
   } catch (error) {
-    console.error('Error reportando pago:', error);
-    alert('Error al reportar el pago');
+    console.error('❌ Exception:', error);
+    alert('❌ Error al reportar el pago: ' + error.message);
   }
+}
+
+function renderMisParcialidades(pagos) {
+  const tbody = document.querySelector('#mis-parcialidades-table tbody');
+  if (!tbody) return;
+  
+  tbody.innerHTML = '';
+  
+  if (!pagos || pagos.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="text-center">No hay pagos registrados</td></tr>';
+    return;
+  }
+  
+  pagos.forEach(pago => {
+    const tr = document.createElement('tr');
+    
+    const fecha = new Date(pago.fecha).toLocaleDateString('es-MX');
+    const estadoClass = pago.estado === 'validado' ? 'text-success' : 'text-warning';
+    const estadoTexto = pago.estado === 'validado' ? 'Validado' : 'Pendiente de validación';
+    
+    tr.innerHTML = `
+      <td>${fecha}</td>
+      <td>$${pago.monto.toLocaleString()}</td>
+      <td>${pago.comprobante || '-'}</td>
+      <td class="${estadoClass}">${estadoTexto}</td>
+    `;
+    
+    tbody.appendChild(tr);
+  });
+  
+  console.log(`✅ ${pagos.length} pagos de parcialidades renderizados`);
+}
+
+function renderAnunciosDashboard(anuncios) {
+  const container = document.getElementById('dashboard-anuncios-list');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  
+  if (!anuncios || anuncios.length === 0) {
+    container.innerHTML = '<p class="text-center">No hay anuncios importantes</p>';
+    return;
+  }
+  
+  // Solo mostrar anuncios importantes o urgentes
+  const importantes = anuncios.filter(a => a.tipo === 'IMPORTANTE' || a.tipo === 'URGENTE');
+  
+  importantes.slice(0, 3).forEach(anuncio => {
+    const div = document.createElement('div');
+    div.className = 'anuncio-card-mini';
+    
+    const tipoClass = anuncio.tipo === 'URGENTE' ? 'bg-danger' : 'bg-warning';
+    
+    div.innerHTML = `
+      <div class="anuncio-mini-header">
+        <strong>${anuncio.titulo}</strong>
+        <span class="badge ${tipoClass}">${anuncio.tipo}</span>
+      </div>
+      <p class="anuncio-mini-content">${anuncio.contenido.substring(0, 100)}${anuncio.contenido.length > 100 ? '...' : ''}</p>
+    `;
+    
+    container.appendChild(div);
+  });
+  
+  console.log(`✅ ${importantes.length} anuncios importantes en dashboard`);
+}
+
+let fondosChartInquilinoInstance = null;
+
+function renderFondosChartInquilino(fondos) {
+  // Buscar canvas en el dashboard (puede no existir, lo creamos)
+  const dashboardSection = document.getElementById('dashboard-section');
+  if (!dashboardSection) return;
+  
+  // Buscar o crear contenedor de gráfico
+  let chartContainer = dashboardSection.querySelector('.dashboard-charts');
+  if (!chartContainer) {
+    chartContainer = document.createElement('div');
+    chartContainer.className = 'dashboard-charts';
+    chartContainer.innerHTML = `
+      <div class="chart-container">
+        <h3>Fondos del Edificio</h3>
+        <div class="chart" id="fondos-chart-inquilino" style="position: relative; height: 250px;">
+          <canvas></canvas>
+        </div>
+      </div>
+    `;
+    dashboardSection.querySelector('.dashboard-anuncios').insertAdjacentElement('beforebegin', chartContainer);
+  }
+  
+  const canvas = dashboardSection.querySelector('#fondos-chart-inquilino canvas');
+  if (!canvas) return;
+  
+  // Destruir chart anterior
+  if (fondosChartInquilinoInstance) {
+    fondosChartInquilinoInstance.destroy();
+  }
+  
+  const ctx = canvas.getContext('2d');
+  
+  fondosChartInquilinoInstance = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Ahorro Acumulado', 'Gastos Mayores', 'Dinero Operacional'],
+      datasets: [{
+        data: [
+          fondos.ahorroAcumulado || 0,
+          fondos.gastosMayores || 0,
+          fondos.dineroOperacional || 0
+        ],
+        backgroundColor: ['#28a745', '#ffc107', '#007bff']
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+  
+  console.log('✅ Gráfico de fondos (inquilino) renderizado');
 }
 
 function setupModalClosers() {
   // Botones cerrar (X)
   document.querySelectorAll('.modal .close').forEach(closeBtn => {
     closeBtn.addEventListener('click', function() {
+      console.log('❌ Click en cerrar modal');
       const modal = this.closest('.modal');
-      if (modal) modal.style.display = 'none';
+      if (modal) {
+        modal.style.display = 'none';
+        console.log('✓ Modal cerrado:', modal.id);
+      }
     });
   });
   
   // Botones cancelar
   document.querySelectorAll('.modal-cancel').forEach(cancelBtn => {
-    cancelBtn.addEventListener('click', function() {
+    cancelBtn.addEventListener('click', function(e) {
+      console.log('❌ Click en cancelar');
+      e.preventDefault();
       const modal = this.closest('.modal');
-      if (modal) modal.style.display = 'none';
+      if (modal) {
+        modal.style.display = 'none';
+        console.log('✓ Modal cerrado:', modal.id);
+      }
     });
   });
   
-  // Click fuera del modal
-  window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) {
-      e.target.style.display = 'none';
-    }
-  });
+  // Click fuera del modal (usar once para cada modal que se abre)
+  // Removido para evitar conflictos - se maneja individualmente
 }

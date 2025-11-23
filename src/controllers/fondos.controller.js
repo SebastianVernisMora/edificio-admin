@@ -3,11 +3,15 @@ import { handleControllerError } from '../middleware/error-handler.js';
 
 export const getFondos = async (req, res) => {
   try {
-    const fondos = Fondo.obtenerFondos();
+    const { readData } = await import('../data.js');
+    const data = readData();
+    const fondos = data.fondos;
+    const movimientos = data.movimientos || [];
     
     res.json({
       ok: true,
-      fondos
+      fondos,
+      movimientos
     });
   } catch (error) {
     return handleControllerError(error, res, 'fondos');

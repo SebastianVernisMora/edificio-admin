@@ -5,7 +5,14 @@ import path from 'path';
 
 export const getAnuncios = async (req, res) => {
   try {
-    const anuncios = await Anuncio.getAll();
+    const { tipo } = req.query;
+    
+    let anuncios = await Anuncio.getAll();
+    
+    // Filtrar por tipo si se especifica
+    if (tipo) {
+      anuncios = anuncios.filter(a => a.tipo === tipo);
+    }
     
     res.json({
       ok: true,
@@ -68,7 +75,7 @@ export const getAnunciosRecientes = async (req, res) => {
 };
 
 export const crearAnuncio = async (req, res) => {
-  const { titulo, contenido, tipo } = req.body;
+  const { titulo, contenido, tipo, imagen } = req.body;
   
   try {
     // Procesar archivos adjuntos si existen
@@ -93,6 +100,7 @@ export const crearAnuncio = async (req, res) => {
       titulo,
       contenido,
       tipo,
+      imagen: imagen || null,
       autor: req.usuario.id,
       archivos
     });

@@ -746,11 +746,11 @@
   "anuncios": [
     {
       "id": 1,
-      "titulo": "assss",
-      "contenido": "sss",
-      "tipo": "GENERAL",
+      "titulo": "qqqq",
+      "contenido": "qqq",
+      "tipo": "URGENTE",
       "imagen": null,
-      "createdAt": "2025-11-23T14:03:40.580Z",
+      "createdAt": "2025-11-23T14:01:06.090Z",
       "autor": 1,
       "archivos": []
     }

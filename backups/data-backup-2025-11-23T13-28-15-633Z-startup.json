@@ -9,26 +9,9 @@
       "rol": "ADMIN",
       "telefono": "+52 55 1234 5678",
       "fechaCreacion": "2025-11-07T02:47:42.129Z",
-      "activo": true
-    },
-    {
-      "id": 2,
-      "nombre": "Comité de Administración",
-      "email": "comite@edificio205.com",
-      "password": "$2b$10$6EriEfXXggZG.VeZmW/wkO9WrFnDPu4uA6o/VbsqX70sL1P4vtQPC",
-      "departamento": "COMITE",
-      "rol": "COMITE",
-      "telefono": "+52 55 2345 6789",
-      "permisos": {
-        "anuncios": true,
-        "gastos": true,
-        "presupuestos": true,
-        "cuotas": true,
-        "usuarios": false,
-        "cierres": false
-      },
-      "fechaCreacion": "2025-11-07T02:47:42.129Z",
-      "activo": true
+      "activo": true,
+      "estatus_validacion": "validado",
+      "esEditor": true
     },
     {
       "id": 3,
@@ -52,7 +35,7 @@
       "rol": "INQUILINO",
       "telefono": "+52 55 4567 8901",
       "legitimidad_entregada": false,
-      "estatus_validacion": "pendiente",
+      "estatus_validacion": "validado",
       "fechaCreacion": "2025-11-07T02:47:42.129Z",
       "activo": true
     },
@@ -78,7 +61,7 @@
       "rol": "INQUILINO",
       "telefono": "+52 55 6789 0123",
       "legitimidad_entregada": false,
-      "estatus_validacion": "pendiente",
+      "estatus_validacion": "validado",
       "fechaCreacion": "2025-11-07T02:47:42.129Z",
       "activo": true
     }
@@ -91,9 +74,9 @@
       "monto": 550,
       "fechaVencimiento": "2025-12-01T00:00:00.000Z",
       "departamento": "101",
-      "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "PAGADO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-25T00:00:00.000Z"
     },
     {
@@ -104,8 +87,8 @@
       "fechaVencimiento": "2025-12-01T00:00:00.000Z",
       "departamento": "102",
       "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-25T00:00:00.000Z"
     },
     {
@@ -150,9 +133,9 @@
       "monto": 550,
       "fechaVencimiento": "2025-11-01",
       "departamento": "201",
-      "estado": "VENCIDO",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "PAGADO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-31T08:58:03.634Z",
       "id": 6
     },
@@ -186,9 +169,9 @@
       "monto": 550,
       "fechaVencimiento": "2025-12-31T23:59:59.000Z",
       "departamento": "102",
-      "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "VENCIDO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-31T09:14:18.517Z",
       "id": 9
     },
@@ -774,9 +757,9 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "101",
-      "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "VENCIDO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-31T09:46:44.978Z",
       "id": 58
     },
@@ -786,7 +769,7 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "102",
-      "estado": "PENDIENTE",
+      "estado": "VENCIDO",
       "fechaPago": null,
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T09:46:44.979Z",
@@ -798,7 +781,7 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "201",
-      "estado": "PENDIENTE",
+      "estado": "VENCIDO",
       "fechaPago": null,
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T09:46:44.981Z",
@@ -810,7 +793,7 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "301",
-      "estado": "PENDIENTE",
+      "estado": "VENCIDO",
       "fechaPago": null,
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T09:46:44.982Z",
@@ -959,626 +942,72 @@
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T20:14:08.624Z",
       "id": 73
-    }
-  ],
-  "gastos": [
-    {
-      "id": 1,
-      "concepto": "Mantenimiento Elevador",
-      "categoria": "Mantenimiento",
-      "proveedor": "Elevadores Modernos S.A.",
-      "fecha": "2025-10-25T00:00:00.000Z",
-      "monto": 3500,
-      "descripcion": "Mantenimiento mensual del elevador",
-      "fechaCreacion": "2025-10-25T00:00:00.000Z"
     },
     {
-      "id": 2,
-      "concepto": "Servicio Limpieza",
-      "categoria": "Limpieza",
-      "proveedor": "Limpieza Total",
-      "fecha": "2025-10-20T00:00:00.000Z",
-      "monto": 2800,
-      "descripcion": "Limpieza de áreas comunes",
-      "fechaCreacion": "2025-10-20T00:00:00.000Z"
-    },
-    {
-      "id": 3,
-      "concepto": "Reparación Bomba Agua",
-      "categoria": "Reparación",
-      "proveedor": "Hidráulica Express",
-      "fecha": "2025-10-15T00:00:00.000Z",
-      "monto": 4200,
-      "descripcion": "Reparación de bomba de agua principal",
-      "fechaCreacion": "2025-10-15T00:00:00.000Z"
-    }
-  ],
-  "presupuestos": [],
-  "cierres": [
-    {
-      "id": 1,
-      "mes": "Diciembre",
-      "año": 2024,
-      "fecha": "2025-10-31T09:28:57.661Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 0,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:28:57.661Z"
-    },
-    {
-      "id": 2,
-      "mes": "Enero",
-      "año": 2027,
-      "fecha": "2025-10-31T09:28:57.664Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 0,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:28:57.664Z"
-    },
-    {
-      "id": 3,
-      "tipo": "ANUAL",
-      "año": 2027,
-      "fecha": "2025-10-31T09:28:57.726Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2028,
-        "generadas": true,
-        "mensaje": "Cuotas para 2028 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:28:57.726Z"
-    },
-    {
-      "id": 4,
-      "mes": "Enero",
-      "año": 2025,
-      "fecha": "2025-10-31T09:28:57.729Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 2,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:28:57.729Z"
-    },
-    {
-      "id": 5,
-      "tipo": "ANUAL",
-      "año": 2025,
-      "fecha": "2025-10-31T09:28:57.732Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2026,
-        "generadas": true,
-        "mensaje": "Cuotas para 2026 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:28:57.732Z"
-    },
-    {
-      "id": 6,
       "mes": "Noviembre",
-      "año": 2024,
-      "fecha": "2025-10-31T09:28:57.734Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 0,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:28:57.734Z"
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.150Z",
+      "id": 74
     },
     {
-      "id": 7,
-      "tipo": "ANUAL",
-      "año": 2024,
-      "fecha": "2025-10-31T09:28:57.780Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Diciembre",
-            "total": 0
-          },
-          {
-            "mes": "Noviembre",
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Diciembre",
-            "total": 0
-          },
-          {
-            "mes": "Noviembre",
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2025,
-        "generadas": true,
-        "mensaje": "Cuotas para 2025 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:28:57.780Z"
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.152Z",
+      "id": 75
     },
     {
-      "id": 8,
-      "mes": "Enero",
-      "año": 2023,
-      "fecha": "2025-10-31T09:28:57.782Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 0,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:28:57.782Z"
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.153Z",
+      "id": 76
     },
     {
-      "id": 9,
-      "mes": "Febrero",
-      "año": 2023,
-      "fecha": "2025-10-31T09:28:57.783Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 0,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:28:57.783Z"
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "202",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.155Z",
+      "id": 77
     },
     {
-      "id": 10,
-      "tipo": "ANUAL",
-      "año": 2023,
-      "fecha": "2025-10-31T09:28:57.858Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "mes": "Febrero",
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "mes": "Febrero",
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2024,
-        "generadas": true,
-        "mensaje": "Cuotas para 2024 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:28:57.858Z"
-    },
-    {
-      "id": 11,
-      "mes": "Diciembre",
-      "año": 2021,
-      "fecha": "2025-10-31T09:29:21.947Z",
-      "ingresos": {
-        "cuotas": 0,
-        "otros": 0,
-        "total": 0
-      },
-      "gastos": {
-        "total": 0,
-        "desglose": []
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "cuotasPendientes": 0,
-      "cuotasPagadas": 0,
-      "balance": 0,
-      "createdAt": "2025-10-31T09:29:21.948Z"
-    },
-    {
-      "id": 12,
-      "tipo": "ANUAL",
-      "año": 2021,
-      "fecha": "2025-10-31T09:29:22.030Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Diciembre",
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Diciembre",
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2022,
-        "generadas": true,
-        "mensaje": "Cuotas para 2022 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:29:22.030Z"
-    },
-    {
-      "id": 13,
-      "tipo": "ANUAL",
-      "año": 2027,
-      "fecha": "2025-10-31T09:31:14.882Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2028,
-        "generadas": true,
-        "mensaje": "Cuotas para 2028 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:31:14.882Z"
-    },
-    {
-      "id": 14,
-      "tipo": "ANUAL",
-      "año": 2025,
-      "fecha": "2025-10-31T09:31:14.891Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2026,
-        "generadas": true,
-        "mensaje": "Cuotas para 2026 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:31:14.891Z"
-    },
-    {
-      "id": 15,
-      "tipo": "ANUAL",
-      "año": 2024,
-      "fecha": "2025-10-31T09:31:14.898Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Diciembre",
-            "total": 0
-          },
-          {
-            "mes": "Noviembre",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Diciembre",
-            "total": 0
-          },
-          {
-            "mes": "Noviembre",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2025,
-        "generadas": true,
-        "mensaje": "Cuotas para 2025 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:31:14.898Z"
-    },
-    {
-      "id": 16,
-      "tipo": "ANUAL",
-      "año": 2023,
-      "fecha": "2025-10-31T09:31:14.905Z",
-      "ingresos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "mes": "Febrero",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "gastos": {
-        "total": 0,
-        "desgloseMensual": [
-          {
-            "mes": "Enero",
-            "total": 0
-          },
-          {
-            "mes": "Febrero",
-            "total": 0
-          },
-          {
-            "total": 0
-          }
-        ]
-      },
-      "fondos": {
-        "ahorroAcumulado": 67500,
-        "gastosMayores": 125000,
-        "dineroOperacional": 48000,
-        "patrimonioTotal": 240500
-      },
-      "balance": 0,
-      "cuotasSiguienteAño": {
-        "año": 2024,
-        "generadas": true,
-        "mensaje": "Cuotas para 2024 generadas automáticamente"
-      },
-      "createdAt": "2025-10-31T09:31:14.905Z"
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "304",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.156Z",
+      "id": 78
     }
   ],
+  "gastos": [],
+  "presupuestos": [],
+  "cierres": [],
   "anuncios": [
-    {
-      "id": 1,
-      "titulo": "Reunión de Condominio",
-      "contenido": "Se convoca a reunión de condominio el día 15 de noviembre a las 19:00 hrs en el área común. Se tratarán temas importantes sobre el presupuesto 2026 y los proyectos críticos pendientes.",
-      "fecha": "2025-10-28T00:00:00.000Z",
-      "autor": "Administrador",
-      "importante": true,
-      "fechaCreacion": "2025-10-28T00:00:00.000Z"
-    },
-    {
-      "id": 2,
-      "titulo": "Mantenimiento Cisterna",
-      "contenido": "Se realizará mantenimiento a la cisterna el día 5 de noviembre. Habrá corte de agua de 9:00 a 14:00 hrs. Se recomienda almacenar agua para uso durante este periodo.",
-      "fecha": "2025-10-25T00:00:00.000Z",
-      "autor": "Administrador",
-      "importante": true,
-      "fechaCreacion": "2025-10-25T00:00:00.000Z"
-    },
     {
       "id": 3,
       "titulo": "Fumigación Programada",
@@ -1626,10 +1055,10 @@
     }
   ],
   "fondos": {
-    "ahorroAcumulado": 67500,
-    "gastosMayores": 125000,
-    "dineroOperacional": 48000,
-    "patrimonioTotal": 240500
+    "ahorroAcumulado": 66940,
+    "gastosMayores": 144377,
+    "dineroOperacional": 71200,
+    "patrimonioTotal": 282517
   },
   "proyectos": [
     {
@@ -1666,5 +1095,29 @@
     "anuncios": 4,
     "cierres": 1,
     "solicitudes": 1
+  },
+  "movimientos": [
+    {
+      "id": 1,
+      "tipo": "transferencia",
+      "origen": "dineroOperacional",
+      "destino": "ahorroAcumulado",
+      "monto": 7110,
+      "fecha": "2025-11-23T10:30:50.811Z",
+      "descripcion": "Transferencia de Dinero Operacional a Ahorro Acumulado"
+    },
+    {
+      "id": 2,
+      "tipo": "transferencia",
+      "origen": "ahorroAcumulado",
+      "destino": "dineroOperacional",
+      "monto": 1000,
+      "fecha": "2025-11-23T10:34:37.256Z",
+      "descripcion": "Transferencia de Ahorro Acumulado a Dinero Operacional"
+    }
+  ],
+  "parcialidades2026": {
+    "objetivo": 285000,
+    "pagos": []
   }
 }

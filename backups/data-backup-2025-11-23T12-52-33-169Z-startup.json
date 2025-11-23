@@ -9,26 +9,9 @@
       "rol": "ADMIN",
       "telefono": "+52 55 1234 5678",
       "fechaCreacion": "2025-11-07T02:47:42.129Z",
-      "activo": true
-    },
-    {
-      "id": 2,
-      "nombre": "Comité de Administración",
-      "email": "comite@edificio205.com",
-      "password": "$2b$10$6EriEfXXggZG.VeZmW/wkO9WrFnDPu4uA6o/VbsqX70sL1P4vtQPC",
-      "departamento": "COMITE",
-      "rol": "COMITE",
-      "telefono": "+52 55 2345 6789",
-      "permisos": {
-        "anuncios": true,
-        "gastos": true,
-        "presupuestos": true,
-        "cuotas": true,
-        "usuarios": false,
-        "cierres": false
-      },
-      "fechaCreacion": "2025-11-07T02:47:42.129Z",
-      "activo": true
+      "activo": true,
+      "estatus_validacion": "validado",
+      "esEditor": true
     },
     {
       "id": 3,
@@ -52,7 +35,7 @@
       "rol": "INQUILINO",
       "telefono": "+52 55 4567 8901",
       "legitimidad_entregada": false,
-      "estatus_validacion": "pendiente",
+      "estatus_validacion": "validado",
       "fechaCreacion": "2025-11-07T02:47:42.129Z",
       "activo": true
     },
@@ -78,7 +61,7 @@
       "rol": "INQUILINO",
       "telefono": "+52 55 6789 0123",
       "legitimidad_entregada": false,
-      "estatus_validacion": "pendiente",
+      "estatus_validacion": "validado",
       "fechaCreacion": "2025-11-07T02:47:42.129Z",
       "activo": true
     }
@@ -91,9 +74,9 @@
       "monto": 550,
       "fechaVencimiento": "2025-12-01T00:00:00.000Z",
       "departamento": "101",
-      "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "PAGADO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-25T00:00:00.000Z"
     },
     {
@@ -104,8 +87,8 @@
       "fechaVencimiento": "2025-12-01T00:00:00.000Z",
       "departamento": "102",
       "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-25T00:00:00.000Z"
     },
     {
@@ -150,9 +133,9 @@
       "monto": 550,
       "fechaVencimiento": "2025-11-01",
       "departamento": "201",
-      "estado": "VENCIDO",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "PAGADO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-31T08:58:03.634Z",
       "id": 6
     },
@@ -186,9 +169,9 @@
       "monto": 550,
       "fechaVencimiento": "2025-12-31T23:59:59.000Z",
       "departamento": "102",
-      "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "VENCIDO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-31T09:14:18.517Z",
       "id": 9
     },
@@ -774,9 +757,9 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "101",
-      "estado": "PENDIENTE",
-      "fechaPago": null,
-      "comprobantePago": null,
+      "estado": "VENCIDO",
+      "fechaPago": "2025-11-23",
+      "comprobantePago": "",
       "fechaCreacion": "2025-10-31T09:46:44.978Z",
       "id": 58
     },
@@ -786,7 +769,7 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "102",
-      "estado": "PENDIENTE",
+      "estado": "VENCIDO",
       "fechaPago": null,
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T09:46:44.979Z",
@@ -798,7 +781,7 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "201",
-      "estado": "PENDIENTE",
+      "estado": "VENCIDO",
       "fechaPago": null,
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T09:46:44.981Z",
@@ -810,7 +793,7 @@
       "monto": 550,
       "fechaVencimiento": "2026-11-30T23:59:59.000Z",
       "departamento": "301",
-      "estado": "PENDIENTE",
+      "estado": "VENCIDO",
       "fechaPago": null,
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T09:46:44.982Z",
@@ -959,38 +942,80 @@
       "comprobantePago": null,
       "fechaCreacion": "2025-10-31T20:14:08.624Z",
       "id": 73
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.150Z",
+      "id": 74
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.152Z",
+      "id": 75
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.153Z",
+      "id": 76
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "202",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.155Z",
+      "id": 77
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2027,
+      "monto": 500,
+      "fechaVencimiento": "2025-11-30",
+      "departamento": "304",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-11-23T09:33:58.156Z",
+      "id": 78
     }
   ],
   "gastos": [
     {
       "id": 1,
-      "concepto": "Mantenimiento Elevador",
-      "categoria": "Mantenimiento",
-      "proveedor": "Elevadores Modernos S.A.",
-      "fecha": "2025-10-25T00:00:00.000Z",
-      "monto": 3500,
-      "descripcion": "Mantenimiento mensual del elevador",
-      "fechaCreacion": "2025-10-25T00:00:00.000Z"
-    },
-    {
-      "id": 2,
-      "concepto": "Servicio Limpieza",
-      "categoria": "Limpieza",
-      "proveedor": "Limpieza Total",
-      "fecha": "2025-10-20T00:00:00.000Z",
-      "monto": 2800,
-      "descripcion": "Limpieza de áreas comunes",
-      "fechaCreacion": "2025-10-20T00:00:00.000Z"
-    },
-    {
-      "id": 3,
-      "concepto": "Reparación Bomba Agua",
-      "categoria": "Reparación",
-      "proveedor": "Hidráulica Express",
-      "fecha": "2025-10-15T00:00:00.000Z",
-      "monto": 4200,
-      "descripcion": "Reparación de bomba de agua principal",
-      "fechaCreacion": "2025-10-15T00:00:00.000Z"
+      "concepto": "www",
+      "monto": 25000,
+      "categoria": "MANTENIMIENTO",
+      "proveedor": "sss",
+      "fecha": "2025-11-23",
+      "comprobante": null,
+      "notas": "",
+      "createdAt": "2025-11-23T12:34:28.121Z",
+      "createdBy": 1
     }
   ],
   "presupuestos": [],
@@ -1558,27 +1583,499 @@
         "mensaje": "Cuotas para 2024 generadas automáticamente"
       },
       "createdAt": "2025-10-31T09:31:14.905Z"
+    },
+    {
+      "id": 17,
+      "mes": "Noviembre",
+      "año": 2025,
+      "fecha": "2025-11-23T10:46:50.459Z",
+      "ingresos": {
+        "cuotas": 1650,
+        "otros": 0,
+        "total": 1650
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 3,
+      "balance": 1650,
+      "createdAt": "2025-11-23T10:46:50.459Z"
+    },
+    {
+      "id": 18,
+      "mes": "Abril",
+      "año": 2025,
+      "fecha": "2025-11-23T10:47:15.373Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-11-23T10:47:15.373Z"
+    },
+    {
+      "id": 19,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-11-23T10:48:08.124Z",
+      "ingresos": {
+        "total": 1650,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 1650
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "balance": 1650,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "cuotasGeneradas": 0,
+        "mensaje": "Cuotas verificadas para 12/12 meses de 2026"
+      },
+      "createdAt": "2025-11-23T10:48:08.125Z"
+    },
+    {
+      "id": 20,
+      "mes": "Noviembre",
+      "año": 2027,
+      "fecha": "2025-11-23T10:48:52.294Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "cuotasPendientes": 5,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-11-23T10:48:52.294Z"
+    },
+    {
+      "id": 21,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-11-23T10:49:53.006Z",
+      "ingresos": {
+        "total": 3300,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 1650
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 1650
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "balance": 3300,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "cuotasGeneradas": 0,
+        "mensaje": "Cuotas verificadas para 12/12 meses de 2026"
+      },
+      "createdAt": "2025-11-23T10:49:53.006Z"
+    },
+    {
+      "id": 22,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-11-23T10:51:07.906Z",
+      "ingresos": {
+        "total": 6600,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 1650
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 1650
+          },
+          {
+            "total": 3300
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "balance": 6600,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "cuotasGeneradas": 0,
+        "mensaje": "Cuotas verificadas para 12/12 meses de 2026"
+      },
+      "createdAt": "2025-11-23T10:51:07.906Z"
+    },
+    {
+      "id": 23,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-11-23T10:53:10.288Z",
+      "ingresos": {
+        "total": 13200,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 1650
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 1650
+          },
+          {
+            "total": 3300
+          },
+          {
+            "total": 6600
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "balance": 13200,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "cuotasGeneradas": 0,
+        "mensaje": "Cuotas verificadas para 12/12 meses de 2026"
+      },
+      "createdAt": "2025-11-23T10:53:10.289Z"
+    },
+    {
+      "id": 24,
+      "mes": "Noviembre",
+      "año": 2026,
+      "fecha": "2025-11-23T10:57:17.596Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "cuotasPendientes": 4,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-11-23T10:57:17.596Z"
+    },
+    {
+      "id": 25,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-11-23T10:58:46.703Z",
+      "ingresos": {
+        "total": 26400,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 1650
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 1650
+          },
+          {
+            "total": 3300
+          },
+          {
+            "total": 6600
+          },
+          {
+            "total": 13200
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "mes": "Abril",
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67220,
+        "gastosMayores": 118500,
+        "dineroOperacional": 59380,
+        "patrimonioTotal": 245100
+      },
+      "balance": 26400,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "cuotasGeneradas": 0,
+        "mensaje": "Cuotas verificadas para 12/12 meses de 2026"
+      },
+      "createdAt": "2025-11-23T10:58:46.704Z"
     }
   ],
   "anuncios": [
-    {
-      "id": 1,
-      "titulo": "Reunión de Condominio",
-      "contenido": "Se convoca a reunión de condominio el día 15 de noviembre a las 19:00 hrs en el área común. Se tratarán temas importantes sobre el presupuesto 2026 y los proyectos críticos pendientes.",
-      "fecha": "2025-10-28T00:00:00.000Z",
-      "autor": "Administrador",
-      "importante": true,
-      "fechaCreacion": "2025-10-28T00:00:00.000Z"
-    },
-    {
-      "id": 2,
-      "titulo": "Mantenimiento Cisterna",
-      "contenido": "Se realizará mantenimiento a la cisterna el día 5 de noviembre. Habrá corte de agua de 9:00 a 14:00 hrs. Se recomienda almacenar agua para uso durante este periodo.",
-      "fecha": "2025-10-25T00:00:00.000Z",
-      "autor": "Administrador",
-      "importante": true,
-      "fechaCreacion": "2025-10-25T00:00:00.000Z"
-    },
     {
       "id": 3,
       "titulo": "Fumigación Programada",
@@ -1626,10 +2123,10 @@
     }
   ],
   "fondos": {
-    "ahorroAcumulado": 67500,
-    "gastosMayores": 125000,
-    "dineroOperacional": 48000,
-    "patrimonioTotal": 240500
+    "ahorroAcumulado": 67440,
+    "gastosMayores": 144377,
+    "dineroOperacional": 46200,
+    "patrimonioTotal": 258017
   },
   "proyectos": [
     {
@@ -1666,5 +2163,286 @@
     "anuncios": 4,
     "cierres": 1,
     "solicitudes": 1
+  },
+  "movimientos": [
+    {
+      "id": 1,
+      "tipo": "transferencia",
+      "origen": "dineroOperacional",
+      "destino": "ahorroAcumulado",
+      "monto": 7110,
+      "fecha": "2025-11-23T10:30:50.811Z",
+      "descripcion": "Transferencia de Dinero Operacional a Ahorro Acumulado"
+    },
+    {
+      "id": 2,
+      "tipo": "transferencia",
+      "origen": "ahorroAcumulado",
+      "destino": "dineroOperacional",
+      "monto": 1000,
+      "fecha": "2025-11-23T10:34:37.256Z",
+      "descripcion": "Transferencia de Ahorro Acumulado a Dinero Operacional"
+    }
+  ],
+  "parcialidades2026": {
+    "objetivo": 285000,
+    "pagos": [
+      {
+        "id": 1,
+        "departamento": "101",
+        "monto": 500,
+        "fecha": "2025-11-23",
+        "comprobante": "aaaa",
+        "notas": "",
+        "createdAt": "2025-11-23T11:11:18.085Z",
+        "estado": "validado",
+        "validadoEn": "2025-11-23T12:50:56.416Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 2,
+        "departamento": "102",
+        "monto": 600,
+        "fecha": "2025-11-23",
+        "comprobante": null,
+        "notas": "",
+        "createdAt": "2025-11-23T11:12:48.799Z"
+      },
+      {
+        "id": 3,
+        "departamento": "101",
+        "monto": 500,
+        "fecha": "2025-11-23",
+        "comprobante": "aaaa",
+        "notas": "",
+        "createdAt": "2025-11-23T11:14:55.127Z"
+      },
+      {
+        "id": 4,
+        "departamento": "101",
+        "monto": 500,
+        "fecha": "2025-11-23",
+        "comprobante": null,
+        "notas": "",
+        "createdAt": "2025-11-23T11:17:14.541Z"
+      },
+      {
+        "id": 5,
+        "departamento": "101",
+        "monto": 40,
+        "fecha": "2025-11-23",
+        "comprobante": null,
+        "notas": "",
+        "createdAt": "2025-11-23T11:18:48.933Z"
+      },
+      {
+        "id": 6,
+        "departamento": "202",
+        "monto": 700,
+        "fecha": "2025-11-23",
+        "comprobante": null,
+        "notas": "",
+        "createdAt": "2025-11-23T11:20:32.188Z"
+      },
+      {
+        "id": 7,
+        "departamento": "101",
+        "monto": 400,
+        "fecha": "2025-11-23",
+        "comprobante": "aaaa",
+        "notas": "",
+        "createdAt": "2025-11-23T11:34:59.036Z"
+      },
+      {
+        "id": 8,
+        "departamento": "101",
+        "monto": 600,
+        "fecha": "2025-11-23",
+        "comprobante": "sssssssss",
+        "notas": "",
+        "createdAt": "2025-11-23T11:35:40.470Z"
+      },
+      {
+        "id": 9,
+        "departamento": "101",
+        "monto": 600,
+        "fecha": "2025-11-23",
+        "comprobante": "sssss",
+        "notas": "",
+        "createdAt": "2025-11-23T11:36:55.666Z"
+      },
+      {
+        "id": 10,
+        "departamento": "101",
+        "monto": 500,
+        "fecha": "2025-11-23",
+        "comprobante": "sssss",
+        "notas": "",
+        "createdAt": "2025-11-23T11:37:33.448Z"
+      },
+      {
+        "id": 11,
+        "departamento": "101",
+        "monto": 700,
+        "fecha": "2025-11-23",
+        "comprobante": "jjjjjjj",
+        "notas": "jjjjjj",
+        "createdAt": "2025-11-23T11:38:29.960Z"
+      },
+      {
+        "id": 12,
+        "departamento": "101",
+        "monto": 800,
+        "fecha": "2025-11-23",
+        "comprobante": "aaaaaaaaaa",
+        "notas": "",
+        "createdAt": "2025-11-23T11:39:52.200Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:46:00.410Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 13,
+        "departamento": "101",
+        "monto": 900,
+        "fecha": "2025-11-23",
+        "comprobante": "sss",
+        "notas": "sss",
+        "createdAt": "2025-11-23T11:41:31.770Z"
+      },
+      {
+        "id": 14,
+        "departamento": "101",
+        "monto": 800,
+        "fecha": "2025-11-23",
+        "comprobante": "aaaaa",
+        "notas": "aaaa",
+        "createdAt": "2025-11-23T11:42:13.912Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:20:27.055Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 15,
+        "departamento": "101",
+        "monto": 90,
+        "fecha": "2025-11-23",
+        "comprobante": "jjj",
+        "notas": "jjj",
+        "createdAt": "2025-11-23T11:43:15.461Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:20:22.118Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 16,
+        "departamento": "101",
+        "monto": 900,
+        "fecha": "2025-11-23",
+        "comprobante": "dddddddd",
+        "notas": "",
+        "createdAt": "2025-11-23T11:44:20.332Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:30:06.426Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 17,
+        "departamento": "101",
+        "monto": 800,
+        "fecha": "2025-11-23",
+        "comprobante": "aaaa",
+        "notas": "aaaa",
+        "createdAt": "2025-11-23T11:45:28.864Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:45:42.624Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 18,
+        "departamento": "101",
+        "monto": 200,
+        "fecha": "2025-11-23",
+        "comprobante": "aaa",
+        "notas": "",
+        "createdAt": "2025-11-23T11:45:43.966Z"
+      },
+      {
+        "id": 19,
+        "departamento": "101",
+        "monto": 900,
+        "fecha": "2025-11-23",
+        "comprobante": "kjhg",
+        "notas": "",
+        "createdAt": "2025-11-23T11:47:05.588Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:33:58.132Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 20,
+        "departamento": "101",
+        "monto": 900,
+        "fecha": "2025-11-23",
+        "comprobante": "ghjklñ",
+        "notas": "",
+        "createdAt": "2025-11-23T11:47:33.861Z"
+      },
+      {
+        "id": 21,
+        "departamento": "101",
+        "monto": 57,
+        "fecha": "2025-11-23",
+        "comprobante": "sss",
+        "notas": "",
+        "createdAt": "2025-11-23T11:47:58.067Z"
+      },
+      {
+        "id": 22,
+        "departamento": "101",
+        "monto": 90,
+        "fecha": "2025-11-23",
+        "comprobante": "kjk",
+        "notas": "",
+        "createdAt": "2025-11-23T11:49:44.444Z",
+        "estado": "pendiente",
+        "validadoEn": "2025-11-23T12:35:12.700Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 23,
+        "departamento": "101",
+        "monto": 90,
+        "fecha": "2025-11-23",
+        "comprobante": "mmmm",
+        "notas": "",
+        "estado": "pendiente",
+        "createdAt": "2025-11-23T11:51:07.069Z"
+      },
+      {
+        "id": 24,
+        "departamento": "202",
+        "monto": 600,
+        "fecha": "2025-11-23",
+        "comprobante": "aaa",
+        "notas": "",
+        "estado": "pendiente",
+        "createdAt": "2025-11-23T12:21:02.496Z",
+        "validadoEn": "2025-11-23T12:21:15.508Z",
+        "validadoPor": 1
+      },
+      {
+        "id": 25,
+        "departamento": "102",
+        "monto": 10000,
+        "fecha": "2025-11-23",
+        "comprobante": null,
+        "notas": "",
+        "estado": "validado",
+        "createdAt": "2025-11-23T12:35:01.910Z",
+        "validadoEn": "2025-11-23T12:49:35.651Z",
+        "validadoPor": 1
+      }
+    ]
   }
 }

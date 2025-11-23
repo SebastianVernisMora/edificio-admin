@@ -243,10 +243,8 @@
               
               <div class="form-group">
                 <label for="cuota-departamento">Departamento:</label>
-                <select id="cuota-departamento" required>
-                  <option value="">Seleccionar...</option>
-                  <option value="TODOS">Todos los departamentos</option>
-                  <!-- Departamentos will be loaded here -->
+                <select id="cuota-departamento" required disabled>
+                  <option value="TODOS" selected>Todos los departamentos</option>
                 </select>
               </div>
               
@@ -568,6 +566,12 @@
               </div>
               
               <div class="form-group">
+                <label for="anuncio-imagen">Imagen/Archivo (opcional):</label>
+                <input type="file" id="anuncio-imagen" accept="image/*,.pdf">
+                <small>Formatos: JPG, PNG, PDF (máx 5MB)</small>
+              </div>
+              
+              <div class="form-group">
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 <button type="button" class="btn btn-secondary modal-cancel">Cancelar</button>
               </div>
@@ -770,7 +774,8 @@
                   <th>Departamento</th>
                   <th>Monto</th>
                   <th>Comprobante</th>
-                  <th>Notas</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -841,10 +846,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/auth/auth.js?v=4"></script>
   <script src="js/simple-navigation.js?v=4"></script>
-  <script src="js/components/admin-buttons.js?v=4"></script>
+  <script src="js/components/admin-buttons.js?v=5"></script>
   <script src="js/modules/cuotas/cuotas.js?v=4"></script>
   <script src="js/modules/gastos/gastos.js?v=4"></script>
-  <script src="js/modules/fondos/fondos.js?v=4"></script>
+  <!-- <script src="js/modules/fondos/fondos.js?v=4"></script> -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       console.log('✓ Sistema Edificio Admin - Operacional');

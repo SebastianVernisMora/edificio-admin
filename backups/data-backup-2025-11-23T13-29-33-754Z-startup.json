@@ -745,14 +745,49 @@
   "cierres": [],
   "anuncios": [
     {
-      "id": 1,
-      "titulo": "assss",
-      "contenido": "sss",
+      "id": 3,
+      "titulo": "Fumigación Programada",
+      "contenido": "Se realizará fumigación en áreas comunes el día 10 de noviembre a partir de las 10:00 hrs. Se recomienda mantener puertas y ventanas cerradas durante el procedimiento.",
+      "fecha": "2025-10-20T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": false,
+      "fechaCreacion": "2025-10-20T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "titulo": "Anuncio de Prueba con Imagen",
+      "contenido": "Este es un anuncio de prueba para verificar la funcionalidad de archivos adjuntos con imagen.",
       "tipo": "GENERAL",
-      "imagen": null,
-      "createdAt": "2025-11-23T14:03:40.580Z",
+      "createdAt": "2025-10-31T04:13:07.201Z",
       "autor": 1,
-      "archivos": []
+      "archivos": [
+        {
+          "originalName": "test-image.png",
+          "filename": "1761883987196_996476591_test-image.png",
+          "path": "uploads/anuncios/1761883987196_996476591_test-image.png",
+          "mimetype": "image/png",
+          "size": 67,
+          "uploadedAt": "2025-10-31T04:13:07.201Z"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "Anuncio Final de Prueba",
+      "contenido": "Este es el anuncio final para probar todas las funcionalidades de archivos adjuntos.",
+      "tipo": "IMPORTANTE",
+      "createdAt": "2025-10-31T04:18:10.842Z",
+      "autor": 1,
+      "archivos": [
+        {
+          "originalName": "test-image.png",
+          "filename": "1761884290830_247414191_test-image.png",
+          "path": "uploads/anuncios/1761884290830_247414191_test-image.png",
+          "mimetype": "image/png",
+          "size": 67,
+          "uploadedAt": "2025-10-31T04:18:10.841Z"
+        }
+      ]
     }
   ],
   "fondos": {

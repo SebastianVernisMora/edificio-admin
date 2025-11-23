@@ -23,11 +23,13 @@ class FondosManager {
       });
       if (fondosRes.ok) {
         const data = await fondosRes.json();
-        this.fondos = data.fondos || [];
+        this.fondos = data.fondos || {};
         this.movimientos = data.movimientos || [];
       }
     } catch (error) {
       console.error('Error loading fondos data:', error);
+      this.fondos = {};
+      this.movimientos = [];
     }
   }
 
@@ -117,25 +119,24 @@ class FondosManager {
   }
 
   renderFondos() {
-    // Calcular totales
-    const fondoGeneral = this.fondos.find(f => f.tipo === 'general')?.monto || 0;
-    const fondoReserva = this.fondos.find(f => f.tipo === 'reserva')?.monto || 0;
-    const fondoMantenimiento = this.fondos.find(f => f.tipo === 'mantenimiento')?.monto || 0;
-    const totalFondos = fondoGeneral + fondoReserva + fondoMantenimiento;
+    if (!this.fondos || typeof this.fondos !== 'object') return;
+    
+    // Los fondos vienen como objeto con propiedades
+    const ahorroAcumulado = this.fondos.ahorroAcumulado || 0;
+    const gastosMayores = this.fondos.gastosMayores || 0;
+    const dineroOperacional = this.fondos.dineroOperacional || 0;
+    const patrimonioTotal = this.fondos.patrimonioTotal || (ahorroAcumulado + gastosMayores + dineroOperacional);
 
-    // Actualizar elementos del DOM
-    const fondoGeneralEl = document.getElementById('fondo-general');
-    const fondoReservaEl = document.getElementById('fondo-reserva');
-    const fondoMantenimientoEl = document.getElementById('fondo-mantenimiento');
-    const totalFondosEl = document.getElementById('total-fondos');
+    // Actualizar elementos del DOM según IDs del HTML
+    const elemAhorro = document.getElementById('ahorro-acumulado');
+    const elemGastosMayores = document.getElementById('gastos-mayores');
+    const elemDineroOp = document.getElementById('dinero-operacional');
+    const elemPatrimonio = document.getElementById('patrimonio-total-fondos');
 
-    if (fondoGeneralEl) fondoGeneralEl.textContent = `$${fondoGeneral.toLocaleString()}`;
-    if (fondoReservaEl) fondoReservaEl.textContent = `$${fondoReserva.toLocaleString()}`;
-    if (fondoMantenimientoEl) fondoMantenimientoEl.textContent = `$${fondoMantenimiento.toLocaleString()}`;
-    if (totalFondosEl) totalFondosEl.textContent = `$${totalFondos.toLocaleString()}`;
-
-    // Actualizar gráfico si existe
-    this.updateFondosChart([fondoGeneral, fondoReserva, fondoMantenimiento]);
+    if (elemAhorro) elemAhorro.textContent = `$${ahorroAcumulado.toLocaleString()}`;
+    if (elemGastosMayores) elemGastosMayores.textContent = `$${gastosMayores.toLocaleString()}`;
+    if (elemDineroOp) elemDineroOp.textContent = `$${dineroOperacional.toLocaleString()}`;
+    if (elemPatrimonio) elemPatrimonio.textContent = `$${patrimonioTotal.toLocaleString()}`;
   }
 
   updateFondosChart(data) {

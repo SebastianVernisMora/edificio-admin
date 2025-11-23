@@ -742,8 +742,31 @@ class PresupuestosManager {
 
     // Exportar presupuesto a Excel
     exportarPresupuesto() {
-        // Implementación básica de exportación
-        alert('Funcionalidad de exportación en desarrollo');
+        const presupuesto = this.presupuestoActual;
+        if (!presupuesto) {
+            alert('No hay presupuesto seleccionado para exportar');
+            return;
+        }
+        
+        // Generar CSV simple
+        let csv = 'Categoría,Monto Asignado,Monto Gastado,Disponible\n';
+        
+        Object.entries(presupuesto.categorias || {}).forEach(([cat, valores]) => {
+            csv += `${cat},${valores.asignado},${valores.gastado},${valores.disponible}\n`;
+        });
+        
+        csv += `\nTOTAL,${presupuesto.monto_total},${presupuesto.monto_gastado},${presupuesto.monto_disponible}\n`;
+        
+        // Descargar
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `presupuesto-${presupuesto.anio}-${presupuesto.mes}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+        
+        alert('Presupuesto exportado correctamente');
     }
 
     // Formatear estado para mostrar

@@ -3,7 +3,14 @@ import { handleControllerError } from '../middleware/error-handler.js';
 
 export const getCierres = async (req, res) => {
   try {
-    const cierres = await Cierre.getAll();
+    const { anio } = req.query;
+    
+    let cierres = await Cierre.getAll();
+    
+    // Filtrar por año si se especifica
+    if (anio) {
+      cierres = cierres.filter(c => (c.año || c.anio) === parseInt(anio));
+    }
     
     res.json({
       ok: true,
@@ -70,6 +77,12 @@ export const realizarCierreMensual = async (req, res) => {
       msg: `Cierre de ${mes} ${año} realizado correctamente`
     });
   } catch (error) {
+    if (error.message.includes('Ya existe un cierre')) {
+      return res.status(400).json({
+        ok: false,
+        msg: error.message
+      });
+    }
     return handleControllerError(error, res, 'realizarCierreMensual');
   }
 };

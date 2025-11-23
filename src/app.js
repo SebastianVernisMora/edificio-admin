@@ -15,6 +15,7 @@ import permisosRoutes from './routes/permisos.routes.js';
 import validationRoutes from './routes/validation.routes.js';
 import auditRoutes from './routes/audit.routes.js';
 import solicitudesRoutes from './routes/solicitudes.routes.js';
+import parcialidadesRoutes from './routes/parcialidades.routes.js';
 import { inicializarCuotasAnuales, actualizarCuotasVencidas } from './utils/cuotasInicializacion.js';
 
 // Configuración de variables de entorno
@@ -50,6 +51,7 @@ app.use('/api/permisos', permisosRoutes);
 app.use('/api/validation', validationRoutes);
 app.use('/api/audit', auditRoutes);
 app.use('/api/solicitudes', solicitudesRoutes);
+app.use('/api/parcialidades', parcialidadesRoutes);
 
 // Ruta para servir la aplicación frontend
 app.get('/', (req, res) => {

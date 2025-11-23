@@ -4,7 +4,29 @@ import { handleControllerError, validateId, validateRequired } from '../middlewa
 
 export const getCuotas = async (req, res) => {
   try {
-    const cuotas = Cuota.obtenerTodas();
+    const { departamento, mes, anio, estado } = req.query;
+    
+    let cuotas = Cuota.obtenerTodas();
+    
+    // Filtrar por departamento
+    if (departamento) {
+      cuotas = cuotas.filter(c => c.departamento === departamento);
+    }
+    
+    // Filtrar por mes
+    if (mes) {
+      cuotas = cuotas.filter(c => c.mes === mes);
+    }
+    
+    // Filtrar por año
+    if (anio) {
+      cuotas = cuotas.filter(c => c.anio === parseInt(anio));
+    }
+    
+    // Filtrar por estado
+    if (estado) {
+      cuotas = cuotas.filter(c => c.estado === estado);
+    }
     
     res.json({
       ok: true,
@@ -52,24 +74,45 @@ export const getCuotasByDepartamento = async (req, res) => {
 };
 
 export const crearCuota = async (req, res) => {
-  const { mes, año, monto, departamento, fechaVencimiento } = req.body;
+  const { mes, anio, monto, departamento, fechaVencimiento } = req.body;
   
   try {
-    // Verificar si ya existe una cuota para este mes/año/departamento
-    const cuotas = await Cuota.getByDepartamento(departamento);
-    const cuotaExistente = cuotas.find(c => c.mes === mes && c.año === parseInt(año));
+    // Si departamento es TODOS, generar para todos
+    if (departamento === 'TODOS') {
+      try {
+        const cuotasGeneradas = Cuota.generarCuotasMensuales(mes, anio, monto, fechaVencimiento);
+        
+        return res.json({
+          ok: true,
+          cuotasGeneradas: cuotasGeneradas.length,
+          cuotas: cuotasGeneradas
+        });
+      } catch (error) {
+        if (error.message.includes('Ya existen cuotas')) {
+          return res.status(400).json({
+            ok: false,
+            msg: error.message
+          });
+        }
+        throw error;
+      }
+    }
+    
+    // Si es departamento específico
+    const cuotas = Cuota.obtenerPorDepartamento(departamento);
+    const cuotaExistente = cuotas.find(c => c.mes === mes && c.anio === parseInt(anio));
     
     if (cuotaExistente) {
       return res.status(400).json({
         ok: false,
-        msg: `Ya existe una cuota para ${mes} ${año} en el departamento ${departamento}`
+        msg: `Ya existe una cuota para ${mes} ${anio} en el departamento ${departamento}`
       });
     }
     
-    // Crear cuota
-    const cuota = await Cuota.create({
+    // Crear cuota individual
+    const cuota = Cuota.crear({
       mes,
-      año,
+      anio,
       monto,
       departamento,
       fechaVencimiento
@@ -80,7 +123,7 @@ export const crearCuota = async (req, res) => {
       cuota
     });
   } catch (error) {
-    return handleControllerError(error, res, 'getCuotasByDepartamento');
+    return handleControllerError(error, res, 'crearCuota');
   }
 };
 
@@ -89,7 +132,7 @@ export const actualizarCuota = async (req, res) => {
   const { estado, fechaPago, comprobante } = req.body;
   
   try {
-    const cuota = await Cuota.getById(id);
+    const cuota = Cuota.obtenerPorId(parseInt(id));
     
     if (!cuota) {
       return res.status(404).json({
@@ -100,13 +143,12 @@ export const actualizarCuota = async (req, res) => {
     
     // Si se está marcando como pagada, actualizar fondos
     if (estado === 'PAGADO' && cuota.estado !== 'PAGADO') {
-      // Distribuir el monto de la cuota entre los fondos
-      await Fondo.registrarIngreso(cuota.monto * 0.7, 'dineroOperacional');
-      await Fondo.registrarIngreso(cuota.monto * 0.2, 'ahorroAcumulado');
-      await Fondo.registrarIngreso(cuota.monto * 0.1, 'gastosMayores');
+      // Todo el monto de la cuota va a Dinero Operacional
+      await Fondo.registrarIngreso(cuota.monto, 'dineroOperacional');
+      console.log(`✅ Ingreso de $${cuota.monto} a Dinero Operacional por pago de cuota`);
       
-      // Marcar como pagada
-      const cuotaActualizada = await Cuota.marcarComoPagada(id, fechaPago, comprobante);
+      // Actualizar estado de cuota
+      const cuotaActualizada = Cuota.actualizarEstado(parseInt(id), estado, fechaPago, comprobante);
       
       return res.json({
         ok: true,
@@ -115,18 +157,14 @@ export const actualizarCuota = async (req, res) => {
     }
     
     // Actualización normal
-    const cuotaActualizada = await Cuota.update(id, {
-      estado,
-      fechaPago,
-      comprobante
-    });
+    const cuotaActualizada = Cuota.actualizarEstado(parseInt(id), estado, fechaPago, comprobante);
     
     res.json({
       ok: true,
       cuota: cuotaActualizada
     });
   } catch (error) {
-    return handleControllerError(error, res, 'getCuotasByDepartamento');
+    return handleControllerError(error, res, 'actualizarCuota');
   }
 };
 
