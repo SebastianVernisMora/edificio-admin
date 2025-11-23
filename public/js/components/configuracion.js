@@ -700,7 +700,8 @@ class ConfiguracionManager {
         const csvContent = [
             headers.join(','),
             ...data.map(row => headers.map(header => `"${row[header]}"`).join(','))
-        ].join('\\n');
+        ].join('\
+');
 
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');

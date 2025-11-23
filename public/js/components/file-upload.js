@@ -143,4 +143,147 @@ class FileUploadManager {
             const icon = this.getFileIcon(file.type);
             const size = this.formatFileSize(file.size);
             
-            fileInfo.innerHTML = `\n                <i class=\"${icon} me-2 fs-4\"></i>\n                <div>\n                    <div class=\"fw-medium\">${file.name}</div>\n                    <small class=\"text-muted\">${size}</small>\n                </div>\n            `;\n            \n            const removeBtn = document.createElement('button');\n            removeBtn.type = 'button';\n            removeBtn.className = 'btn btn-sm btn-outline-danger';\n            removeBtn.innerHTML = '<i class=\"bi bi-trash\"></i>';\n            removeBtn.onclick = () => this.removeFile(index);\n            \n            fileItem.appendChild(fileInfo);\n            fileItem.appendChild(removeBtn);\n            container.appendChild(fileItem);\n        });\n    }\n    \n    getFileIcon(mimeType) {\n        if (mimeType.startsWith('image/')) {\n            return 'bi bi-file-earmark-image text-primary';\n        } else if (mimeType === 'application/pdf') {\n            return 'bi bi-file-earmark-pdf text-danger';\n        } else if (mimeType.includes('word')) {\n            return 'bi bi-file-earmark-word text-primary';\n        } else {\n            return 'bi bi-file-earmark text-secondary';\n        }\n    }\n    \n    formatFileSize(bytes) {\n        if (bytes === 0) return '0 Bytes';\n        const k = 1024;\n        const sizes = ['Bytes', 'KB', 'MB', 'GB'];\n        const i = Math.floor(Math.log(bytes) / Math.log(k));\n        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];\n    }\n    \n    getSelectedFiles() {\n        return this.selectedFiles;\n    }\n    \n    clearFiles() {\n        this.selectedFiles = [];\n        this.updateFilesList();\n        \n        // Limpiar input\n        const input = document.getElementById('anuncioArchivos');\n        if (input) {\n            input.value = '';\n        }\n    }\n    \n    // Método para mostrar archivos existentes (para edición)\n    displayExistingFiles(archivos) {\n        if (!archivos || archivos.length === 0) return;\n        \n        const container = document.getElementById('existingFilesContainer');\n        if (!container) return;\n        \n        container.innerHTML = '';\n        \n        archivos.forEach((archivo, index) => {\n            const fileItem = document.createElement('div');\n            fileItem.className = 'file-item d-flex align-items-center justify-content-between p-2 border rounded mb-2 bg-light';\n            \n            const fileInfo = document.createElement('div');\n            fileInfo.className = 'd-flex align-items-center';\n            \n            const icon = this.getFileIcon(archivo.mimetype);\n            const size = this.formatFileSize(archivo.size);\n            \n            fileInfo.innerHTML = `\n                <i class=\"${icon} me-2 fs-4\"></i>\n                <div>\n                    <div class=\"fw-medium\">${archivo.originalName}</div>\n                    <small class=\"text-muted\">${size} • Subido: ${new Date(archivo.uploadedAt).toLocaleDateString()}</small>\n                </div>\n            `;\n            \n            const actions = document.createElement('div');\n            actions.className = 'btn-group btn-group-sm';\n            \n            const downloadBtn = document.createElement('a');\n            downloadBtn.className = 'btn btn-outline-primary';\n            downloadBtn.href = `/api/anuncios/${archivo.anuncioId}/archivos/${archivo.filename}/download`;\n            downloadBtn.innerHTML = '<i class=\"bi bi-download\"></i>';\n            downloadBtn.title = 'Descargar';\n            \n            const deleteBtn = document.createElement('button');\n            deleteBtn.type = 'button';\n            deleteBtn.className = 'btn btn-outline-danger';\n            deleteBtn.innerHTML = '<i class=\"bi bi-trash\"></i>';\n            deleteBtn.title = 'Eliminar';\n            deleteBtn.onclick = () => this.deleteExistingFile(archivo.anuncioId, archivo.filename, fileItem);\n            \n            actions.appendChild(downloadBtn);\n            actions.appendChild(deleteBtn);\n            \n            fileItem.appendChild(fileInfo);\n            fileItem.appendChild(actions);\n            container.appendChild(fileItem);\n        });\n    }\n    \n    async deleteExistingFile(anuncioId, filename, fileElement) {\n        if (!confirm('¿Estás seguro de que quieres eliminar este archivo?')) {\n            return;\n        }\n        \n        try {\n            const response = await fetch(`/api/anuncios/${anuncioId}/archivos/${filename}`, {\n                method: 'DELETE',\n                headers: {\n                    'x-auth-token': localStorage.getItem('token')\n                }\n            });\n            \n            const data = await response.json();\n            \n            if (data.ok) {\n                fileElement.remove();\n                showAlert('Archivo eliminado correctamente.', 'success');\n            } else {\n                showAlert(data.msg || 'Error al eliminar el archivo.', 'error');\n            }\n        } catch (error) {\n            console.error('Error eliminando archivo:', error);\n            showAlert('Error al eliminar el archivo.', 'error');\n        }\n    }\n}\n\n// Instancia global del gestor de archivos\nlet fileUploadManager;\n\n// Inicializar cuando el DOM esté listo\ndocument.addEventListener('DOMContentLoaded', () => {\n    fileUploadManager = new FileUploadManager();\n    // Hacer disponible globalmente\n    window.fileUploadManager = fileUploadManager;\n});
+            fileInfo.innerHTML = `
+                <i class=\"${icon} me-2 fs-4\"></i>
+                <div>
+                    <div class=\"fw-medium\">${file.name}</div>
+                    <small class=\"text-muted\">${size}</small>
+                </div>
+            `;
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'btn btn-sm btn-outline-danger';
+            removeBtn.innerHTML = '<i class=\"bi bi-trash\"></i>';
+            removeBtn.onclick = () => this.removeFile(index);
+            
+            fileItem.appendChild(fileInfo);
+            fileItem.appendChild(removeBtn);
+            container.appendChild(fileItem);
+        });
+    }
+    
+    getFileIcon(mimeType) {
+        if (mimeType.startsWith('image/')) {
+            return 'bi bi-file-earmark-image text-primary';
+        } else if (mimeType === 'application/pdf') {
+            return 'bi bi-file-earmark-pdf text-danger';
+        } else if (mimeType.includes('word')) {
+            return 'bi bi-file-earmark-word text-primary';
+        } else {
+            return 'bi bi-file-earmark text-secondary';
+        }
+    }
+    
+    formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+    
+    getSelectedFiles() {
+        return this.selectedFiles;
+    }
+    
+    clearFiles() {
+        this.selectedFiles = [];
+        this.updateFilesList();
+        
+        // Limpiar input
+        const input = document.getElementById('anuncioArchivos');
+        if (input) {
+            input.value = '';
+        }
+    }
+    
+    // Método para mostrar archivos existentes (para edición)
+    displayExistingFiles(archivos) {
+        if (!archivos || archivos.length === 0) return;
+        
+        const container = document.getElementById('existingFilesContainer');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        archivos.forEach((archivo, index) => {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item d-flex align-items-center justify-content-between p-2 border rounded mb-2 bg-light';
+            
+            const fileInfo = document.createElement('div');
+            fileInfo.className = 'd-flex align-items-center';
+            
+            const icon = this.getFileIcon(archivo.mimetype);
+            const size = this.formatFileSize(archivo.size);
+            
+            fileInfo.innerHTML = `
+                <i class=\"${icon} me-2 fs-4\"></i>
+                <div>
+                    <div class=\"fw-medium\">${archivo.originalName}</div>
+                    <small class=\"text-muted\">${size} • Subido: ${new Date(archivo.uploadedAt).toLocaleDateString()}</small>
+                </div>
+            `;
+            
+            const actions = document.createElement('div');
+            actions.className = 'btn-group btn-group-sm';
+            
+            const downloadBtn = document.createElement('a');
+            downloadBtn.className = 'btn btn-outline-primary';
+            downloadBtn.href = `/api/anuncios/${archivo.anuncioId}/archivos/${archivo.filename}/download`;
+            downloadBtn.innerHTML = '<i class=\"bi bi-download\"></i>';
+            downloadBtn.title = 'Descargar';
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'btn btn-outline-danger';
+            deleteBtn.innerHTML = '<i class=\"bi bi-trash\"></i>';
+            deleteBtn.title = 'Eliminar';
+            deleteBtn.onclick = () => this.deleteExistingFile(archivo.anuncioId, archivo.filename, fileItem);
+            
+            actions.appendChild(downloadBtn);
+            actions.appendChild(deleteBtn);
+            
+            fileItem.appendChild(fileInfo);
+            fileItem.appendChild(actions);
+            container.appendChild(fileItem);
+        });
+    }
+    
+    async deleteExistingFile(anuncioId, filename, fileElement) {
+        if (!confirm('¿Estás seguro de que quieres eliminar este archivo?')) {
+            return;
+        }
+        
+        try {
+            const response = await fetch(`/api/anuncios/${anuncioId}/archivos/${filename}`, {
+                method: 'DELETE',
+                headers: {
+                    'x-auth-token': localStorage.getItem('token')
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (data.ok) {
+                fileElement.remove();
+                showAlert('Archivo eliminado correctamente.', 'success');
+            } else {
+                showAlert(data.msg || 'Error al eliminar el archivo.', 'error');
+            }
+        } catch (error) {
+            console.error('Error eliminando archivo:', error);
+            showAlert('Error al eliminar el archivo.', 'error');
+        }
+    }
+}
+
+// Instancia global del gestor de archivos
+let fileUploadManager;
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    fileUploadManager = new FileUploadManager();
+    // Hacer disponible globalmente
+    window.fileUploadManager = fileUploadManager;
+});

@@ -87,7 +87,7 @@
 ## 🚀 Estado del Sistema
 
 ### ✅ Sistema Operativo
-- **URL:** http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com/
+- **URL:** http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com/
 - **Estado:** ✅ Corriendo en puerto 3001
 - **Base de datos:** ✅ Resetada con usuarios demo
 - **Frontend:** ✅ Modal de credenciales funcionando

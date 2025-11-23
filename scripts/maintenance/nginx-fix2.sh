@@ -8,7 +8,7 @@ echo "Corrigiendo configuración de Nginx para usar el puerto 8080..."
 sudo tee /etc/nginx/sites-available/edificio-admin > /dev/null << EOF
 server {
     listen 8080;
-    server_name ec2-18-217-61-85.us-east-2.compute.amazonaws.com;
+    server_name ec2-18-223-32-141.us-east-2.compute.amazonaws.com;
 
     location / {
         proxy_pass http://localhost:3001;

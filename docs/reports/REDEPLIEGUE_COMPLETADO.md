@@ -49,7 +49,7 @@
 - **Configuración:** Actualizada y validada
 
 ### 🔗 URLs de Acceso
-- **Externa:** http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+- **Externa:** http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 - **Interna:** http://localhost:3000
 
 ## 🔍 Verificación del Sistema

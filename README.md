@@ -19,11 +19,11 @@ npm test
 
 ## 📊 Estado del Proyecto
 
-- **Servidor:** EC2 AWS (ec2-18-217-61-85.us-east-2.compute.amazonaws.com)
-- **Puerto:** 3000 (Node.js) → 80 (Nginx)
+- **Servidor:** EC2 AWS (ec2-18-223-32-141.us-east-2.compute.amazonaws.com)
+- **Puerto:** 3000 (Node.js con PM2) → 80 (Nginx)
 - **Base de datos:** JSON file-based (42KB, 20 usuarios)
 - **Código:** Limpio, sin duplicados, estandarizado ✅
-- **Estado:** ⚠️ Requiere reinicio de servidor - Ver [Estado Completo](docs/ESTADO_PROYECTO.md)
+- **Estado:** ✅ OPERACIONAL - Servidor activo con PM2 - Ver [Estado Completo](docs/ESTADO_PROYECTO.md)
 
 ## 📁 Estructura del Proyecto
 
@@ -135,14 +135,16 @@ Ver estándares completos en [CRUSH.md](CRUSH.md) y [BLACKBOX.md](BLACKBOX.md)
 
 ## 🚀 Despliegue
 
-### Despliegue Manual (Rápido)
+### Despliegue Manual (Con PM2)
 ```bash
 # En el servidor
 cd /home/admin
 git pull origin master
 npm install
-pkill -f "node.*app"
-nohup npm run dev > server.log 2>&1 &
+pm2 restart edificio-admin
+# O si es primera vez:
+pm2 start src/app.js --name edificio-admin
+pm2 save
 ```
 
 ### Despliegue Automático
@@ -153,7 +155,7 @@ nohup npm run dev > server.log 2>&1 &
 ## 🌐 Acceso al Sistema
 
 ```yaml
-URL: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+URL: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 
 Credenciales:
   Admin:     admin@edificio205.com / admin2026
@@ -185,18 +187,21 @@ Consistency: 100% ✅
 
 ### Servidor no responde
 ```bash
-# Verificar proceso
-ps aux | grep "node.*app"
+# Ver estado PM2
+pm2 status
 
 # Reiniciar
-pkill -f "node.*app"
-npm run dev
+pm2 restart edificio-admin
+
+# Ver logs
+pm2 logs edificio-admin
 ```
 
 ### Ver logs
 ```bash
-tail -f server.log                    # App logs
-tail -f /var/log/nginx/error.log      # Nginx logs
+pm2 logs edificio-admin              # App logs (PM2)
+pm2 logs edificio-admin --lines 100  # Últimas 100 líneas
+tail -f /var/log/nginx/error.log     # Nginx logs
 ```
 
 ### Restaurar backup
@@ -232,6 +237,6 @@ cp backups/data-backup-[fecha].json data.json
 
 ---
 
-**Última verificación:** 2025-11-23 04:48 UTC  
-**Estado:** ⚠️ Requiere reinicio de servidor  
+**Última verificación:** 2025-11-23 05:40 UTC  
+**Estado:** ✅ OPERACIONAL - Servidor activo con PM2  
 **Próxima revisión:** 2025-11-24

@@ -55,4 +55,4 @@ pm2 list
 echo ""
 echo "🌐 Aplicación disponible en:"
 echo "   - Local: http://localhost:3000"
-echo "   - Externo: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com"
+echo "   - Externo: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com"

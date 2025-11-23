@@ -7,17 +7,19 @@
 
 ## 🎯 Resumen Ejecutivo
 
-### Estado General: ⚠️ CRÍTICO - SERVIDOR DETENIDO
+### Estado General: ✅ OPERACIONAL - TODOS LOS SISTEMAS ACTIVOS
 - **Aplicación:** Código limpio y actualizado ✅
 - **Base de datos:** Operacional (42KB, 20 usuarios) ✅
-- **Servidor Node.js:** ❌ DETENIDO - Puerto 3000 libre
+- **Servidor Node.js:** ✅ ACTIVO - PM2 (PID: 31015, 75MB RAM)
 - **Nginx:** ✅ ACTIVO - Configurado correctamente
 - **Sistema:** ✅ SALUDABLE (3% disco, 8% RAM)
+- **Process Manager:** ✅ PM2 configurado y guardado
 
-### Acciones Inmediatas Requeridas
-1. 🔴 **CRÍTICO:** Iniciar servidor Node.js (`npm run dev`)
-2. 🟡 Verificar funcionamiento completo
-3. 🟢 Actualizar documentación de despliegue
+### Últimas Acciones Completadas (2025-11-23)
+1. ✅ Corregidos imports en app.js (usuarios.routes.js, etc)
+2. ✅ Corregidos archivos con caracteres `\n` literales
+3. ✅ Servidor iniciado con PM2 como "edificio-admin"
+4. ✅ PM2 configurado para auto-restart
 
 ---
 
@@ -25,17 +27,24 @@
 
 ### Servidor de Aplicación
 ```yaml
-Status: DETENIDO ❌
+Status: ACTIVO ✅
 Puerto: 3000
-PID File: g1 (obsoleto)
-Proceso Node: No encontrado
-Última ejecución: Desconocida
+Process Manager: PM2
+Nombre: edificio-admin
+PID: 31015
+Memoria: 75.6MB
+Uptime: Desde 2025-11-23 05:39:59
+Restart: 0 (estable)
+Auto-restart: Habilitado ✅
 ```
 
-**Acción requerida:**
+**Comandos PM2:**
 ```bash
-cd /home/admin
-npm run dev
+pm2 status                    # Ver estado
+pm2 logs edificio-admin       # Ver logs en tiempo real
+pm2 restart edificio-admin    # Reiniciar
+pm2 stop edificio-admin       # Detener
+pm2 monit                     # Monitor en tiempo real
 ```
 
 ### Servidor Web (Nginx)
@@ -45,7 +54,7 @@ Puerto: 80
 Workers: 2 procesos
 Config: /etc/nginx/sites-enabled/edificio-admin
 Proxy: localhost:3000
-DNS: ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+DNS: ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 ```
 
 **Configuración verificada:**
@@ -255,50 +264,56 @@ npm run test:cierre: Cierre anual ✅
 ## 📋 Checklist de Despliegue
 
 ### Pre-Despliegue
-- [x] Código limpio y sin duplicados
-- [x] Dependencias instaladas
-- [x] Variables de entorno configuradas
+- [x] Código limpio y sin duplicados ✅
+- [x] Dependencias instaladas ✅
+- [x] Variables de entorno configuradas ✅
 - [ ] NODE_ENV en production ⚠️
 - [ ] Tests ejecutados y pasando
-- [x] Nginx configurado
-- [x] Base de datos respaldada
+- [x] Nginx configurado ✅
+- [x] Base de datos respaldada ✅
 
 ### Despliegue
-- [ ] Servidor Node.js corriendo ❌ CRÍTICO
-- [x] Nginx activo y proxying
-- [ ] Puerto 3000 respondiendo
-- [ ] Health check pasando
-- [ ] Logs sin errores
+- [x] Servidor Node.js corriendo ✅ PM2
+- [x] Nginx activo y proxying ✅
+- [x] Puerto 3000 respondiendo ✅
+- [x] PM2 configurado y guardado ✅
+- [x] Logs funcionando ✅
+- [x] Auto-restart habilitado ✅
 
-### Post-Despliegue
-- [ ] Verificar login admin
+### Post-Despliegue (Pendiente)
+- [ ] Verificar login admin desde navegador
 - [ ] Verificar panel inquilino
 - [ ] Verificar API endpoints
 - [ ] Verificar upload de archivos
+- [ ] Ejecutar suite de tests
 - [ ] Monitorear logs por 24h
 
 ---
 
-## 🔧 Tareas Pendientes Críticas
+## 🔧 Tareas Pendientes
 
-### Inmediatas (Hoy)
-1. 🔴 **Iniciar servidor Node.js**
-   ```bash
-   cd /home/admin
-   npm run dev
-   # O con nohup para background:
-   nohup npm run dev > server.log 2>&1 &
-   ```
+### Completadas Hoy ✅
+1. ✅ **Servidor Node.js iniciado con PM2**
+   - Proceso: edificio-admin (PID: 31015)
+   - Auto-restart habilitado
+   - Logs funcionando correctamente
 
-2. 🔴 **Verificar funcionamiento**
-   ```bash
-   # Test health endpoint (requiere servidor activo)
-   node -e "fetch('http://localhost:3000/api/health').then(r=>r.json()).then(console.log)"
-   ```
+2. ✅ **Corregidos errores de código**
+   - Imports corregidos en app.js
+   - Archivos con \n literales corregidos
+   - Paths de error-handler actualizados
 
-3. 🟡 **Cambiar NODE_ENV a production**
+### Pendientes (Corto Plazo)
+1. 🟡 **Cambiar NODE_ENV a production**
    ```bash
    echo "NODE_ENV=production" >> .env
+   pm2 restart edificio-admin
+   ```
+
+2. 🟡 **Configurar PM2 startup**
+   ```bash
+   pm2 startup
+   # Ejecutar el comando que PM2 sugiera
    ```
 
 ### Corto Plazo (Esta Semana)
@@ -329,7 +344,7 @@ Inquilinos: [email]@edificio205.com / inquilino2026
 
 ### Endpoints Clave
 ```yaml
-Frontend: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+Frontend: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 API Base: http://localhost:3000/api
 Admin Panel: /admin.html
 Inquilino Panel: /inquilino.html
@@ -393,7 +408,7 @@ Security headers: Implementados ✅
 
 ---
 
-**Última verificación:** 2025-11-23 04:48 UTC  
+**Última verificación:** 2025-11-23 05:40 UTC  
 **Próxima revisión recomendada:** 2025-11-24  
 **Responsable:** DevOps Team  
-**Estado:** ⚠️ REQUIERE ACCIÓN INMEDIATA (reinicio servidor)
+**Estado:** ✅ OPERACIONAL - Servidor activo con PM2

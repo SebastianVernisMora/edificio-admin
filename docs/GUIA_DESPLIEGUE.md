@@ -2,32 +2,32 @@
 
 **Versión:** 2.0  
 **Última actualización:** 2025-11-23  
-**Servidor:** EC2 AWS (ec2-18-217-61-85.us-east-2.compute.amazonaws.com)
+**Servidor:** EC2 AWS (ec2-18-223-32-141.us-east-2.compute.amazonaws.com)
 
 ---
 
-## 🎯 Checklist Rápido de Despliegue
+## 🎯 Checklist Rápido de Despliegue (Con PM2)
 
 ```bash
-# 1. Verificar estado del servidor
-ps aux | grep "node.*app"
+# 1. Verificar estado actual
+pm2 status
 cat /etc/nginx/sites-enabled/edificio-admin
 
-# 2. Detener servidor actual (si existe)
-pkill -f "node.*app"
-
-# 3. Actualizar código
+# 2. Actualizar código
 cd /home/admin
 git pull origin master
 
-# 4. Instalar dependencias
+# 3. Instalar dependencias (si hay cambios)
 npm install
 
-# 5. Iniciar servidor
-nohup npm run dev > server.log 2>&1 &
+# 4. Reiniciar servidor
+pm2 restart edificio-admin
 
-# 6. Verificar
-tail -f server.log
+# 5. Verificar
+pm2 logs edificio-admin --lines 50
+
+# 6. Guardar configuración
+pm2 save
 ```
 
 ---
@@ -61,12 +61,12 @@ CPU: 1 core (actual: 2 cores) ✅
 
 ## 🚀 Métodos de Despliegue
 
-### Método 1: Despliegue Manual (Recomendado para desarrollo)
+### Método 1: Despliegue Manual con PM2 (Recomendado)
 
 #### Paso a Paso
 ```bash
 # 1. Conectarse al servidor
-ssh admin@ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+ssh admin@ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 
 # 2. Navegar al directorio
 cd /home/admin
@@ -77,36 +77,48 @@ git pull origin master
 # 4. Instalar dependencias (si hubo cambios)
 npm install
 
-# 5. Detener servidor anterior
-pkill -f "node.*app" || echo "No hay servidor corriendo"
+# 5. Reiniciar servidor con PM2
+pm2 restart edificio-admin
 
-# 6. Iniciar servidor en background
-nohup npm run dev > server.log 2>&1 &
+# 6. Verificar logs
+pm2 logs edificio-admin --lines 30 --nostream
 
-# 7. Guardar PID
-echo $! > app.pid
+# 7. Verificar estado
+pm2 status
 
-# 8. Verificar inicio
-tail -20 server.log
+# 8. Guardar configuración (importante)
+pm2 save
+```
 
-# 9. Test de funcionamiento
-sleep 5
-node -e "fetch('http://localhost:3000/api/health').then(r=>r.json()).then(console.log).catch(e=>console.error('Error:',e.message))"
+#### Primera Vez (Si PM2 no está configurado)
+```bash
+# Iniciar con PM2
+pm2 start src/app.js --name edificio-admin
+
+# Guardar configuración
+pm2 save
+
+# Configurar inicio automático (opcional)
+pm2 startup
+# Ejecutar el comando que PM2 sugiera
 ```
 
 #### Verificación
 ```bash
-# Ver proceso Node
-ps aux | grep "node.*app" | grep -v grep
+# Ver estado
+pm2 status
 
 # Ver logs en tiempo real
-tail -f server.log
+pm2 logs edificio-admin
 
-# Test desde el servidor
-node -e "fetch('http://localhost:3000').then(r=>r.text()).then(console.log)"
+# Monitoreo
+pm2 monit
+
+# Info detallada
+pm2 info edificio-admin
 
 # Test externo (desde navegador)
-# http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+# http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 ```
 
 ---
@@ -122,7 +134,7 @@ Estado: Configurado ✅
 
 #### Secrets Requeridos (GitHub Repository Settings)
 ```bash
-HOST: ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+HOST: ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 USERNAME: admin
 PRIVATE_KEY: [SSH private key del servidor]
 ```
@@ -235,7 +247,7 @@ echo "📊 Ver logs: tail -f server.log"
 ```nginx
 server {
     listen 80;
-    server_name ec2-18-217-61-85.us-east-2.compute.amazonaws.com;
+    server_name ec2-18-223-32-141.us-east-2.compute.amazonaws.com;
 
     location / {
         proxy_pass http://localhost:3000;
@@ -317,7 +329,7 @@ node -e "fetch('http://localhost:3000/api/health').then(r=>r.json()).then(consol
 node tests/scripts/test-login.js
 
 # 3. Verificar frontend
-# Abrir en navegador: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+# Abrir en navegador: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 ```
 
 ### Checklist de Verificación Manual
@@ -581,7 +593,7 @@ GitHub: https://github.com/SebastianVernisMora/edificio-admin
 
 ### Servidor
 ```
-Host: ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+Host: ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 Usuario: admin
 Puerto SSH: 22
 ```

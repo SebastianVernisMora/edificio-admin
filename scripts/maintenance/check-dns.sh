@@ -3,7 +3,7 @@
 # Script para verificar y mantener la persistencia DNS
 # Este script debe ejecutarse periódicamente mediante cron
 
-DNS_HOST="ec2-18-217-61-85.us-east-2.compute.amazonaws.com"
+DNS_HOST="ec2-18-223-32-141.us-east-2.compute.amazonaws.com"
 APP_PORT=3001
 LOG_FILE="/home/admin/edificio-admin/dns-check.log"
 

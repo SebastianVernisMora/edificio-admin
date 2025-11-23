@@ -1,0 +1,25 @@
+Servidor corriendo en puerto 3000
+DNS configurado: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+🚀 Iniciando sistema...
+🔧 Inicializando sistema de cuotas...
+📅 Generando cuotas restantes para 2025...
+ℹ️  Ya existen cuotas para Noviembre 2025
+ℹ️  Ya existen cuotas para Diciembre 2025
+📅 Generando cuotas para 2026...
+ℹ️  Ya existen cuotas para Enero 2026
+ℹ️  Ya existen cuotas para Febrero 2026
+ℹ️  Ya existen cuotas para Marzo 2026
+ℹ️  Ya existen cuotas para Abril 2026
+ℹ️  Ya existen cuotas para Mayo 2026
+ℹ️  Ya existen cuotas para Junio 2026
+ℹ️  Ya existen cuotas para Julio 2026
+ℹ️  Ya existen cuotas para Agosto 2026
+ℹ️  Ya existen cuotas para Septiembre 2026
+ℹ️  Ya existen cuotas para Octubre 2026
+ℹ️  Ya existen cuotas para Noviembre 2026
+ℹ️  Ya existen cuotas para Diciembre 2026
+🎉 Sistema de cuotas inicializado. Total: 0 cuotas generadas
+✅ Sistema inicializado correctamente
+✅ Backup creado: data-backup-2025-11-23T05-37-26-377Z-startup.json
+📊 Tamaño: 41.05 KB
+Respaldos automáticos configurados cada 60 minutos

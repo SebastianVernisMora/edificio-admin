@@ -104,7 +104,7 @@ Script de prueba creado: `scripts/testing/test-login.js`
 
 ## 🌐 Acceso al Sistema
 
-**URL Externa:** http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+**URL Externa:** http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 
 ### **Pasos para Acceder:**
 1. Ir a la URL del sistema

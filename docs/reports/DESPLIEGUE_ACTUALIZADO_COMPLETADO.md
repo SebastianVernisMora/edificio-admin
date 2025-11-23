@@ -53,7 +53,7 @@ INQUILINO  | roberto.silva@edificio205.com       | Inquilino2025!
 ## 🌐 Acceso al Sistema
 
 ### **URLs Disponibles:**
-- **Externa:** http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+- **Externa:** http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 - **Interna:** http://localhost:3000
 
 ### **Experiencia de Usuario:**
@@ -111,7 +111,7 @@ El sistema está **completamente desplegado** y **funcionando** con todas las ac
 ### 🚀 **Listo para demostración y uso**
 
 **Para probar:**
-1. Ir a http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+1. Ir a http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 2. Hacer clic en "Ver Credenciales de Demo"  
 3. Usar cualquiera de las credenciales mostradas
 4. Explorar el sistema según el rol seleccionado

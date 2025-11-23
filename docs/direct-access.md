@@ -2,7 +2,7 @@
 
 Debido a restricciones en la configuración del servidor, la aplicación está disponible directamente en el puerto 3001:
 
-http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com:3001/
+http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com:3001/
 
 ## Credenciales de Acceso
 

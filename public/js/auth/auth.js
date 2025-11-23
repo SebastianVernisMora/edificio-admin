@@ -1,10 +1,9 @@
-// Auth Module
+// Auth Module - Versión Simplificada
 const Auth = (() => {
   // Constants
   const API_URL = '/api/auth';
   const TOKEN_KEY = 'edificio_token';
   const USER_KEY = 'edificio_user';
-  const TOKEN_TIMESTAMP = 'edificio_token_timestamp';
   
   // Check if user is logged in
   const isLoggedIn = () => {
@@ -37,7 +36,6 @@ const Auth = (() => {
       // Save token and user data
       localStorage.setItem(TOKEN_KEY, data.token);
       localStorage.setItem(USER_KEY, JSON.stringify(data.usuario));
-      localStorage.setItem(TOKEN_TIMESTAMP, Date.now().toString());
       
       return data.usuario;
     } catch (error) {
@@ -50,104 +48,46 @@ const Auth = (() => {
   const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
-    localStorage.removeItem(TOKEN_TIMESTAMP);
     window.location.href = '/';
   };
   
-  // Renew token
-  const renewToken = async () => {
-    try {
-      const token = localStorage.getItem(TOKEN_KEY);
-      
-      if (!token) {
-        throw new Error('No hay token');
-      }
-      
-      // Check if token was renewed recently (within the last minute)
-      const timestamp = localStorage.getItem(TOKEN_TIMESTAMP);
-      if (timestamp && Date.now() - parseInt(timestamp) < 60000) {
-        // Token was renewed recently, skip renewal
-        return getCurrentUser();
-      }
-      
-      const response = await fetch(`${API_URL}/renew`, {
-        method: 'GET',
-        headers: {
-          'x-auth-token': token
-        }
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.msg || 'Error al renovar token');
-      }
-      
-      // Update token and user data
-      localStorage.setItem(TOKEN_KEY, data.token);
-      localStorage.setItem(USER_KEY, JSON.stringify(data.usuario));
-      localStorage.setItem(TOKEN_TIMESTAMP, Date.now().toString());
-      
-      return data.usuario;
-    } catch (error) {
-      console.error('Error al renovar token:', error);
-      logout();
-      throw error;
-    }
-  };
-  
-  // Check auth and redirect if needed
+  // Check auth - VERSIÓN ULTRA SIMPLE SIN LOOPS
   const checkAuth = () => {
     const currentPath = window.location.pathname;
     
+    // En página de login
     if (currentPath === '/' || currentPath === '/index.html') {
-      // Login page
       if (isLoggedIn()) {
         const user = getCurrentUser();
-        
-        if (user.rol === 'ADMIN' || user.rol === 'admin' || user.rol === 'superadmin') {
-          window.location.href = '/admin.html';
-        } else {
-          window.location.href = '/inquilino.html';
+        if (user && user.rol) {
+          // Solo redirigir si tenemos usuario válido
+          if (user.rol === 'ADMIN' || user.rol === 'COMITE') {
+            window.location.replace('/admin.html');
+          } else {
+            window.location.replace('/inquilino.html');
+          }
         }
       }
-    } else {
-      // Protected pages
+      return; // Terminar aquí
+    }
+    
+    // En páginas protegidas
+    if (currentPath === '/admin.html' || currentPath === '/inquilino.html') {
       if (!isLoggedIn()) {
-        window.location.href = '/';
-        return;
+        // No hay token, ir al login
+        window.location.replace('/');
       }
-      
-      // Check if this is the first load of the page
-      if (!window.authChecked) {
-        window.authChecked = true;
-        
-        // Renew token and check if user is on the correct page
-        renewToken()
-          .then(user => {
-            // Check if user is on the correct page
-            if (currentPath === '/admin.html' && user.rol !== 'ADMIN' && user.rol !== 'admin' && user.rol !== 'superadmin') {
-              window.location.href = '/inquilino.html';
-            } else if (currentPath === '/inquilino.html' && (user.rol === 'ADMIN' || user.rol === 'admin' || user.rol === 'superadmin')) {
-              window.location.href = '/admin.html';
-            }
-          })
-          .catch(error => {
-            console.error('Error al verificar autenticación:', error);
-            window.location.href = '/';
-          });
-      }
+      // SI hay token, NO hacer nada más (evitar loops)
     }
   };
   
   // Initialize auth
   const init = () => {
-    // Check authentication on page load
+    // Solo ejecutar checkAuth UNA VEZ al cargar
     checkAuth();
     
-    // Setup login form if on login page
+    // Setup login form si existe
     const loginForm = document.getElementById('login-form');
-    
     if (loginForm) {
       loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -158,7 +98,8 @@ const Auth = (() => {
         try {
           const user = await login(email, password);
           
-          if (user.rol === 'ADMIN') {
+          // Redirigir según rol
+          if (user.rol === 'ADMIN' || user.rol === 'COMITE') {
             window.location.href = '/admin.html';
           } else {
             window.location.href = '/inquilino.html';
@@ -169,9 +110,8 @@ const Auth = (() => {
       });
     }
     
-    // Setup logout button if on protected page
+    // Setup logout button si existe
     const logoutBtn = document.getElementById('logout-btn');
-    
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
         logout();
@@ -182,159 +122,16 @@ const Auth = (() => {
   // Public API
   return {
     init,
-    isLoggedIn,
-    getCurrentUser,
     login,
     logout,
-    renewToken,
-    getToken: () => localStorage.getItem(TOKEN_KEY)
+    isLoggedIn,
+    getCurrentUser
   };
 })();
 
-// Credentials Modal Handler
-const CredentialsModal = (() => {
-  const init = () => {
-    const modal = document.getElementById('credentials-modal');
-    const btn = document.getElementById('show-credentials-btn');
-    const closeBtn = modal?.querySelector('.close');
-    
-    if (!modal || !btn) return;
-    
-    // Open modal
-    btn.addEventListener('click', () => {
-      modal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    });
-    
-    // Close modal
-    const closeModal = () => {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    };
-    
-    closeBtn?.addEventListener('click', closeModal);
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
-        closeModal();
-      }
-    });
-  };
-  
-  return { init };
-})();
-
-// Mobile Menu Module
-const MobileMenu = (() => {
-  let isOpen = false;
-  
-  const init = () => {
-    createMobileElements();
-    setupEventListeners();
-  };
-  
-  const createMobileElements = () => {
-    // Create mobile menu toggle button
-    const toggleBtn = document.createElement('button');
-    toggleBtn.className = 'mobile-menu-toggle';
-    toggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
-    toggleBtn.setAttribute('aria-label', 'Abrir menú');
-    document.body.appendChild(toggleBtn);
-    
-    // Create mobile overlay
-    const overlay = document.createElement('div');
-    overlay.className = 'mobile-overlay';
-    document.body.appendChild(overlay);
-  };
-  
-  const setupEventListeners = () => {
-    const toggleBtn = document.querySelector('.mobile-menu-toggle');
-    const overlay = document.querySelector('.mobile-overlay');
-    const sidebar = document.querySelector('.sidebar');
-    
-    if (!toggleBtn || !overlay || !sidebar) return;
-    
-    // Toggle menu
-    toggleBtn.addEventListener('click', toggleMenu);
-    
-    // Close menu when clicking overlay
-    overlay.addEventListener('click', closeMenu);
-    
-    // Close menu when clicking sidebar links
-    const sidebarLinks = sidebar.querySelectorAll('a');
-    sidebarLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          closeMenu();
-        }
-      });
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && isOpen) {
-        closeMenu();
-      }
-    });
-    
-    // Handle escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        closeMenu();
-      }
-    });
-  };
-  
-  const toggleMenu = () => {
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  };
-  
-  const openMenu = () => {
-    const sidebar = document.querySelector('.sidebar');
-    const overlay = document.querySelector('.mobile-overlay');
-    const toggleBtn = document.querySelector('.mobile-menu-toggle');
-    
-    sidebar?.classList.add('mobile-open');
-    overlay?.classList.add('active');
-    toggleBtn?.setAttribute('aria-label', 'Cerrar menú');
-    toggleBtn?.querySelector('i')?.classList.replace('fa-bars', 'fa-times');
-    
-    document.body.style.overflow = 'hidden';
-    isOpen = true;
-  };
-  
-  const closeMenu = () => {
-    const sidebar = document.querySelector('.sidebar');
-    const overlay = document.querySelector('.mobile-overlay');
-    const toggleBtn = document.querySelector('.mobile-menu-toggle');
-    
-    sidebar?.classList.remove('mobile-open');
-    overlay?.classList.remove('active');
-    toggleBtn?.setAttribute('aria-label', 'Abrir menú');
-    toggleBtn?.querySelector('i')?.classList.replace('fa-times', 'fa-bars');
-    
-    document.body.style.overflow = 'auto';
-    isOpen = false;
-  };
-  
-  return { init };
-})();
-
-// Initialize modules
-document.addEventListener('DOMContentLoaded', () => {
+// Auto-initialize cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', Auth.init);
+} else {
   Auth.init();
-  CredentialsModal.init();
-  MobileMenu.init();
-});
+}

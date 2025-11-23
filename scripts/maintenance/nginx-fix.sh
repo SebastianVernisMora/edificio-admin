@@ -13,7 +13,7 @@ EOF
 sudo tee /etc/nginx/sites-available/edificio-admin > /dev/null << EOF
 server {
     listen 80;
-    server_name ec2-18-217-61-85.us-east-2.compute.amazonaws.com;
+    server_name ec2-18-223-32-141.us-east-2.compute.amazonaws.com;
 
     location / {
         proxy_pass http://localhost:3001;

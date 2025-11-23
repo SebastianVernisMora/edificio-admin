@@ -13,7 +13,7 @@ cat > /home/admin/edificio-admin/direct-access.md << EOF
 
 Debido a restricciones en la configuración del servidor, la aplicación está disponible directamente en el puerto 3001:
 
-http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com:3001/
+http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com:3001/
 
 ## Credenciales de Acceso
 
@@ -31,4 +31,4 @@ Los respaldos se realizan automáticamente cada hora y se almacenan en el direct
 EOF
 
 echo "Configuración completada. La aplicación está disponible en:"
-echo "http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com:3001/"
+echo "http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com:3001/"

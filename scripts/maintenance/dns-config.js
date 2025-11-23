@@ -11,7 +11,7 @@ const { exec } = require('child_process');
 
 // Configuración del DNS
 const dnsConfig = {
-  domain: 'ec2-18-217-61-85.us-east-2.compute.amazonaws.com',
+  domain: 'ec2-18-223-32-141.us-east-2.compute.amazonaws.com',
   port: process.env.PORT || 3001,
   publicPath: path.join(__dirname, 'public'),
   dataPath: path.join(__dirname, 'data.json'),

@@ -519,16 +519,25 @@ function mostrarEstadoFondoMayor(data) {
 
 function verSolicitud(id) {
     const solicitud = misSolicitudes.find(s => s.id === id);
-    let mensaje = `Solicitud: ${solicitud.titulo}\n`;
-    mensaje += `Tipo: ${solicitud.tipo}\n`;
-    mensaje += `Prioridad: ${solicitud.prioridad}\n`;
-    mensaje += `Estado: ${solicitud.estado}\n`;
-    mensaje += `Fecha: ${formatDate(solicitud.created_at)}\n`;
-    mensaje += `Descripción: ${solicitud.descripcion}\n`;
+    let mensaje = `Solicitud: ${solicitud.titulo}
+`;
+    mensaje += `Tipo: ${solicitud.tipo}
+`;
+    mensaje += `Prioridad: ${solicitud.prioridad}
+`;
+    mensaje += `Estado: ${solicitud.estado}
+`;
+    mensaje += `Fecha: ${formatDate(solicitud.created_at)}
+`;
+    mensaje += `Descripción: ${solicitud.descripcion}
+`;
     
     if (solicitud.respuesta) {
-        mensaje += `\nRespuesta del administrador:\n${solicitud.respuesta}`;
-        mensaje += `\nFecha de respuesta: ${formatDateTime(solicitud.fecha_respuesta)}`;
+        mensaje += `
+Respuesta del administrador:
+${solicitud.respuesta}`;
+        mensaje += `
+Fecha de respuesta: ${formatDateTime(solicitud.fecha_respuesta)}`;
     }
     
     alert(mensaje);
@@ -536,13 +545,18 @@ function verSolicitud(id) {
 
 function verPresupuestoDetalle(id) {
     const presupuesto = presupuestos.find(p => p.id === id);
-    let mensaje = `Presupuesto: ${presupuesto.titulo}\n`;
-    mensaje += `Monto Total: ${formatCurrency(presupuesto.monto_total)}\n`;
-    mensaje += `Estado: ${presupuesto.estado}\n`;
-    mensaje += `Descripción: ${presupuesto.descripcion || 'No disponible'}\n`;
+    let mensaje = `Presupuesto: ${presupuesto.titulo}
+`;
+    mensaje += `Monto Total: ${formatCurrency(presupuesto.monto_total)}
+`;
+    mensaje += `Estado: ${presupuesto.estado}
+`;
+    mensaje += `Descripción: ${presupuesto.descripcion || 'No disponible'}
+`;
     
     if (presupuesto.fecha_inicio) {
-        mensaje += `Fecha inicio: ${formatDate(presupuesto.fecha_inicio)}\n`;
+        mensaje += `Fecha inicio: ${formatDate(presupuesto.fecha_inicio)}
+`;
     }
     if (presupuesto.fecha_fin) {
         mensaje += `Fecha fin: ${formatDate(presupuesto.fecha_fin)}`;

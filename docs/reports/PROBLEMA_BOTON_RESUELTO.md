@@ -83,7 +83,7 @@ pm2 restart edificio-admin
 
 ## 🌐 URLs de Prueba
 
-**Acceso externo:** http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com
+**Acceso externo:** http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
 
 **Pasos para probar:**
 1. Abrir la URL en el navegador

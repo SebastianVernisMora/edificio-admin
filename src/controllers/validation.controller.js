@@ -1,1 +1,120 @@
-import { handleControllerError } from '../utils/errorHandler.js';\nimport {\n  validateDataStructure,\n  cleanInconsistentData,\n  migrateDataFormat,\n  createDataBackup,\n  generateDataHealthReport\n} from '../utils/dataValidation.js';\n\n// GET /api/validation/health - Obtener reporte de salud de datos\nexport const obtenerReporteSalud = async (req, res) => {\n  try {\n    const report = generateDataHealthReport();\n        \n    res.json({\n      ok: true,\n      report\n    });\n  } catch (error) {\n    return handleControllerError(error, res, 'obtenerReporteSalud');\n  }\n};\n\n// GET /api/validation/validate - Validar estructura de datos\nexport const validarEstructura = async (req, res) => {\n  try {\n    const validation = validateDataStructure();\n        \n    res.json({\n      ok: true,\n      validation\n    });\n  } catch (error) {\n    return handleControllerError(error, res, 'validarEstructura');\n  }\n};\n\n// POST /api/validation/clean - Limpiar datos inconsistentes\nexport const limpiarDatos = async (req, res) => {\n  try {\n    // Crear backup antes de limpiar\n    const backup = await createDataBackup('before-clean');\n        \n    if (!backup.success) {\n      return res.status(500).json({\n        ok: false,\n        msg: 'Error al crear backup antes de limpiar datos',\n        error: backup.error\n      });\n    }\n        \n    const cleanResult = cleanInconsistentData();\n        \n    res.json({\n      ok: true,\n      msg: cleanResult.changesMade ? 'Datos limpiados exitosamente' : 'No se encontraron inconsistencias',\n      backup: backup.filename,\n      changes: cleanResult.changes,\n      totalChanges: cleanResult.totalChanges\n    });\n  } catch (error) {\n    return handleControllerError(error, res, 'limpiarDatos');\n  }\n};\n\n// POST /api/validation/migrate - Migrar datos al nuevo formato\nexport const migrarDatos = async (req, res) => {\n  try {\n    // Crear backup antes de migrar\n    const backup = await createDataBackup('before-migrate');\n        \n    if (!backup.success) {\n      return res.status(500).json({\n        ok: false,\n        msg: 'Error al crear backup antes de migrar datos',\n        error: backup.error\n      });\n    }\n        \n    const migrateResult = migrateDataFormat();\n        \n    res.json({\n      ok: true,\n      msg: migrateResult.migrationsMade ? 'Migraciones aplicadas exitosamente' : 'No se requieren migraciones',\n      backup: backup.filename,\n      migrations: migrateResult.migrations,\n      totalMigrations: migrateResult.totalMigrations\n    });\n  } catch (error) {\n    return handleControllerError(error, res, 'migrarDatos');\n  }\n};\n\n// POST /api/validation/backup - Crear backup manual\nexport const crearBackup = async (req, res) => {\n  try {\n    const { reason = 'manual' } = req.body;\n    const backup = await createDataBackup(reason);\n        \n    if (backup.success) {\n      res.json({\n        ok: true,\n        msg: 'Backup creado exitosamente',\n        backup: {\n          filename: backup.filename,\n          path: backup.backupPath,\n          size: backup.size\n        }\n      });\n    } else {\n      res.status(500).json({\n        ok: false,\n        msg: 'Error al crear backup',\n        error: backup.error\n      });\n    }\n  } catch (error) {\n    return handleControllerError(error, res, 'crearBackup');\n  }\n};\n
+import { handleControllerError } from '../middleware/error-handler.js';
+import {
+  validateDataStructure,
+  cleanInconsistentData,
+  migrateDataFormat,
+  createDataBackup,
+  generateDataHealthReport
+} from '../utils/dataValidation.js';
+
+// GET /api/validation/health - Obtener reporte de salud de datos
+export const obtenerReporteSalud = async (req, res) => {
+  try {
+    const report = generateDataHealthReport();
+        
+    res.json({
+      ok: true,
+      report
+    });
+  } catch (error) {
+    return handleControllerError(error, res, 'obtenerReporteSalud');
+  }
+};
+
+// GET /api/validation/validate - Validar estructura de datos
+export const validarEstructura = async (req, res) => {
+  try {
+    const validation = validateDataStructure();
+        
+    res.json({
+      ok: true,
+      validation
+    });
+  } catch (error) {
+    return handleControllerError(error, res, 'validarEstructura');
+  }
+};
+
+// POST /api/validation/clean - Limpiar datos inconsistentes
+export const limpiarDatos = async (req, res) => {
+  try {
+    // Crear backup antes de limpiar
+    const backup = await createDataBackup('before-clean');
+        
+    if (!backup.success) {
+      return res.status(500).json({
+        ok: false,
+        msg: 'Error al crear backup antes de limpiar datos',
+        error: backup.error
+      });
+    }
+        
+    const cleanResult = cleanInconsistentData();
+        
+    res.json({
+      ok: true,
+      msg: cleanResult.changesMade ? 'Datos limpiados exitosamente' : 'No se encontraron inconsistencias',
+      backup: backup.filename,
+      changes: cleanResult.changes,
+      totalChanges: cleanResult.totalChanges
+    });
+  } catch (error) {
+    return handleControllerError(error, res, 'limpiarDatos');
+  }
+};
+
+// POST /api/validation/migrate - Migrar datos al nuevo formato
+export const migrarDatos = async (req, res) => {
+  try {
+    // Crear backup antes de migrar
+    const backup = await createDataBackup('before-migrate');
+        
+    if (!backup.success) {
+      return res.status(500).json({
+        ok: false,
+        msg: 'Error al crear backup antes de migrar datos',
+        error: backup.error
+      });
+    }
+        
+    const migrateResult = migrateDataFormat();
+        
+    res.json({
+      ok: true,
+      msg: migrateResult.migrationsMade ? 'Migraciones aplicadas exitosamente' : 'No se requieren migraciones',
+      backup: backup.filename,
+      migrations: migrateResult.migrations,
+      totalMigrations: migrateResult.totalMigrations
+    });
+  } catch (error) {
+    return handleControllerError(error, res, 'migrarDatos');
+  }
+};
+
+// POST /api/validation/backup - Crear backup manual
+export const crearBackup = async (req, res) => {
+  try {
+    const { reason = 'manual' } = req.body;
+    const backup = await createDataBackup(reason);
+        
+    if (backup.success) {
+      res.json({
+        ok: true,
+        msg: 'Backup creado exitosamente',
+        backup: {
+          filename: backup.filename,
+          path: backup.backupPath,
+          size: backup.size
+        }
+      });
+    } else {
+      res.status(500).json({
+        ok: false,
+        msg: 'Error al crear backup',
+        error: backup.error
+      });
+    }
+  } catch (error) {
+    return handleControllerError(error, res, 'crearBackup');
+  }
+};

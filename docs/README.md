@@ -13,6 +13,8 @@
 
 ### Para DevOps / Deployment
 - **[GUIA_DESPLIEGUE.md](GUIA_DESPLIEGUE.md)** ⭐ - Procedimientos completos de despliegue
+- **[PM2_COMANDOS.md](PM2_COMANDOS.md)** ⭐ - Guía completa de comandos PM2
+- **[CAMBIO_DNS.md](CAMBIO_DNS.md)** - Actualización de DNS (2025-11-23)
 - Scripts de deployment en `../scripts/deployment/`
 
 ### Para Desarrolladores
@@ -77,7 +79,7 @@ docs/
 
 ## 🚀 Enlaces Rápidos
 
-- **Sistema en vivo:** [ec2-18-217-61-85.us-east-2.compute.amazonaws.com](http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com/)
+- **Sistema en vivo:** [ec2-18-223-32-141.us-east-2.compute.amazonaws.com](http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com/)
 - **Repositorio:** [github.com/SebastianVernisMora/edificio-admin](https://github.com/SebastianVernisMora/edificio-admin)
 - **README Principal:** [../README.md](../README.md)
 

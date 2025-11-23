@@ -3,7 +3,7 @@
 # Script para realizar pruebas funcionales del sistema
 # Este script verifica que todos los componentes estén funcionando correctamente
 
-DNS_HOST="ec2-18-217-61-85.us-east-2.compute.amazonaws.com"
+DNS_HOST="ec2-18-223-32-141.us-east-2.compute.amazonaws.com"
 APP_PORT=3001
 LOCAL_URL="http://localhost:$APP_PORT"
 REMOTE_URL="http://$DNS_HOST"

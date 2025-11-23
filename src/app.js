@@ -4,16 +4,16 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
-import usuariosRoutes from './routes/usuarios.js';
-import cuotasRoutes from './routes/cuotas.js';
-import gastosRoutes from './routes/gastos.js';
-import presupuestosRoutes from './routes/presupuestos.js';
+import usuariosRoutes from './routes/usuarios.routes.js';
+import cuotasRoutes from './routes/cuotas.routes.js';
+import gastosRoutes from './routes/gastos.routes.js';
+import presupuestosRoutes from './routes/presupuestos.routes.js';
 import cierresRoutes from './routes/cierres.routes.js';
 import anunciosRoutes from './routes/anuncios.routes.js';
 import fondosRoutes from './routes/fondos.routes.js';
-import permisosRoutes from './routes/permisos.js';
+import permisosRoutes from './routes/permisos.routes.js';
 import validationRoutes from './routes/validation.routes.js';
-import auditRoutes from './routes/audit.js';
+import auditRoutes from './routes/audit.routes.js';
 import solicitudesRoutes from './routes/solicitudes.routes.js';
 import { inicializarCuotasAnuales, actualizarCuotasVencidas } from './utils/cuotasInicializacion.js';
 
@@ -117,7 +117,7 @@ async function programarRespaldos() {
 // Iniciar servidor
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
-  console.log('DNS configurado: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com');
+  console.log('DNS configurado: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com');
   
   // Inicializar sistema después de que el servidor esté corriendo
   await inicializarSistema();

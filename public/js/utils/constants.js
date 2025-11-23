@@ -2,9 +2,9 @@
 // Siguiendo estándares BLACKBOX.md
 
 // API Endpoints
-export const API_BASE_URL = '/api';
+const API_BASE_URL = '/api';
 
-export const API_ENDPOINTS = {
+const API_ENDPOINTS = {
     // Auth
     AUTH: {
         LOGIN: `${API_BASE_URL}/auth/login`,
@@ -48,27 +48,27 @@ export const API_ENDPOINTS = {
 };
 
 // Headers estándar
-export const HEADERS = {
+const HEADERS = {
     AUTH_TOKEN: 'x-auth-token', // ÚNICO header de auth permitido
     CONTENT_TYPE: 'application/json'
 };
 
 // Response format estándar
-export const RESPONSE_FORMAT = {
+const RESPONSE_FORMAT = {
     SUCCESS: 'ok',
     ERROR: 'ok',
     MESSAGE: 'msg'
 };
 
 // Roles de usuario
-export const USER_ROLES = {
+const USER_ROLES = {
     ADMIN: 'ADMIN',
     COMITE: 'COMITE',
     INQUILINO: 'INQUILINO'
 };
 
 // Estados de cuotas
-export const CUOTA_ESTADOS = {
+const CUOTA_ESTADOS = {
     PENDIENTE: 'PENDIENTE',
     PAGADA: 'PAGADA',
     VENCIDA: 'VENCIDA',
@@ -76,7 +76,7 @@ export const CUOTA_ESTADOS = {
 };
 
 // Categorías de gastos
-export const GASTO_CATEGORIAS = {
+const GASTO_CATEGORIAS = {
     MANTENIMIENTO: 'MANTENIMIENTO',
     SERVICIOS: 'SERVICIOS',
     ADMINISTRACION: 'ADMINISTRACION',
@@ -85,7 +85,7 @@ export const GASTO_CATEGORIAS = {
 };
 
 // Mensajes de error comunes
-export const ERROR_MESSAGES = {
+const ERROR_MESSAGES = {
     NETWORK_ERROR: 'Error de conexión. Verifique su conexión a internet.',
     UNAUTHORIZED: 'No tiene permisos para realizar esta acción.',
     TOKEN_EXPIRED: 'Su sesión ha expirado. Por favor, inicie sesión nuevamente.',
@@ -94,7 +94,7 @@ export const ERROR_MESSAGES = {
 };
 
 // Configuración de la aplicación
-export const APP_CONFIG = {
+const APP_CONFIG = {
     TOKEN_STORAGE_KEY: 'edificio-token',
     USER_STORAGE_KEY: 'edificio-user',
     THEME_STORAGE_KEY: 'edificio-theme',

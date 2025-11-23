@@ -1,0 +1,321 @@
+// Auth Module
+const Auth = (() => {
+  // Constants
+  const API_URL = '/api/auth';
+  const TOKEN_KEY = 'edificio_token';
+  const USER_KEY = 'edificio_user';
+  const TOKEN_TIMESTAMP = 'edificio_token_timestamp';
+  
+  // Check if user is logged in
+  const isLoggedIn = () => {
+    return !!localStorage.getItem(TOKEN_KEY);
+  };
+  
+  // Get current user
+  const getCurrentUser = () => {
+    const userStr = localStorage.getItem(USER_KEY);
+    return userStr ? JSON.parse(userStr) : null;
+  };
+  
+  // Login
+  const login = async (email, password) => {
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.msg || 'Error al iniciar sesión');
+      }
+      
+      // Save token and user data
+      localStorage.setItem(TOKEN_KEY, data.token);
+      localStorage.setItem(USER_KEY, JSON.stringify(data.usuario));
+      localStorage.setItem(TOKEN_TIMESTAMP, Date.now().toString());
+      
+      return data.usuario;
+    } catch (error) {
+      console.error('Error en login:', error);
+      throw error;
+    }
+  };
+  
+  // Logout
+  const logout = () => {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+    localStorage.removeItem(TOKEN_TIMESTAMP);
+    window.location.href = '/';
+  };
+  
+  // Renew token
+  const renewToken = async () => {
+    try {
+      const token = localStorage.getItem(TOKEN_KEY);
+      
+      if (!token) {
+        throw new Error('No hay token');
+      }
+      
+      // Check if token was renewed recently (within the last minute)
+      const timestamp = localStorage.getItem(TOKEN_TIMESTAMP);
+      if (timestamp && Date.now() - parseInt(timestamp) < 60000) {
+        // Token was renewed recently, skip renewal
+        return getCurrentUser();
+      }
+      
+      const response = await fetch(`${API_URL}/renew`, {
+        method: 'GET',
+        headers: {
+          'x-auth-token': token
+        }
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.msg || 'Error al renovar token');
+      }
+      
+      // Update token and user data
+      localStorage.setItem(TOKEN_KEY, data.token);
+      localStorage.setItem(USER_KEY, JSON.stringify(data.usuario));
+      localStorage.setItem(TOKEN_TIMESTAMP, Date.now().toString());
+      
+      return data.usuario;
+    } catch (error) {
+      console.error('Error al renovar token:', error);
+      logout();
+      throw error;
+    }
+  };
+  
+  // Check auth and redirect if needed
+  const checkAuth = () => {
+    const currentPath = window.location.pathname;
+    
+    // Solo verificar en la página de login
+    if (currentPath === '/' || currentPath === '/index.html') {
+      if (isLoggedIn()) {
+        const user = getCurrentUser();
+        if (user && user.rol) {
+          if (user.rol === 'ADMIN' || user.rol === 'COMITE') {
+            window.location.href = '/admin.html';
+          } else {
+            window.location.href = '/inquilino.html';
+          }
+        }
+      }
+    } else {
+      // En páginas protegidas, solo verificar que hay token
+      // NO hacer redirecciones automáticas para evitar loops
+      if (!isLoggedIn()) {
+        window.location.href = '/';
+      }
+    }
+  };
+  
+  // Initialize auth
+  const init = () => {
+    // Check authentication on page load
+    checkAuth();
+    
+    // Setup login form if on login page
+    const loginForm = document.getElementById('login-form');
+    
+    if (loginForm) {
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        
+        try {
+          const user = await login(email, password);
+          
+          if (user.rol === 'ADMIN') {
+            window.location.href = '/admin.html';
+          } else {
+            window.location.href = '/inquilino.html';
+          }
+        } catch (error) {
+          alert(error.message || 'Error al iniciar sesión');
+        }
+      });
+    }
+    
+    // Setup logout button if on protected page
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        logout();
+      });
+    }
+  };
+  
+  // Public API
+  return {
+    init,
+    isLoggedIn,
+    getCurrentUser,
+    login,
+    logout,
+    renewToken,
+    getToken: () => localStorage.getItem(TOKEN_KEY)
+  };
+})();
+
+// Credentials Modal Handler
+const CredentialsModal = (() => {
+  const init = () => {
+    const modal = document.getElementById('credentials-modal');
+    const btn = document.getElementById('show-credentials-btn');
+    const closeBtn = modal?.querySelector('.close');
+    
+    if (!modal || !btn) return;
+    
+    // Open modal
+    btn.addEventListener('click', () => {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close modal
+    const closeModal = () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    };
+    
+    closeBtn?.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+  };
+  
+  return { init };
+})();
+
+// Mobile Menu Module
+const MobileMenu = (() => {
+  let isOpen = false;
+  
+  const init = () => {
+    createMobileElements();
+    setupEventListeners();
+  };
+  
+  const createMobileElements = () => {
+    // Create mobile menu toggle button
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'mobile-menu-toggle';
+    toggleBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    toggleBtn.setAttribute('aria-label', 'Abrir menú');
+    document.body.appendChild(toggleBtn);
+    
+    // Create mobile overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-overlay';
+    document.body.appendChild(overlay);
+  };
+  
+  const setupEventListeners = () => {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const overlay = document.querySelector('.mobile-overlay');
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (!toggleBtn || !overlay || !sidebar) return;
+    
+    // Toggle menu
+    toggleBtn.addEventListener('click', toggleMenu);
+    
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', closeMenu);
+    
+    // Close menu when clicking sidebar links
+    const sidebarLinks = sidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          closeMenu();
+        }
+      });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && isOpen) {
+        closeMenu();
+      }
+    });
+    
+    // Handle escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closeMenu();
+      }
+    });
+  };
+  
+  const toggleMenu = () => {
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  };
+  
+  const openMenu = () => {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.mobile-overlay');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    
+    sidebar?.classList.add('mobile-open');
+    overlay?.classList.add('active');
+    toggleBtn?.setAttribute('aria-label', 'Cerrar menú');
+    toggleBtn?.querySelector('i')?.classList.replace('fa-bars', 'fa-times');
+    
+    document.body.style.overflow = 'hidden';
+    isOpen = true;
+  };
+  
+  const closeMenu = () => {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.mobile-overlay');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    
+    sidebar?.classList.remove('mobile-open');
+    overlay?.classList.remove('active');
+    toggleBtn?.setAttribute('aria-label', 'Abrir menú');
+    toggleBtn?.querySelector('i')?.classList.replace('fa-times', 'fa-bars');
+    
+    document.body.style.overflow = 'auto';
+    isOpen = false;
+  };
+  
+  return { init };
+})();
+
+// Initialize modules
+document.addEventListener('DOMContentLoaded', () => {
+  Auth.init();
+  CredentialsModal.init();
+  MobileMenu.init();
+});

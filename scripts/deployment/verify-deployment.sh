@@ -89,7 +89,7 @@ echo ""
 
 # 5. Resumen de URLs
 echo "🌐 URLs de acceso disponibles:"
-echo "   - Externa: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com"
+echo "   - Externa: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com"
 echo "   - Interna: http://localhost:3000"
 
 echo ""
@@ -113,7 +113,7 @@ echo ""
 echo "✅ DESPLIEGUE VERIFICADO Y COMPLETO"
 echo ""
 echo "💡 Para probar:"
-echo "   1. Ir a: http://ec2-18-217-61-85.us-east-2.compute.amazonaws.com"  
+echo "   1. Ir a: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com"  
 echo "   2. Hacer clic en 'Ver Credenciales de Demo'"
 echo "   3. Ver el popup con todas las credenciales"
 echo "   4. Usar cualquiera de las credenciales para acceder"
