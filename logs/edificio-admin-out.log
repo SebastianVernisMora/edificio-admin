@@ -1,0 +1,52 @@
+2025-11-23 02:22:04: Servidor corriendo en puerto 3000
+2025-11-23 02:22:04: DNS configurado: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
+2025-11-23 02:22:04: 🚀 Iniciando sistema...
+2025-11-23 02:22:04: 🔧 Inicializando sistema de cuotas...
+2025-11-23 02:22:04: 📅 Generando cuotas restantes para 2025...
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Noviembre 2025
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Diciembre 2025
+2025-11-23 02:22:04: 📅 Generando cuotas para 2026...
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Enero 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Febrero 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Marzo 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Abril 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Mayo 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Junio 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Julio 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Agosto 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Septiembre 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Octubre 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Noviembre 2026
+2025-11-23 02:22:04: ℹ️  Ya existen cuotas para Diciembre 2026
+2025-11-23 02:22:04: 🎉 Sistema de cuotas inicializado. Total: 0 cuotas generadas
+2025-11-23 02:22:04: ✅ Sistema inicializado correctamente
+2025-11-23 02:22:04: ✅ Backup creado: data-backup-2025-11-23T08-22-04-402Z-startup.json
+2025-11-23 02:22:04: 📊 Tamaño: 41.05 KB
+2025-11-23 02:22:04: 🗑️ Backup antiguo eliminado: data-backup-2025-11-23T07-08-45-464Z-startup.json
+2025-11-23 02:22:04: Respaldos automáticos configurados cada 60 minutos
+2025-11-23 02:25:53: Servidor corriendo en puerto 3000
+2025-11-23 02:25:53: DNS configurado: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com
+2025-11-23 02:25:53: 🚀 Iniciando sistema...
+2025-11-23 02:25:53: 🔧 Inicializando sistema de cuotas...
+2025-11-23 02:25:53: 📅 Generando cuotas restantes para 2025...
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Noviembre 2025
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Diciembre 2025
+2025-11-23 02:25:53: 📅 Generando cuotas para 2026...
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Enero 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Febrero 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Marzo 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Abril 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Mayo 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Junio 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Julio 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Agosto 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Septiembre 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Octubre 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Noviembre 2026
+2025-11-23 02:25:53: ℹ️  Ya existen cuotas para Diciembre 2026
+2025-11-23 02:25:53: 🎉 Sistema de cuotas inicializado. Total: 0 cuotas generadas
+2025-11-23 02:25:53: ✅ Sistema inicializado correctamente
+2025-11-23 02:25:53: ✅ Backup creado: data-backup-2025-11-23T08-25-53-741Z-startup.json
+2025-11-23 02:25:53: 📊 Tamaño: 41.05 KB
+2025-11-23 02:25:53: 🗑️ Backup antiguo eliminado: data-backup-2025-11-23T07-43-16-633Z-startup.json
+2025-11-23 02:25:53: Respaldos automáticos configurados cada 60 minutos

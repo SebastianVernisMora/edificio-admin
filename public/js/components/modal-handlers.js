@@ -133,8 +133,7 @@ function updateAnuncioPreview() {
   const previewFecha = document.getElementById('previewFecha');
   
   if (previewTitulo) previewTitulo.textContent = titulo;
-  if (previewContenido) previewContenido.innerHTML = contenido.replace(/
-/g, '<br>');
+  if (previewContenido) previewContenido.innerHTML = contenido.replace(/\n/g, '<br>');
   
   if (previewTipo) {
     previewTipo.textContent = getTipoLabel(tipo);

@@ -196,59 +196,9 @@ function mostrarCuotasTipo(tipo) {
     }
 }
 
-async function cargarEstadoFondoMayor() {
-    try {
-        const userInfo = getUserInfo();
-        const respuesta = await apiRequest(`/cuotas/fondo-mayor/${userInfo.id}`);
-        mostrarEstadoFondoMayor(respuesta);
-    } catch (error) {
-        console.error('Error cargando estado fondo mayor:', error);
-    }
-}
-
-function mostrarEstadoFondoMayor(data) {
-    const montoPagado = data.resumen_pago.monto_pagado;
-    const saldoPendiente = data.resumen_pago.saldo_pendiente;
-    const porcentaje = (montoPagado / 5000) * 100;
-    
-    document.getElementById('progressFondo').style.width = porcentaje + '%';
-    document.getElementById('montoPagadoFondo').textContent = montoPagado;
-    document.getElementById('saldoPendienteFondo').textContent = saldoPendiente;
-    document.getElementById('fondoGastosMayores').textContent = `$${montoPagado} / $5,000`;
-    
-    const estadoFondo = document.getElementById('estadoFondo');
-    if (data.resumen_pago.completado) {
-        estadoFondo.textContent = 'COMPLETADO';
-        estadoFondo.className = 'badge pagado';
-    } else if (montoPagado > 0) {
-        estadoFondo.textContent = 'PARCIAL';
-        estadoFondo.className = 'badge en_progreso';
-    } else {
-        estadoFondo.textContent = 'PENDIENTE';
-        estadoFondo.className = 'badge pendiente';
-    }
-    
-    // Mostrar historial de parcialidades
-    const tbody = document.querySelector('#tablaParcialidadesInquilino tbody');
-    if (data.parcialidades.length > 0) {
-        tbody.innerHTML = data.parcialidades.map(p => `
-            <tr>
-                <td>${formatDate(p.fecha_pago)}</td>
-                <td>${formatCurrency(p.monto)}</td>
-                <td>${p.metodo_pago}</td>
-                <td>${p.observaciones || '-'}</td>
-            </tr>
-        `).join('');
-    } else {
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="4" style="text-align: center; color: #666;">
-                    Aún no hay pagos registrados
-                </td>
-            </tr>
-        `;
-    }
-}
+// Función cargarEstadoFondoMayor movida más abajo en el archivo
+// Función mostrarEstadoFondoMayor movida más abajo en el archivo
+// Eliminada duplicación aquí
 
 function actualizarResumenCuotas() {
     const cuotasMensuales = misCuotas.filter(c => c.tipo_cuota === 'mensual');

@@ -252,10 +252,17 @@ Usuarios procesados: ${result.usuarios_procesados}`);
     if (!this.progreso) return;
 
     // Actualizar tarjetas de progreso
-    const elem_total-objetivo = document.getElementById('total-objetivo'); if (elem_total-objetivo) elem_total-objetivo.textContent = `$${this.progreso.objetivo_total.toLocaleString()}`;
-    const elem_monto-recaudado = document.getElementById('monto-recaudado'); if (elem_monto-recaudado) elem_monto-recaudado.textContent = `$${this.progreso.monto_recaudado.toLocaleString()}`;
-    const elem_porcentaje-progreso = document.getElementById('porcentaje-progreso'); if (elem_porcentaje-progreso) elem_porcentaje-progreso.textContent = `${this.progreso.porcentaje}%`;
-    const elem_faltante-objetivo = document.getElementById('faltante-objetivo'); if (elem_faltante-objetivo) elem_faltante-objetivo.textContent = `$${this.progreso.faltante.toLocaleString()}`;
+    const elemTotalObjetivo = document.getElementById('total-objetivo'); 
+    if (elemTotalObjetivo) elemTotalObjetivo.textContent = `$${this.progreso.objetivo_total.toLocaleString()}`;
+    
+    const elemMontoRecaudado = document.getElementById('monto-recaudado'); 
+    if (elemMontoRecaudado) elemMontoRecaudado.textContent = `$${this.progreso.monto_recaudado.toLocaleString()}`;
+    
+    const elemPorcentajeProgreso = document.getElementById('porcentaje-progreso'); 
+    if (elemPorcentajeProgreso) elemPorcentajeProgreso.textContent = `${this.progreso.porcentaje}%`;
+    
+    const elemFaltanteObjetivo = document.getElementById('faltante-objetivo'); 
+    if (elemFaltanteObjetivo) elemFaltanteObjetivo.textContent = `$${this.progreso.faltante.toLocaleString()}`;
 
     // Actualizar barra de progreso
     const progressBar = document.getElementById('progress-bar-parcialidades');
@@ -393,11 +400,20 @@ Usuarios procesados: ${result.usuarios_procesados}`);
     const rechazadas = parcialidades.filter(p => p.estado === 'rechazada').length;
     const montoTotal = parcialidades.reduce((sum, p) => sum + (p.estado === 'validada' ? p.monto : 0), 0);
 
-    const elem_total-parcialidades = document.getElementById('total-parcialidades'); if (elem_total-parcialidades) elem_total-parcialidades.textContent = totalParcialidades;
-    const elem_parcialidades-validadas = document.getElementById('parcialidades-validadas'); if (elem_parcialidades-validadas) elem_parcialidades-validadas.textContent = validadas;
-    const elem_parcialidades-pendientes = document.getElementById('parcialidades-pendientes'); if (elem_parcialidades-pendientes) elem_parcialidades-pendientes.textContent = pendientes;
-    const elem_parcialidades-rechazadas = document.getElementById('parcialidades-rechazadas'); if (elem_parcialidades-rechazadas) elem_parcialidades-rechazadas.textContent = rechazadas;
-    const elem_monto-total-parcialidades = document.getElementById('monto-total-parcialidades'); if (elem_monto-total-parcialidades) elem_monto-total-parcialidades.textContent = `$${montoTotal.toLocaleString()}`;
+    const elemTotalParcialidades = document.getElementById('total-parcialidades'); 
+    if (elemTotalParcialidades) elemTotalParcialidades.textContent = totalParcialidades;
+    
+    const elemParcialidadesValidadas = document.getElementById('parcialidades-validadas'); 
+    if (elemParcialidadesValidadas) elemParcialidadesValidadas.textContent = validadas;
+    
+    const elemParcialidadesPendientes = document.getElementById('parcialidades-pendientes'); 
+    if (elemParcialidadesPendientes) elemParcialidadesPendientes.textContent = pendientes;
+    
+    const elemParcialidadesRechazadas = document.getElementById('parcialidades-rechazadas'); 
+    if (elemParcialidadesRechazadas) elemParcialidadesRechazadas.textContent = rechazadas;
+    
+    const elemMontoTotalParcialidades = document.getElementById('monto-total-parcialidades'); 
+    if (elemMontoTotalParcialidades) elemMontoTotalParcialidades.textContent = `$${montoTotal.toLocaleString()}`;
   }
 }
 
