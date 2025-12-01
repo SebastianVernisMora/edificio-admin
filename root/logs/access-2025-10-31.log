@@ -1,0 +1,16 @@
+{"timestamp":"2025-10-31T20:14:08.688Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.691Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.694Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/sistema/estado","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.696Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.699Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.701Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.704Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.709Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.713Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.717Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.734Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.736Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/generar","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.738Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T20:14:08.741Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::1","userAgent":"node-fetch"}
+{"timestamp":"2025-10-31T21:54:25.689Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/resumen","permission":null,"granted":false,"ip":"::1","userAgent":"Mozilla/5.0 (Android 16; Mobile; rv:144.0) Gecko/144.0 Firefox/144.0"}
+{"timestamp":"2025-10-31T21:54:25.690Z","type":"AUTH_FAILED","userId":null,"userRole":null,"resource":"/","permission":null,"granted":false,"ip":"::ffff:127.0.0.1","userAgent":"Mozilla/5.0 (Android 16; Mobile; rv:144.0) Gecko/144.0 Firefox/144.0"}
