@@ -1,0 +1,3712 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Administrador",
+      "email": "admin@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "ADMIN",
+      "rol": "ADMIN",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 2,
+      "nombre": "Felipe Martínez",
+      "email": "felipe@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "101",
+      "rol": "INQUILINO",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 3,
+      "nombre": "Laura Sánchez",
+      "email": "laura@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "102",
+      "rol": "INQUILINO",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 4,
+      "nombre": "Carlos Rodríguez",
+      "email": "carlos@edificio205.com",
+      "password": "$2a$10$G5IqYryE0IBegNs95sTloO0y7/u4PWJHiadaONDD7B2tgbP3jCC.S",
+      "departamento": "201",
+      "rol": "INQUILINO",
+      "fechaCreacion": "2025-10-01T00:00:00.000Z",
+      "activo": true
+    },
+    {
+      "id": 5,
+      "nombre": "Comité de Prueba",
+      "email": "comite@edificio205.com",
+      "password": "$2a$10$dQGacuZI.YfhkH15DFRrVObSkvSPRPXJQoIjoeAK3ck9p7FoM/.d6",
+      "departamento": "COMITE",
+      "rol": "COMITE",
+      "permisos": {
+        "anuncios": true,
+        "gastos": true,
+        "presupuestos": false,
+        "cuotas": true,
+        "usuarios": false,
+        "cierres": false
+      },
+      "fechaCreacion": "2025-10-30T08:03:38.062Z",
+      "activo": true
+    },
+    {
+      "id": 6,
+      "nombre": "Usuario Prueba",
+      "email": "prueba@edificio205.com",
+      "password": "$2a$10$IEhn/74MtoiVl9Qd/FCJdeyDtZcOleXL3bEbcqVKb1W2YWwTpi/8S",
+      "rol": "INQUILINO",
+      "departamento": "301",
+      "telefono": null,
+      "legitimidad_entregada": false,
+      "estatus_validacion": "pendiente",
+      "fechaCreacion": "2025-10-30T20:03:35.845Z",
+      "activo": true
+    },
+    {
+      "id": 7,
+      "nombre": "Usuario Auditoría Actualizado",
+      "email": "auditoria@edificio205.com",
+      "password": "$2a$10$xzC7fS3Cc3MSHRELwqdOBOUpKaw3vt1u3WVKSxdJvwtor0njJoMOq",
+      "rol": "COMITE",
+      "departamento": "302",
+      "telefono": null,
+      "legitimidad_entregada": false,
+      "estatus_validacion": "pendiente",
+      "fechaCreacion": "2025-10-30T20:05:13.397Z",
+      "activo": true
+    }
+  ],
+  "cuotas": [
+    {
+      "id": 1,
+      "mes": "Noviembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-01T00:00:00.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "mes": "Noviembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-01T00:00:00.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "mes": "Noviembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-01T00:00:00.000Z",
+      "departamento": "201",
+      "estado": "PAGADO",
+      "fechaPago": "2025-10-28T00:00:00.000Z",
+      "comprobantePago": "TRF-12345",
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-11-01",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T08:58:03.632Z",
+      "id": 4
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-11-01",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T08:58:03.633Z",
+      "id": 5
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-11-01",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T08:58:03.634Z",
+      "id": 6
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-11-01",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T08:58:03.635Z",
+      "id": 7
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.517Z",
+      "id": 8
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.517Z",
+      "id": 9
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.518Z",
+      "id": 10
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-12-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.519Z",
+      "id": 11
+    },
+    {
+      "mes": "Enero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-01-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.521Z",
+      "id": 12
+    },
+    {
+      "mes": "Enero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-01-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.521Z",
+      "id": 13
+    },
+    {
+      "mes": "Enero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-01-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.522Z",
+      "id": 14
+    },
+    {
+      "mes": "Enero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-01-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.524Z",
+      "id": 15
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-02-28T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.525Z",
+      "id": 16
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-02-28T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.526Z",
+      "id": 17
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-02-28T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.527Z",
+      "id": 18
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-02-28T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.528Z",
+      "id": 19
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-03-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.529Z",
+      "id": 20
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-03-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.530Z",
+      "id": 21
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-03-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.531Z",
+      "id": 22
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-03-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.532Z",
+      "id": 23
+    },
+    {
+      "mes": "Abril",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-04-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.533Z",
+      "id": 24
+    },
+    {
+      "mes": "Abril",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-04-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.534Z",
+      "id": 25
+    },
+    {
+      "mes": "Abril",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-04-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.535Z",
+      "id": 26
+    },
+    {
+      "mes": "Abril",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-04-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.536Z",
+      "id": 27
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-05-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.537Z",
+      "id": 28
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-05-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.538Z",
+      "id": 29
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-05-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.539Z",
+      "id": 30
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-05-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.540Z",
+      "id": 31
+    },
+    {
+      "mes": "Junio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-06-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.542Z",
+      "id": 32
+    },
+    {
+      "mes": "Junio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-06-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.542Z",
+      "id": 33
+    },
+    {
+      "mes": "Junio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-06-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.544Z",
+      "id": 34
+    },
+    {
+      "mes": "Junio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-06-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.545Z",
+      "id": 35
+    },
+    {
+      "mes": "Julio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-07-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.546Z",
+      "id": 36
+    },
+    {
+      "mes": "Julio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-07-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.547Z",
+      "id": 37
+    },
+    {
+      "mes": "Julio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-07-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.548Z",
+      "id": 38
+    },
+    {
+      "mes": "Julio",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-07-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.549Z",
+      "id": 39
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-08-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.551Z",
+      "id": 40
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-08-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.551Z",
+      "id": 41
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-08-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.552Z",
+      "id": 42
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-08-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.553Z",
+      "id": 43
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-09-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.555Z",
+      "id": 44
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-09-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.556Z",
+      "id": 45
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-09-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.557Z",
+      "id": 46
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-09-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.558Z",
+      "id": 47
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-10-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.560Z",
+      "id": 48
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-10-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.561Z",
+      "id": 49
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-10-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.562Z",
+      "id": 50
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-10-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.563Z",
+      "id": 51
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-11-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.564Z",
+      "id": 52
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-11-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.567Z",
+      "id": 53
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-11-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.568Z",
+      "id": 54
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-11-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.570Z",
+      "id": 55
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-12-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.572Z",
+      "id": 56
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-12-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.573Z",
+      "id": 57
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-12-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.574Z",
+      "id": 58
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2026,
+      "monto": 550,
+      "fechaVencimiento": "2026-12-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:14:18.575Z",
+      "id": 59
+    },
+    {
+      "mes": "Enero",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-01-31T23:59:59.000Z",
+      "departamento": "TEST-101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:12.449Z",
+      "id": 60
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2027,
+      "monto": 550,
+      "fechaVencimiento": "2027-02-28T00:00:00.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:12.450Z",
+      "id": 61
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2027,
+      "monto": 550,
+      "fechaVencimiento": "2027-02-28T00:00:00.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:12.451Z",
+      "id": 62
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2027,
+      "monto": 550,
+      "fechaVencimiento": "2027-02-28T00:00:00.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:12.452Z",
+      "id": 63
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2027,
+      "monto": 550,
+      "fechaVencimiento": "2027-02-28T00:00:00.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:12.453Z",
+      "id": 64
+    },
+    {
+      "mes": "Test",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2025-10-30T09:22:12.461Z",
+      "departamento": "TEST-VENCIDA",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:12.461Z",
+      "id": 65
+    },
+    {
+      "mes": "Enero",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-01-31T23:59:59.000Z",
+      "departamento": "TEST-101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:39.075Z",
+      "id": 66
+    },
+    {
+      "mes": "Test",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2025-10-30T09:22:39.084Z",
+      "departamento": "TEST-VENCIDA",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:22:39.084Z",
+      "id": 67
+    },
+    {
+      "mes": "Enero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-01-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.666Z",
+      "id": 68
+    },
+    {
+      "mes": "Enero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-01-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.667Z",
+      "id": 69
+    },
+    {
+      "mes": "Enero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-01-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.668Z",
+      "id": 70
+    },
+    {
+      "mes": "Enero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-01-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.669Z",
+      "id": 71
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-02-29T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.670Z",
+      "id": 72
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-02-29T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.671Z",
+      "id": 73
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-02-29T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.672Z",
+      "id": 74
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-02-29T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.674Z",
+      "id": 75
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-03-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.676Z",
+      "id": 76
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-03-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.676Z",
+      "id": 77
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-03-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.678Z",
+      "id": 78
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-03-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.679Z",
+      "id": 79
+    },
+    {
+      "mes": "Abril",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-04-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.681Z",
+      "id": 80
+    },
+    {
+      "mes": "Abril",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-04-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.681Z",
+      "id": 81
+    },
+    {
+      "mes": "Abril",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-04-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.682Z",
+      "id": 82
+    },
+    {
+      "mes": "Abril",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-04-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.684Z",
+      "id": 83
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-05-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.685Z",
+      "id": 84
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-05-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.686Z",
+      "id": 85
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-05-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.687Z",
+      "id": 86
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-05-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.689Z",
+      "id": 87
+    },
+    {
+      "mes": "Junio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-06-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.690Z",
+      "id": 88
+    },
+    {
+      "mes": "Junio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-06-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.691Z",
+      "id": 89
+    },
+    {
+      "mes": "Junio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-06-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.692Z",
+      "id": 90
+    },
+    {
+      "mes": "Junio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-06-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.694Z",
+      "id": 91
+    },
+    {
+      "mes": "Julio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-07-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.695Z",
+      "id": 92
+    },
+    {
+      "mes": "Julio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-07-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.696Z",
+      "id": 93
+    },
+    {
+      "mes": "Julio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-07-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.697Z",
+      "id": 94
+    },
+    {
+      "mes": "Julio",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-07-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.699Z",
+      "id": 95
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-08-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.700Z",
+      "id": 96
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-08-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.701Z",
+      "id": 97
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-08-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.703Z",
+      "id": 98
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-08-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.704Z",
+      "id": 99
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-09-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.706Z",
+      "id": 100
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-09-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.706Z",
+      "id": 101
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-09-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.708Z",
+      "id": 102
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-09-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.709Z",
+      "id": 103
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-10-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.711Z",
+      "id": 104
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-10-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.711Z",
+      "id": 105
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-10-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.713Z",
+      "id": 106
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-10-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.714Z",
+      "id": 107
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-11-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.716Z",
+      "id": 108
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-11-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.717Z",
+      "id": 109
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-11-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.718Z",
+      "id": 110
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-11-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.719Z",
+      "id": 111
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-12-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.721Z",
+      "id": 112
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-12-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.722Z",
+      "id": 113
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-12-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.724Z",
+      "id": 114
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2028,
+      "monto": 550,
+      "fechaVencimiento": "2028-12-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "PENDIENTE",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.725Z",
+      "id": 115
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-02-28T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.735Z",
+      "id": 116
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-02-28T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.736Z",
+      "id": 117
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-02-28T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.737Z",
+      "id": 118
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-02-28T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.738Z",
+      "id": 119
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-03-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.740Z",
+      "id": 120
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-03-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.741Z",
+      "id": 121
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-03-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.742Z",
+      "id": 122
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-03-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.744Z",
+      "id": 123
+    },
+    {
+      "mes": "Abril",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-04-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.745Z",
+      "id": 124
+    },
+    {
+      "mes": "Abril",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-04-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.746Z",
+      "id": 125
+    },
+    {
+      "mes": "Abril",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-04-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.748Z",
+      "id": 126
+    },
+    {
+      "mes": "Abril",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-04-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.749Z",
+      "id": 127
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-05-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.751Z",
+      "id": 128
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-05-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.752Z",
+      "id": 129
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-05-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.754Z",
+      "id": 130
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-05-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.755Z",
+      "id": 131
+    },
+    {
+      "mes": "Junio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-06-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.757Z",
+      "id": 132
+    },
+    {
+      "mes": "Junio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-06-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.758Z",
+      "id": 133
+    },
+    {
+      "mes": "Junio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-06-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.759Z",
+      "id": 134
+    },
+    {
+      "mes": "Junio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-06-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.761Z",
+      "id": 135
+    },
+    {
+      "mes": "Julio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-07-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.763Z",
+      "id": 136
+    },
+    {
+      "mes": "Julio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-07-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.764Z",
+      "id": 137
+    },
+    {
+      "mes": "Julio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-07-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.765Z",
+      "id": 138
+    },
+    {
+      "mes": "Julio",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-07-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.767Z",
+      "id": 139
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-08-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.769Z",
+      "id": 140
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-08-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.769Z",
+      "id": 141
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-08-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.771Z",
+      "id": 142
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-08-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.772Z",
+      "id": 143
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-09-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.774Z",
+      "id": 144
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-09-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.775Z",
+      "id": 145
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-09-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.776Z",
+      "id": 146
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2025,
+      "monto": 550,
+      "fechaVencimiento": "2025-09-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.778Z",
+      "id": 147
+    },
+    {
+      "mes": "Enero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-01-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.785Z",
+      "id": 148
+    },
+    {
+      "mes": "Enero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-01-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.786Z",
+      "id": 149
+    },
+    {
+      "mes": "Enero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-01-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.787Z",
+      "id": 150
+    },
+    {
+      "mes": "Enero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-01-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.789Z",
+      "id": 151
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-02-29T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.791Z",
+      "id": 152
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-02-29T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.791Z",
+      "id": 153
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-02-29T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.793Z",
+      "id": 154
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-02-29T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.795Z",
+      "id": 155
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-03-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.797Z",
+      "id": 156
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-03-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.797Z",
+      "id": 157
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-03-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.799Z",
+      "id": 158
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-03-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.801Z",
+      "id": 159
+    },
+    {
+      "mes": "Abril",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-04-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.803Z",
+      "id": 160
+    },
+    {
+      "mes": "Abril",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-04-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.804Z",
+      "id": 161
+    },
+    {
+      "mes": "Abril",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-04-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.805Z",
+      "id": 162
+    },
+    {
+      "mes": "Abril",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-04-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.807Z",
+      "id": 163
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-05-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.809Z",
+      "id": 164
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-05-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.810Z",
+      "id": 165
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-05-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.811Z",
+      "id": 166
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-05-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.813Z",
+      "id": 167
+    },
+    {
+      "mes": "Junio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-06-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.815Z",
+      "id": 168
+    },
+    {
+      "mes": "Junio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-06-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.816Z",
+      "id": 169
+    },
+    {
+      "mes": "Junio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-06-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.818Z",
+      "id": 170
+    },
+    {
+      "mes": "Junio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-06-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.819Z",
+      "id": 171
+    },
+    {
+      "mes": "Julio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-07-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.821Z",
+      "id": 172
+    },
+    {
+      "mes": "Julio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-07-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.822Z",
+      "id": 173
+    },
+    {
+      "mes": "Julio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-07-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.824Z",
+      "id": 174
+    },
+    {
+      "mes": "Julio",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-07-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.825Z",
+      "id": 175
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-08-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.828Z",
+      "id": 176
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-08-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.829Z",
+      "id": 177
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-08-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.830Z",
+      "id": 178
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-08-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.832Z",
+      "id": 179
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-09-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.834Z",
+      "id": 180
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-09-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.835Z",
+      "id": 181
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-09-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.836Z",
+      "id": 182
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-09-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.838Z",
+      "id": 183
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-10-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.840Z",
+      "id": 184
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-10-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.841Z",
+      "id": 185
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-10-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.843Z",
+      "id": 186
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-10-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.844Z",
+      "id": 187
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-11-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.846Z",
+      "id": 188
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-11-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.847Z",
+      "id": 189
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-11-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.849Z",
+      "id": 190
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-11-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.850Z",
+      "id": 191
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-12-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.853Z",
+      "id": 192
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-12-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.854Z",
+      "id": 193
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-12-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.855Z",
+      "id": 194
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2024,
+      "monto": 550,
+      "fechaVencimiento": "2024-12-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:28:57.857Z",
+      "id": 195
+    },
+    {
+      "mes": "Enero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-01-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.951Z",
+      "id": 196
+    },
+    {
+      "mes": "Enero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-01-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.952Z",
+      "id": 197
+    },
+    {
+      "mes": "Enero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-01-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.953Z",
+      "id": 198
+    },
+    {
+      "mes": "Enero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-01-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.955Z",
+      "id": 199
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-02-28T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.957Z",
+      "id": 200
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-02-28T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.958Z",
+      "id": 201
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-02-28T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.959Z",
+      "id": 202
+    },
+    {
+      "mes": "Febrero",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-02-28T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.961Z",
+      "id": 203
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-03-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.963Z",
+      "id": 204
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-03-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.964Z",
+      "id": 205
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-03-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.965Z",
+      "id": 206
+    },
+    {
+      "mes": "Marzo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-03-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.967Z",
+      "id": 207
+    },
+    {
+      "mes": "Abril",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-04-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.969Z",
+      "id": 208
+    },
+    {
+      "mes": "Abril",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-04-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.970Z",
+      "id": 209
+    },
+    {
+      "mes": "Abril",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-04-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.972Z",
+      "id": 210
+    },
+    {
+      "mes": "Abril",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-04-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.973Z",
+      "id": 211
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-05-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.976Z",
+      "id": 212
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-05-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.977Z",
+      "id": 213
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-05-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.978Z",
+      "id": 214
+    },
+    {
+      "mes": "Mayo",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-05-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.980Z",
+      "id": 215
+    },
+    {
+      "mes": "Junio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-06-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.982Z",
+      "id": 216
+    },
+    {
+      "mes": "Junio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-06-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.983Z",
+      "id": 217
+    },
+    {
+      "mes": "Junio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-06-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.985Z",
+      "id": 218
+    },
+    {
+      "mes": "Junio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-06-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.986Z",
+      "id": 219
+    },
+    {
+      "mes": "Julio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-07-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.989Z",
+      "id": 220
+    },
+    {
+      "mes": "Julio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-07-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.990Z",
+      "id": 221
+    },
+    {
+      "mes": "Julio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-07-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.991Z",
+      "id": 222
+    },
+    {
+      "mes": "Julio",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-07-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.993Z",
+      "id": 223
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-08-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.996Z",
+      "id": 224
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-08-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.996Z",
+      "id": 225
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-08-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:21.998Z",
+      "id": 226
+    },
+    {
+      "mes": "Agosto",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-08-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.000Z",
+      "id": 227
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-09-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.003Z",
+      "id": 228
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-09-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.004Z",
+      "id": 229
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-09-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.005Z",
+      "id": 230
+    },
+    {
+      "mes": "Septiembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-09-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.007Z",
+      "id": 231
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-10-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.010Z",
+      "id": 232
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-10-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.011Z",
+      "id": 233
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-10-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.013Z",
+      "id": 234
+    },
+    {
+      "mes": "Octubre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-10-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.014Z",
+      "id": 235
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-11-30T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.017Z",
+      "id": 236
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-11-30T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.018Z",
+      "id": 237
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-11-30T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.019Z",
+      "id": 238
+    },
+    {
+      "mes": "Noviembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-11-30T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.021Z",
+      "id": 239
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-12-31T23:59:59.000Z",
+      "departamento": "101",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.024Z",
+      "id": 240
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-12-31T23:59:59.000Z",
+      "departamento": "102",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.025Z",
+      "id": 241
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-12-31T23:59:59.000Z",
+      "departamento": "201",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.026Z",
+      "id": 242
+    },
+    {
+      "mes": "Diciembre",
+      "anio": 2022,
+      "monto": 550,
+      "fechaVencimiento": "2022-12-31T23:59:59.000Z",
+      "departamento": "301",
+      "estado": "VENCIDO",
+      "fechaPago": null,
+      "comprobantePago": null,
+      "fechaCreacion": "2025-10-31T09:29:22.028Z",
+      "id": 243
+    }
+  ],
+  "gastos": [
+    {
+      "id": 1,
+      "concepto": "Mantenimiento Elevador",
+      "categoria": "Mantenimiento",
+      "proveedor": "Elevadores Modernos S.A.",
+      "fecha": "2025-10-25T00:00:00.000Z",
+      "monto": 3500,
+      "descripcion": "Mantenimiento mensual del elevador",
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "concepto": "Servicio Limpieza",
+      "categoria": "Limpieza",
+      "proveedor": "Limpieza Total",
+      "fecha": "2025-10-20T00:00:00.000Z",
+      "monto": 2800,
+      "descripcion": "Limpieza de áreas comunes",
+      "fechaCreacion": "2025-10-20T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "concepto": "Reparación Bomba Agua",
+      "categoria": "Reparación",
+      "proveedor": "Hidráulica Express",
+      "fecha": "2025-10-15T00:00:00.000Z",
+      "monto": 4200,
+      "descripcion": "Reparación de bomba de agua principal",
+      "fechaCreacion": "2025-10-15T00:00:00.000Z"
+    }
+  ],
+  "presupuestos": [],
+  "cierres": [
+    {
+      "id": 1,
+      "mes": "Diciembre",
+      "año": 2024,
+      "fecha": "2025-10-31T09:28:57.661Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:28:57.661Z"
+    },
+    {
+      "id": 2,
+      "mes": "Enero",
+      "año": 2027,
+      "fecha": "2025-10-31T09:28:57.664Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:28:57.664Z"
+    },
+    {
+      "id": 3,
+      "tipo": "ANUAL",
+      "año": 2027,
+      "fecha": "2025-10-31T09:28:57.726Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2028,
+        "generadas": true,
+        "mensaje": "Cuotas para 2028 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:28:57.726Z"
+    },
+    {
+      "id": 4,
+      "mes": "Enero",
+      "año": 2025,
+      "fecha": "2025-10-31T09:28:57.729Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 2,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:28:57.729Z"
+    },
+    {
+      "id": 5,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-10-31T09:28:57.732Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "mensaje": "Cuotas para 2026 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:28:57.732Z"
+    },
+    {
+      "id": 6,
+      "mes": "Noviembre",
+      "año": 2024,
+      "fecha": "2025-10-31T09:28:57.734Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:28:57.734Z"
+    },
+    {
+      "id": 7,
+      "tipo": "ANUAL",
+      "año": 2024,
+      "fecha": "2025-10-31T09:28:57.780Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Diciembre",
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Diciembre",
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2025,
+        "generadas": true,
+        "mensaje": "Cuotas para 2025 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:28:57.780Z"
+    },
+    {
+      "id": 8,
+      "mes": "Enero",
+      "año": 2023,
+      "fecha": "2025-10-31T09:28:57.782Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:28:57.782Z"
+    },
+    {
+      "id": 9,
+      "mes": "Febrero",
+      "año": 2023,
+      "fecha": "2025-10-31T09:28:57.783Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:28:57.783Z"
+    },
+    {
+      "id": 10,
+      "tipo": "ANUAL",
+      "año": 2023,
+      "fecha": "2025-10-31T09:28:57.858Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "mes": "Febrero",
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "mes": "Febrero",
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2024,
+        "generadas": true,
+        "mensaje": "Cuotas para 2024 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:28:57.858Z"
+    },
+    {
+      "id": 11,
+      "mes": "Diciembre",
+      "año": 2021,
+      "fecha": "2025-10-31T09:29:21.947Z",
+      "ingresos": {
+        "cuotas": 0,
+        "otros": 0,
+        "total": 0
+      },
+      "gastos": {
+        "total": 0,
+        "desglose": []
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "cuotasPendientes": 0,
+      "cuotasPagadas": 0,
+      "balance": 0,
+      "createdAt": "2025-10-31T09:29:21.948Z"
+    },
+    {
+      "id": 12,
+      "tipo": "ANUAL",
+      "año": 2021,
+      "fecha": "2025-10-31T09:29:22.030Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Diciembre",
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Diciembre",
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2022,
+        "generadas": true,
+        "mensaje": "Cuotas para 2022 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:29:22.030Z"
+    },
+    {
+      "id": 13,
+      "tipo": "ANUAL",
+      "año": 2027,
+      "fecha": "2025-10-31T09:31:14.882Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2028,
+        "generadas": true,
+        "mensaje": "Cuotas para 2028 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:31:14.882Z"
+    },
+    {
+      "id": 14,
+      "tipo": "ANUAL",
+      "año": 2025,
+      "fecha": "2025-10-31T09:31:14.891Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2026,
+        "generadas": true,
+        "mensaje": "Cuotas para 2026 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:31:14.891Z"
+    },
+    {
+      "id": 15,
+      "tipo": "ANUAL",
+      "año": 2024,
+      "fecha": "2025-10-31T09:31:14.898Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Diciembre",
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Diciembre",
+            "total": 0
+          },
+          {
+            "mes": "Noviembre",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2025,
+        "generadas": true,
+        "mensaje": "Cuotas para 2025 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:31:14.898Z"
+    },
+    {
+      "id": 16,
+      "tipo": "ANUAL",
+      "año": 2023,
+      "fecha": "2025-10-31T09:31:14.905Z",
+      "ingresos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "mes": "Febrero",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "gastos": {
+        "total": 0,
+        "desgloseMensual": [
+          {
+            "mes": "Enero",
+            "total": 0
+          },
+          {
+            "mes": "Febrero",
+            "total": 0
+          },
+          {
+            "total": 0
+          }
+        ]
+      },
+      "fondos": {
+        "ahorroAcumulado": 67500,
+        "gastosMayores": 125000,
+        "dineroOperacional": 48000,
+        "patrimonioTotal": 240500
+      },
+      "balance": 0,
+      "cuotasSiguienteAño": {
+        "año": 2024,
+        "generadas": true,
+        "mensaje": "Cuotas para 2024 generadas automáticamente"
+      },
+      "createdAt": "2025-10-31T09:31:14.905Z"
+    }
+  ],
+  "anuncios": [
+    {
+      "id": 1,
+      "titulo": "Reunión de Condominio",
+      "contenido": "Se convoca a reunión de condominio el día 15 de noviembre a las 19:00 hrs en el área común. Se tratarán temas importantes sobre el presupuesto 2026 y los proyectos críticos pendientes.",
+      "fecha": "2025-10-28T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": true,
+      "fechaCreacion": "2025-10-28T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "titulo": "Mantenimiento Cisterna",
+      "contenido": "Se realizará mantenimiento a la cisterna el día 5 de noviembre. Habrá corte de agua de 9:00 a 14:00 hrs. Se recomienda almacenar agua para uso durante este periodo.",
+      "fecha": "2025-10-25T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": true,
+      "fechaCreacion": "2025-10-25T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "titulo": "Fumigación Programada",
+      "contenido": "Se realizará fumigación en áreas comunes el día 10 de noviembre a partir de las 10:00 hrs. Se recomienda mantener puertas y ventanas cerradas durante el procedimiento.",
+      "fecha": "2025-10-20T00:00:00.000Z",
+      "autor": "Administrador",
+      "importante": false,
+      "fechaCreacion": "2025-10-20T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "titulo": "Anuncio de Prueba con Imagen",
+      "contenido": "Este es un anuncio de prueba para verificar la funcionalidad de archivos adjuntos con imagen.",
+      "tipo": "GENERAL",
+      "createdAt": "2025-10-31T04:13:07.201Z",
+      "autor": 1,
+      "archivos": [
+        {
+          "originalName": "test-image.png",
+          "filename": "1761883987196_996476591_test-image.png",
+          "path": "uploads/anuncios/1761883987196_996476591_test-image.png",
+          "mimetype": "image/png",
+          "size": 67,
+          "uploadedAt": "2025-10-31T04:13:07.201Z"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "Anuncio Final de Prueba",
+      "contenido": "Este es el anuncio final para probar todas las funcionalidades de archivos adjuntos.",
+      "tipo": "IMPORTANTE",
+      "createdAt": "2025-10-31T04:18:10.842Z",
+      "autor": 1,
+      "archivos": [
+        {
+          "originalName": "test-image.png",
+          "filename": "1761884290830_247414191_test-image.png",
+          "path": "uploads/anuncios/1761884290830_247414191_test-image.png",
+          "mimetype": "image/png",
+          "size": 67,
+          "uploadedAt": "2025-10-31T04:18:10.841Z"
+        }
+      ]
+    }
+  ],
+  "fondos": {
+    "ahorroAcumulado": 67500,
+    "gastosMayores": 125000,
+    "dineroOperacional": 48000,
+    "patrimonioTotal": 240500
+  },
+  "proyectos": [
+    {
+      "id": 1,
+      "nombre": "Legitimidad Legal",
+      "monto": 35000,
+      "prioridad": "URGENTE"
+    },
+    {
+      "id": 2,
+      "nombre": "Irregularidades Eléctricas",
+      "monto": 85000,
+      "prioridad": "ALTA"
+    },
+    {
+      "id": 3,
+      "nombre": "Bombas Base Inestable",
+      "monto": 45000,
+      "prioridad": "MEDIA"
+    },
+    {
+      "id": 4,
+      "nombre": "Estructura Castillos",
+      "monto": 120000,
+      "prioridad": "ALTA"
+    }
+  ],
+  "solicitudes": [],
+  "nextId": {
+    "usuarios": 6,
+    "cuotas": 4,
+    "gastos": 4,
+    "presupuestos": 1,
+    "anuncios": 4,
+    "cierres": 1,
+    "solicitudes": 1
+  }
+}

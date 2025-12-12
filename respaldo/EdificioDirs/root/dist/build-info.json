@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "buildTime": "2025-11-23T09:12:48.148Z",
+  "mode": "production",
+  "modules": [
+    "anuncios-optimized.js",
+    "cuotas-optimized.js",
+    "fondos-optimized.js",
+    "gastos-optimized.js"
+  ]
+}
