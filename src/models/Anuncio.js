@@ -22,9 +22,11 @@ export default class Anuncio {
       titulo: anuncioData.titulo,
       contenido: anuncioData.contenido,
       tipo: anuncioData.tipo || 'GENERAL',
+      imagen: anuncioData.imagen || null,
       createdAt: new Date().toISOString(),
       autor: anuncioData.autor,
-      archivos: anuncioData.archivos || [] // Array de objetos con info de archivos
+      createdBy: anuncioData.createdBy,
+      archivos: anuncioData.archivos || []
     };
     
     return create(COLLECTION, newAnuncio);

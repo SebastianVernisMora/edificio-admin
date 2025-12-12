@@ -5,6 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mostrar sección por defecto
   showSection('cuotas');
   
+  // Cargar datos de cuotas al inicio
+  setTimeout(() => {
+    if (typeof filtrarCuotas === 'function') {
+      filtrarCuotas();
+    }
+    if (typeof cargarCuotasInquilino === 'function') {
+      cargarCuotasInquilino();
+    }
+  }, 500);
+  
   // Setup navigation links
   const navLinks = document.querySelectorAll('.sidebar-nav a');
   navLinks.forEach(link => {
@@ -27,9 +37,45 @@ document.addEventListener('DOMContentLoaded', () => {
       // Actualizar título
       const title = link.textContent.trim().replace(/.*\s/, '');
       document.getElementById('page-title').textContent = title;
+      
+      // Cargar datos de la sección
+      loadSectionData(sectionId);
     });
   });
 });
+
+function loadSectionData(sectionId) {
+  switch(sectionId) {
+    case 'dashboard':
+      if (typeof cargarDashboard === 'function') cargarDashboard();
+      if (typeof cargarDashboardInquilino === 'function') cargarDashboardInquilino();
+      break;
+    case 'cuotas':
+      if (typeof filtrarCuotas === 'function') filtrarCuotas();
+      if (typeof cargarCuotasInquilino === 'function') cargarCuotasInquilino();
+      break;
+    case 'gastos':
+      if (typeof filtrarGastos === 'function') filtrarGastos();
+      break;
+    case 'fondos':
+      if (typeof cargarFondos === 'function') cargarFondos();
+      if (typeof cargarMovimientosFondos === 'function') cargarMovimientosFondos();
+      break;
+    case 'anuncios':
+      if (typeof filtrarAnuncios === 'function') filtrarAnuncios();
+      if (typeof cargarAnunciosInquilino === 'function') cargarAnunciosInquilino();
+      break;
+    case 'cierres':
+      if (typeof cargarCierres === 'function') cargarCierres();
+      break;
+    case 'usuarios':
+      if (typeof filtrarUsuarios === 'function') filtrarUsuarios();
+      break;
+    case 'parcialidades':
+      if (typeof cargarParcialidades === 'function') cargarParcialidades();
+      break;
+  }
+}
 
 function showSection(sectionId) {
   console.log('Mostrando sección:', sectionId);

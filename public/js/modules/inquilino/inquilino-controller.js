@@ -70,11 +70,51 @@ class InquilinoController {
         // Botón enviar solicitud
         const btnEnviarSolicitud = document.getElementById('btnEnviarSolicitud');
         if (btnEnviarSolicitud) {
-            btnEnviarSolicitud.addEventListener('click', () => {
-                alert('Funcionalidad en desarrollo');
-                const solicitudModal = bootstrap.Modal.getInstance(document.getElementById('solicitudModal'));
-                solicitudModal.hide();
+            btnEnviarSolicitud.addEventListener('click', async () => {
+                await this.enviarSolicitud();
             });
+        }
+    }
+    
+    async enviarSolicitud() {
+        const tipo = document.getElementById('solicitudTipo')?.value;
+        const descripcion = document.getElementById('solicitudDescripcion')?.value;
+        
+        if (!tipo || !descripcion) {
+            alert('Por favor complete todos los campos');
+            return;
+        }
+        
+        const user = getUser();
+        if (!user) return;
+        
+        try {
+            const token = localStorage.getItem('edificio_token');
+            const response = await fetch('/api/solicitudes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token
+                },
+                body: JSON.stringify({
+                    tipo,
+                    descripcion,
+                    departamento: user.departamento
+                })
+            });
+            
+            if (response.ok) {
+                alert('Solicitud enviada exitosamente');
+                const solicitudModal = bootstrap.Modal.getInstance(document.getElementById('solicitudModal'));
+                if (solicitudModal) solicitudModal.hide();
+                this.cargarSolicitudes();
+            } else {
+                const error = await response.json();
+                alert(`Error: ${error.msg || 'No se pudo enviar la solicitud'}`);
+            }
+        } catch (error) {
+            console.error('Error enviando solicitud:', error);
+            alert('Error al enviar la solicitud');
         }
     }
 

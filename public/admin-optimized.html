@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edificio-Admin | Panel Optimizado</title>
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="/api">
+  <link rel="dns-prefetch" href="/api">
+  
+  <!-- Critical CSS inline -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .loading { opacity: 0.6; pointer-events: none; cursor: wait; }
+    
+    /* Skeleton loader */
+    .skeleton { display: flex; height: 100vh; }
+    .skeleton-sidebar { width: 250px; background: linear-gradient(90deg, #2c3e50 25%, #34495e 50%, #2c3e50 75%); background-size: 200% 100%; animation: shimmer 2s infinite; }
+    .skeleton-content { flex: 1; padding: 20px; }
+    .skeleton-header { height: 60px; background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%); background-size: 200% 100%; animation: shimmer 2s infinite; margin-bottom: 20px; }
+    .skeleton-card { height: 120px; background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%); background-size: 200% 100%; animation: shimmer 2s infinite; margin-bottom: 20px; }
+    @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    
+    /* App container */
+    .dashboard-container { display: flex; height: 100vh; }
+    .sidebar { width: 250px; background: #2c3e50; color: white; display: flex; flex-direction: column; }
+    .sidebar-header { padding: 20px; border-bottom: 1px solid #34495e; }
+    .sidebar-header h2 { font-size: 1.5rem; margin-bottom: 5px; }
+    .sidebar-nav { flex: 1; overflow-y: auto; }
+    .sidebar-nav ul { list-style: none; }
+    .sidebar-nav li { border-bottom: 1px solid #34495e; }
+    .sidebar-nav a { display: block; padding: 15px 20px; color: #ecf0f1; text-decoration: none; transition: background 0.2s; }
+    .sidebar-nav a:hover { background: #34495e; }
+    .sidebar-nav li.active { background: #34495e; }
+    .sidebar-footer { padding: 20px; border-top: 1px solid #34495e; }
+    .main-content { flex: 1; overflow-y: auto; background: #f5f5f5; }
+    .main-header { background: white; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .content-section { display: none; padding: 20px; }
+    .content-section.active { display: block; }
+    
+    /* Loader overlay */
+    .router-loader { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0; 
+      background: rgba(255,255,255,0.9); 
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center; 
+      z-index: 9999;
+    }
+    .spinner { 
+      border: 4px solid #f3f3f3; 
+      border-top: 4px solid #3498db; 
+      border-radius: 50%; 
+      width: 50px; 
+      height: 50px; 
+      animation: spin 1s linear infinite; 
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/dist/js/core/api-client.js" as="script" crossorigin>
+  <link rel="preload" href="/dist/js/core/state-manager.js" as="script" crossorigin>
+  <link rel="preload" href="/dist/js/core/module-loader.js" as="script" crossorigin>
+  <link rel="preload" href="/dist/js/core/router.js" as="script" crossorigin>
+  <link rel="preload" href="/dist/css/styles.min.css" as="style">
+  
+  <!-- Non-critical CSS (async load) -->
+  <link rel="stylesheet" href="/dist/css/styles.min.css" media="print" onload="this.media='all'; this.onload=null;">
+  <noscript><link rel="stylesheet" href="/dist/css/styles.min.css"></noscript>
+  <link rel="stylesheet" href="css/dashboard.css" media="print" onload="this.media='all'; this.onload=null;">
+  <noscript><link rel="stylesheet" href="css/dashboard.css"></noscript>
+  
+  <!-- Font Awesome (defer) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'; this.onload=null;">
+  
+  <!-- Prefetch likely modules -->
+  <link rel="prefetch" href="/dist/js/modules/cuotas-optimized.js">
+  <link rel="prefetch" href="/dist/js/modules/gastos-optimized.js">
+</head>
+<body>
+  <!-- Skeleton loader (shown initially) -->
+  <div id="app-skeleton" class="skeleton">
+    <div class="skeleton-sidebar"></div>
+    <div class="skeleton-content">
+      <div class="skeleton-header"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </div>
+  </div>
+
+  <!-- App container (hidden initially) -->
+  <div id="app" class="dashboard-container" style="display:none;">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Edificio-Admin</h2>
+        <p>Panel Optimizado ⚡</p>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active"><a href="#cuotas"><i class="fas fa-money-bill-wave"></i> Cuotas</a></li>
+          <li><a href="#gastos"><i class="fas fa-file-invoice-dollar"></i> Gastos</a></li>
+          <li><a href="#fondos"><i class="fas fa-piggy-bank"></i> Fondos</a></li>
+          <li><a href="#anuncios"><i class="fas fa-bullhorn"></i> Anuncios</a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p id="user-name">Usuario</p>
+        <button id="logout-btn" class="btn btn-outline">Cerrar Sesión</button>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="main-header">
+        <h1 id="page-title">Cuotas</h1>
+        <div class="date-display">
+          <p id="current-date"></p>
+        </div>
+      </header>
+      
+      <!-- Cuotas Section -->
+      <section id="cuotas-section" class="content-section active">
+        <div class="section-header">
+          <h2>Gestión de Cuotas</h2>
+          <button id="nueva-cuota-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nueva Cuota</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="cuotas-mes">Mes:</label>
+            <select id="cuotas-mes">
+              <option value="">Todos</option>
+              <option value="Enero">Enero</option>
+              <option value="Febrero">Febrero</option>
+              <option value="Marzo">Marzo</option>
+              <option value="Abril">Abril</option>
+              <option value="Mayo">Mayo</option>
+              <option value="Junio">Junio</option>
+              <option value="Julio">Julio</option>
+              <option value="Agosto">Agosto</option>
+              <option value="Septiembre">Septiembre</option>
+              <option value="Octubre">Octubre</option>
+              <option value="Noviembre" selected>Noviembre</option>
+              <option value="Diciembre">Diciembre</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="cuotas-año">Año:</label>
+            <select id="cuotas-año">
+              <option value="2025" selected>2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="cuotas-estado">Estado:</label>
+            <select id="cuotas-estado">
+              <option value="TODOS">Todos</option>
+              <option value="PENDIENTE">Pendiente</option>
+              <option value="PAGADO">Pagado</option>
+              <option value="VENCIDO">Vencido</option>
+            </select>
+          </div>
+          
+          <button id="verificar-vencimientos-btn" class="btn btn-secondary">Verificar Vencimientos</button>
+        </div>
+        
+        <div class="table-container">
+          <table id="cuotas-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Depto.</th>
+                <th>Mes/Año</th>
+                <th>Monto</th>
+                <th>Estado</th>
+                <th>Vencimiento</th>
+                <th>Fecha Pago</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="7" class="text-center">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Gastos Section -->
+      <section id="gastos-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Gastos</h2>
+          <button id="nuevo-gasto-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Gasto</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="gastos-mes">Mes:</label>
+            <select id="gastos-mes">
+              <option value="">Todos</option>
+              <option value="1">Enero</option>
+              <option value="2">Febrero</option>
+              <option value="3">Marzo</option>
+              <option value="4">Abril</option>
+              <option value="5">Mayo</option>
+              <option value="6">Junio</option>
+              <option value="7">Julio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11" selected>Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="gastos-año">Año:</label>
+            <select id="gastos-año">
+              <option value="2025" selected>2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="gastos-categoria">Categoría:</label>
+            <select id="gastos-categoria">
+              <option value="TODOS">Todas</option>
+              <option value="MANTENIMIENTO">Mantenimiento</option>
+              <option value="SERVICIOS">Servicios</option>
+              <option value="REPARACIONES">Reparaciones</option>
+              <option value="ADMINISTRATIVO">Administrativo</option>
+              <option value="OTROS">Otros</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="table-container">
+          <table id="gastos-table" class="data-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Concepto</th>
+                <th>Monto</th>
+                <th>Categoría</th>
+                <th>Proveedor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="6" class="text-center">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Fondos Section -->
+      <section id="fondos-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Fondos</h2>
+          <button id="transferir-fondos-btn" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Transferir Fondos</button>
+        </div>
+        
+        <div class="fondos-summary">
+          <div class="fondo-card">
+            <h3>Ahorro Acumulado</h3>
+            <p class="amount" id="ahorro-acumulado">$0</p>
+            <p class="description">Fondo para imprevistos</p>
+          </div>
+          
+          <div class="fondo-card">
+            <h3>Gastos Mayores</h3>
+            <p class="amount" id="gastos-mayores">$0</p>
+            <p class="description">Fondo para proyectos</p>
+          </div>
+          
+          <div class="fondo-card">
+            <h3>Dinero Operacional</h3>
+            <p class="amount" id="dinero-operacional">$0</p>
+            <p class="description">Fondo para gastos corrientes</p>
+          </div>
+          
+          <div class="fondo-card total">
+            <h3>Patrimonio Total</h3>
+            <p class="amount" id="patrimonio-total-fondos">$0</p>
+            <p class="description">Actualizado: <span id="fondos-actualizacion">-</span></p>
+          </div>
+        </div>
+        
+        <div class="fondos-history">
+          <h3>Historial de Movimientos</h3>
+          <div class="table-container">
+            <table id="movimientos-table" class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Tipo</th>
+                  <th>Origen</th>
+                  <th>Destino</th>
+                  <th>Monto</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="6" class="text-center">Cargando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Anuncios Section -->
+      <section id="anuncios-section" class="content-section">
+        <div class="section-header">
+          <h2>Gestión de Anuncios</h2>
+          <button id="nuevo-anuncio-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Anuncio</button>
+        </div>
+        
+        <div class="filter-controls">
+          <div class="filter-group">
+            <label for="anuncios-tipo">Tipo:</label>
+            <select id="anuncios-tipo">
+              <option value="TODOS">Todos</option>
+              <option value="GENERAL">General</option>
+              <option value="IMPORTANTE">Importante</option>
+              <option value="URGENTE">Urgente</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="anuncios-container" id="anuncios-list">
+          <p class="text-center">Cargando...</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modales (incluir desde admin.html) -->
+  <!-- Por simplicidad, agregar después o usar componentes -->
+
+  <!-- Core scripts - ES Modules -->
+  <script type="module">
+    import APIClient from '/dist/js/core/api-client.js';
+    import State from '/dist/js/core/state-manager.js';
+    import ModuleLoader from '/dist/js/core/module-loader.js';
+    import Router from '/dist/js/core/router.js';
+
+    // Performance mark
+    performance.mark('app-start');
+
+    // Initialize app
+    (async () => {
+      try {
+        console.log('🚀 Initializing Edificio Admin (Optimized)...');
+        
+        // Check auth
+        const token = localStorage.getItem('edificio_token');
+        if (!token) {
+          console.log('No token found, redirecting to login...');
+          window.location.href = '/';
+          return;
+        }
+
+        // Verify token
+        try {
+          const user = await APIClient.verifyAuth();
+          State.set('user', user);
+          console.log('✓ User authenticated:', user.nombre);
+          
+          // Update user name
+          const userNameElem = document.getElementById('user-name');
+          if (userNameElem) userNameElem.textContent = user.nombre;
+          
+        } catch (error) {
+          console.error('Auth verification failed:', error);
+          localStorage.removeItem('edificio_token');
+          localStorage.removeItem('edificio_user');
+          window.location.href = '/';
+          return;
+        }
+
+        // Hide skeleton, show app
+        document.getElementById('app-skeleton').style.display = 'none';
+        document.getElementById('app').style.display = 'flex';
+
+        // Update date
+        const dateElem = document.getElementById('current-date');
+        if (dateElem) {
+          dateElem.textContent = new Date().toLocaleDateString('es-MX', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+        }
+
+        // Prefetch common data in background
+        APIClient.prefetchCommon().catch(err => {
+          console.warn('Prefetch failed:', err);
+        });
+
+        // Navigate to default route (cuotas)
+        await Router.navigate('cuotas', false);
+
+        // Setup logout
+        document.getElementById('logout-btn')?.addEventListener('click', () => {
+          localStorage.removeItem('edificio_token');
+          localStorage.removeItem('edificio_user');
+          window.location.href = '/';
+        });
+
+        // Performance measure
+        performance.mark('app-ready');
+        performance.measure('app-init', 'app-start', 'app-ready');
+        const measure = performance.getEntriesByName('app-init')[0];
+        console.log(`✨ App initialized in ${measure.duration.toFixed(2)}ms`);
+
+      } catch (error) {
+        console.error('❌ App initialization failed:', error);
+        alert('Error al inicializar la aplicación');
+      }
+    })();
+  </script>
+
+  <!-- Chart.js (defer, non-critical) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</body>
+</html>

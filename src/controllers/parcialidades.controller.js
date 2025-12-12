@@ -12,10 +12,6 @@ export const getConfig = async (req, res) => {
     });
   } catch (error) {
     return handleControllerError(error, res, 'parcialidades');
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
   }
 };
 
@@ -48,10 +44,6 @@ export const getPagos = async (req, res) => {
     });
   } catch (error) {
     return handleControllerError(error, res, 'parcialidades');
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
   }
 };
 
@@ -59,6 +51,14 @@ export const getPagosByDepartamento = async (req, res) => {
   const { departamento } = req.params;
   
   try {
+    // Validar que inquilinos solo puedan ver su propio departamento
+    if (req.usuario.rol === 'INQUILINO' && req.usuario.departamento !== departamento) {
+      return res.status(403).json({
+        ok: false,
+        msg: 'Solo puedes ver los pagos de tu propio departamento'
+      });
+    }
+    
     const pagos = await Parcialidad.getPagosByDepartamento(departamento);
     
     res.json({
@@ -67,10 +67,6 @@ export const getPagosByDepartamento = async (req, res) => {
     });
   } catch (error) {
     return handleControllerError(error, res, 'parcialidades');
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
   }
 };
 
@@ -78,6 +74,14 @@ export const registrarPago = async (req, res) => {
   const { departamento, monto, fecha, comprobante, notas } = req.body;
   
   try {
+    // Validar que inquilinos solo puedan registrar para su propio departamento
+    if (req.usuario.rol === 'INQUILINO' && req.usuario.departamento !== departamento) {
+      return res.status(403).json({
+        ok: false,
+        msg: 'Solo puedes registrar pagos para tu propio departamento'
+      });
+    }
+    
     // Registrar el ingreso en el fondo de gastos mayores
     await Fondo.registrarIngreso(monto, 'gastosMayores');
     
@@ -96,10 +100,6 @@ export const registrarPago = async (req, res) => {
     });
   } catch (error) {
     return handleControllerError(error, res, 'parcialidades');
-    res.status(500).json({
-      ok: false,
-      msg: error.message || 'Error en el servidor'
-    });
   }
 };
 

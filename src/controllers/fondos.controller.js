@@ -3,18 +3,18 @@ import { handleControllerError } from '../middleware/error-handler.js';
 
 export const getFondos = async (req, res) => {
   try {
-    const fondos = await Fondo.getFondos();
+    const { readData } = await import('../data.js');
+    const data = readData();
+    const fondos = data.fondos;
+    const movimientos = data.movimientos || [];
     
     res.json({
       ok: true,
-      fondos
+      fondos,
+      movimientos
     });
   } catch (error) {
     return handleControllerError(error, res, 'fondos');
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
   }
 };
 
@@ -30,15 +30,11 @@ export const actualizarFondos = async (req, res) => {
     });
   } catch (error) {
     return handleControllerError(error, res, 'fondos');
-    res.status(500).json({
-      ok: false,
-      msg: 'Error en el servidor'
-    });
   }
 };
 
 export const transferirEntreFondos = async (req, res) => {
-  const { origen, destino, monto } = req.body;
+  const { origen, destino, monto, descripcion } = req.body;
   
   try {
     const fondosActualizados = await Fondo.transferirEntreFondos(origen, destino, monto);
@@ -46,13 +42,9 @@ export const transferirEntreFondos = async (req, res) => {
     res.json({
       ok: true,
       fondos: fondosActualizados,
-      msg: `Transferencia de ${monto} realizada correctamente de ${origen} a ${destino}`
+      msg: `Transferencia de $${monto} realizada correctamente de ${origen} a ${destino}`
     });
   } catch (error) {
-    return handleControllerError(error, res, 'fondos');
-    res.status(500).json({
-      ok: false,
-      msg: error.message || 'Error en el servidor'
-    });
+    return handleControllerError(error, res, 'transferirEntreFondos');
   }
 };

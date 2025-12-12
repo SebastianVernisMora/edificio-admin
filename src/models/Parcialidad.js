@@ -14,6 +14,16 @@ export default class Parcialidad {
   
   static async getPagos() {
     const data = readData();
+    
+    // Inicializar si no existe
+    if (!data.parcialidades2026) {
+      data.parcialidades2026 = {
+        objetivo: 285000,
+        pagos: []
+      };
+      writeData(data);
+    }
+    
     return data.parcialidades2026.pagos || [];
   }
   
@@ -25,19 +35,30 @@ export default class Parcialidad {
   static async registrarPago(pagoData) {
     const data = readData();
     
+    // Inicializar parcialidades2026 si no existe
+    if (!data.parcialidades2026) {
+      data.parcialidades2026 = {
+        objetivo: 285000,
+        pagos: []
+      };
+    }
+    
+    if (!data.parcialidades2026.pagos) {
+      data.parcialidades2026.pagos = [];
+    }
+    
     const nuevoPago = {
-      id: pagoData.id || `parcialidad_${Date.now()}`,
+      id: data.parcialidades2026.pagos.length > 0 
+        ? Math.max(...data.parcialidades2026.pagos.map(p => p.id || 0)) + 1 
+        : 1,
       departamento: pagoData.departamento,
       monto: pagoData.monto,
       fecha: pagoData.fecha || new Date().toISOString(),
       comprobante: pagoData.comprobante || null,
       notas: pagoData.notas || '',
+      estado: 'pendiente',
       createdAt: new Date().toISOString()
     };
-    
-    if (!data.parcialidades2026.pagos) {
-      data.parcialidades2026.pagos = [];
-    }
     
     data.parcialidades2026.pagos.push(nuevoPago);
     return writeData(data) ? nuevoPago : null;
@@ -52,31 +73,41 @@ export default class Parcialidad {
     const config = await this.getConfig();
     const pagos = await this.getPagos();
     
-    // Agrupar pagos por departamento
+    // Agrupar pagos por departamento - SOLO VALIDADOS
     const pagosPorDepartamento = {};
     pagos.forEach(pago => {
-      if (!pagosPorDepartamento[pago.departamento]) {
-        pagosPorDepartamento[pago.departamento] = 0;
+      // Solo contar pagos validados en el progreso
+      if (pago.estado === 'validado') {
+        if (!pagosPorDepartamento[pago.departamento]) {
+          pagosPorDepartamento[pago.departamento] = 0;
+        }
+        pagosPorDepartamento[pago.departamento] += pago.monto;
       }
-      pagosPorDepartamento[pago.departamento] += pago.monto;
     });
     
-    // Crear resumen de estado de pagos
+    // Crear resumen de estado de pagos - usando departamentos reales (101-504)
     const estadoPagos = [];
-    for (let i = 1; i <= 20; i++) {
-      const departamento = i.toString();
-      const pagado = pagosPorDepartamento[departamento] || 0;
+    const departamentosReales = [
+      '101', '102', '103', '104',
+      '201', '202', '203', '204',
+      '301', '302', '303', '304',
+      '401', '402', '403', '404',
+      '501', '502', '503', '504'
+    ];
+    
+    departamentosReales.forEach(depto => {
+      const pagado = pagosPorDepartamento[depto] || 0;
       const pendiente = config.montoPorDepartamento - pagado;
       const porcentaje = (pagado / config.montoPorDepartamento) * 100;
       
       estadoPagos.push({
-        departamento,
+        departamento: depto,
         pagado,
-        pendiente,
-        porcentaje,
+        pendiente: pendiente > 0 ? pendiente : 0,
+        porcentaje: porcentaje > 0 ? porcentaje : 0,
         completado: pendiente <= 0
       });
-    }
+    });
     
     return estadoPagos;
   }

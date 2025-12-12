@@ -19,6 +19,7 @@ router.put('/config', [
 // Obtener todos los pagos
 router.get('/pagos', verifyToken, getPagos);
 
+// Obtener pagos por departamento (admin o el propio inquilino)
 // Obtener pagos por departamento
 router.get('/pagos/departamento/:departamento', [
   verifyToken,
@@ -46,8 +47,16 @@ router.get('/mis-parcialidades', verifyToken, async (req, res) => {
   }
 });
 
-// Registrar pago (solo admin)
+// Registrar pago (admin o el propio inquilino)
 router.post('/pagos', [
+  verifyToken,
+  check('departamento', 'El departamento es obligatorio').not().isEmpty(),
+  check('monto', 'El monto es obligatorio').isNumeric(),
+  validarCampos
+], registrarPago);
+
+// Alias para compatibilidad (admin o el propio inquilino)
+router.post('/', [
   verifyToken,
   isAdmin,
   check('departamento', 'El departamento es obligatorio').not().isEmpty(),
@@ -57,5 +66,68 @@ router.post('/pagos', [
 
 // Obtener estado de pagos
 router.get('/estado', verifyToken, getEstadoPagos);
+
+// Validar/rechazar pago (solo admin)
+router.put('/pagos/:id/validar', [
+  verifyToken,
+  isAdmin
+], async (req, res) => {
+  try {
+    const { readData, writeData } = await import('../data.js');
+    const Fondo = (await import('../models/Fondo.js')).default;
+    
+    const data = readData();
+    const pagoId = parseInt(req.params.id);
+    const { estado } = req.body;
+    
+    if (!data.parcialidades2026 || !data.parcialidades2026.pagos) {
+      return res.status(404).json({ ok: false, msg: 'No hay pagos registrados' });
+    }
+    
+    const pago = data.parcialidades2026.pagos.find(p => p.id === pagoId);
+    
+    if (!pago) {
+      return res.status(404).json({ ok: false, msg: 'Pago no encontrado' });
+    }
+    
+    const estadoAnterior = pago.estado;
+    
+    // Actualizar estado del pago PRIMERO
+    pago.estado = estado;
+    pago.validadoEn = new Date().toISOString();
+    pago.validadoPor = req.usuario.id;
+    
+    // Actualizar fondos en la misma data antes de guardar
+    if (estado === 'validado' && estadoAnterior !== 'validado') {
+      data.fondos.ahorroAcumulado += pago.monto;
+      data.fondos.patrimonioTotal = 
+        data.fondos.ahorroAcumulado + 
+        data.fondos.gastosMayores + 
+        data.fondos.dineroOperacional;
+      console.log(`✅ Ingreso de $${pago.monto} a Ahorro Acumulado por validación de parcialidad`);
+    }
+    // Si se está rechazando (y antes estaba validado), revertir fondos
+    else if (estado === 'pendiente' && estadoAnterior === 'validado') {
+      data.fondos.ahorroAcumulado -= pago.monto;
+      data.fondos.patrimonioTotal = 
+        data.fondos.ahorroAcumulado + 
+        data.fondos.gastosMayores + 
+        data.fondos.dineroOperacional;
+      console.log(`✅ Egreso de $${pago.monto} de Ahorro Acumulado por rechazo de parcialidad`);
+    }
+    
+    // UNA SOLA escritura con todo
+    writeData(data);
+    
+    res.json({
+      ok: true,
+      pago,
+      msg: `Pago ${estado === 'validado' ? 'validado' : 'rechazado'} exitosamente`
+    });
+  } catch (error) {
+    console.error('Error validando pago:', error);
+    res.status(500).json({ ok: false, msg: 'Error en el servidor' });
+  }
+});
 
 export default router;

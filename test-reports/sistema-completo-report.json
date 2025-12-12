@@ -1,192 +1,23 @@
 {
-  "timestamp": "2025-10-31T20:14:08.743Z",
+  "timestamp": "2025-11-23T08:59:05.751Z",
   "summary": {
-    "totalTests": 30,
-    "passedTests": 17,
-    "failedTests": 13,
-    "successRate": "56.67",
+    "totalTests": 0,
+    "passedTests": 0,
+    "failedTests": 1,
+    "successRate": 0,
     "overallSuccess": false
   },
-  "testSuites": [
-    {
-      "name": "Sistema de Cuotas",
-      "total": 13,
-      "passed": 13,
-      "failed": 0,
-      "results": [
-        {
-          "test": "Estado inicial del sistema",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Creación de cuota individual",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Generación de cuotas mensuales",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Obtener cuotas por mes y año",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Obtener cuotas por departamento",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Actualizar estado de cuota",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Registrar pago de cuota",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Actualizar cuotas vencidas",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Validación montos $550",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Fechas de vencimiento correctas",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Acumulado anual por usuario",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Departamentos activos",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Sistema completo",
-          "status": "PASS",
-          "error": null
-        }
-      ],
-      "success": true
-    },
-    {
-      "name": "Frontend y API",
-      "total": 17,
-      "passed": 4,
-      "failed": 13,
-      "results": [
-        {
-          "test": "Servidor activo",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Login administrador",
-          "status": "FAIL",
-          "error": "Login falló: Credenciales inválidas"
-        },
-        {
-          "test": "API Usuarios",
-          "status": "FAIL",
-          "error": "Token inválido o expirado"
-        },
-        {
-          "test": "API Cuotas",
-          "status": "FAIL",
-          "error": "API cuotas debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Estado Cuotas",
-          "status": "FAIL",
-          "error": "API estado cuotas debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Gastos",
-          "status": "FAIL",
-          "error": "API gastos debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Presupuestos",
-          "status": "FAIL",
-          "error": "API presupuestos debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Anuncios",
-          "status": "FAIL",
-          "error": "API anuncios debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Cierres",
-          "status": "FAIL",
-          "error": "API cierres debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Fondos",
-          "status": "FAIL",
-          "error": "API fondos debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Permisos",
-          "status": "FAIL",
-          "error": "API permisos debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "API Solicitudes",
-          "status": "FAIL",
-          "error": "API solicitudes debe responder 200. Esperado: 200, Actual: 401"
-        },
-        {
-          "test": "Páginas estáticas",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Manejo de errores",
-          "status": "PASS",
-          "error": null
-        },
-        {
-          "test": "Crear cuota",
-          "status": "FAIL",
-          "error": "Error creando cuotas: Acceso denegado. No se proporcionó token de autenticación."
-        },
-        {
-          "test": "Actualizar estado cuota",
-          "status": "FAIL",
-          "error": "Debe obtener cuotas exitosamente"
-        },
-        {
-          "test": "fetchAuth mejorado",
-          "status": "PASS",
-          "error": null
-        }
-      ],
-      "success": false
-    }
-  ],
+  "testSuites": [],
   "systemInfo": {
-    "nodeVersion": "v20.19.2",
+    "nodeVersion": "v25.1.0",
     "platform": "linux",
     "arch": "x64",
     "memoryUsage": {
-      "rss": 72355840,
-      "heapTotal": 16605184,
-      "heapUsed": 9913216,
-      "external": 3158320,
-      "arrayBuffers": 726782
+      "rss": 61497344,
+      "heapTotal": 11669504,
+      "heapUsed": 8455440,
+      "external": 3581067,
+      "arrayBuffers": 35735
     }
   }
 }

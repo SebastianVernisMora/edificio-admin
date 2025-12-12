@@ -59,4 +59,31 @@ router.get('/:id/archivos/:filename/download', [
   verifyToken
 ], descargarArchivo);
 
+// Upload simple de imagen para anuncio
+router.post('/upload', [
+  verifyToken,
+  isAdmin,
+  upload.single('imagen'),
+  handleMulterError
+], (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ ok: false, msg: 'No se recibió ningún archivo' });
+    }
+    
+    const fileUrl = `/uploads/anuncios/${req.file.filename}`;
+    
+    res.json({
+      ok: true,
+      url: fileUrl,
+      filename: req.file.filename,
+      originalName: req.file.originalname,
+      size: req.file.size
+    });
+  } catch (error) {
+    console.error('Error en upload:', error);
+    res.status(500).json({ ok: false, msg: 'Error al subir archivo' });
+  }
+});
+
 export default router;

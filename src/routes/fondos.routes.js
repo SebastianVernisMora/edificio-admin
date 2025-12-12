@@ -26,4 +26,14 @@ router.post('/transferir', [
   validarCampos
 ], transferirEntreFondos);
 
+// Alias para compatibilidad
+router.post('/transferencia', [
+  verifyToken,
+  isAdmin,
+  check('origen', 'El fondo de origen es obligatorio').isIn(['ahorroAcumulado', 'gastosMayores', 'dineroOperacional']),
+  check('destino', 'El fondo de destino es obligatorio').isIn(['ahorroAcumulado', 'gastosMayores', 'dineroOperacional']),
+  check('monto', 'El monto es obligatorio').isNumeric(),
+  validarCampos
+], transferirEntreFondos);
+
 export default router;
