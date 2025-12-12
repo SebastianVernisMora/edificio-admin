@@ -1,0 +1,183 @@
+2025-11-23 02:39:44: Error capturado: {
+2025-11-23 02:39:44:   message: 'Cuota.verificarVencimientos is not a function',
+2025-11-23 02:39:44:   stack: undefined,
+2025-11-23 02:39:44:   timestamp: '2025-11-23T08:39:44.870Z',
+2025-11-23 02:39:44:   name: 'TypeError'
+2025-11-23 02:39:44: }
+2025-11-23 02:39:44: Error en getCuotasByDepartamento: Cuota.verificarVencimientos is not a function
+2025-11-23 02:43:27: Error capturado: {
+2025-11-23 02:43:27:   message: 'Cuota.verificarVencimientos is not a function',
+2025-11-23 02:43:27:   stack: undefined,
+2025-11-23 02:43:27:   timestamp: '2025-11-23T08:43:27.949Z',
+2025-11-23 02:43:27:   name: 'TypeError'
+2025-11-23 02:43:27: }
+2025-11-23 02:43:27: Error en getCuotasByDepartamento: Cuota.verificarVencimientos is not a function
+2025-11-23 03:32:27: Error al generar cuotas mensuales: Error: Ya existen cuotas generadas para Enero/2025
+2025-11-23 03:32:27:     at Cuota.generarCuotasMensuales (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Cuota.js:48:15)
+2025-11-23 03:32:27:     at crearCuota (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cuotas.controller.js:60:37)
+2025-11-23 03:32:27:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:32:27:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:32:27:     at file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:173:7
+2025-11-23 03:32:27:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:32:27:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:32:27:     at verifyToken (file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:80:5)
+2025-11-23 03:32:27:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:32:27:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:32:27: Error capturado: {
+2025-11-23 03:32:27:   message: 'Ya existen cuotas generadas para Enero/2025',
+2025-11-23 03:32:27:   stack: undefined,
+2025-11-23 03:32:27:   timestamp: '2025-11-23T09:32:27.375Z',
+2025-11-23 03:32:27:   name: 'Error'
+2025-11-23 03:32:27: }
+2025-11-23 03:32:27: Error en crearCuota: Ya existen cuotas generadas para Enero/2025
+2025-11-23 03:32:38: Error al generar cuotas mensuales: Error: Ya existen cuotas generadas para Enero/2025
+2025-11-23 03:32:38:     at Cuota.generarCuotasMensuales (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Cuota.js:48:15)
+2025-11-23 03:32:38:     at crearCuota (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cuotas.controller.js:60:37)
+2025-11-23 03:32:38:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:32:38:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:32:38:     at file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:140:16
+2025-11-23 03:32:38:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:32:38:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:32:38:     at verifyToken (file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:80:5)
+2025-11-23 03:32:38:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:32:38:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:32:38: Error capturado: {
+2025-11-23 03:32:38:   message: 'Ya existen cuotas generadas para Enero/2025',
+2025-11-23 03:32:38:   stack: undefined,
+2025-11-23 03:32:38:   timestamp: '2025-11-23T09:32:38.176Z',
+2025-11-23 03:32:38:   name: 'Error'
+2025-11-23 03:32:38: }
+2025-11-23 03:32:38: Error en crearCuota: Ya existen cuotas generadas para Enero/2025
+2025-11-23 03:33:30: Error al generar cuotas mensuales: Error: Ya existen cuotas generadas para Noviembre/2026
+2025-11-23 03:33:30:     at Cuota.generarCuotasMensuales (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Cuota.js:48:15)
+2025-11-23 03:33:30:     at crearCuota (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cuotas.controller.js:60:37)
+2025-11-23 03:33:30:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:33:30:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:33:30:     at file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:140:16
+2025-11-23 03:33:30:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:33:30:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:33:30:     at verifyToken (file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:80:5)
+2025-11-23 03:33:30:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 03:33:30:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 03:33:30: Error capturado: {
+2025-11-23 03:33:30:   message: 'Ya existen cuotas generadas para Noviembre/2026',
+2025-11-23 03:33:30:   stack: undefined,
+2025-11-23 03:33:30:   timestamp: '2025-11-23T09:33:30.418Z',
+2025-11-23 03:33:30:   name: 'Error'
+2025-11-23 03:33:30: }
+2025-11-23 03:33:30: Error en crearCuota: Ya existen cuotas generadas para Noviembre/2026
+2025-11-23 03:39:30: Error capturado: {
+2025-11-23 03:39:30:   message: 'Cuota.getById is not a function',
+2025-11-23 03:39:30:   stack: 'TypeError: Cuota.getById is not a function\n' +
+2025-11-23 03:39:30:     '    at actualizarCuota (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cuotas.controller.js:113:31)\n' +
+2025-11-23 03:39:30:     '    at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)\n' +
+2025-11-23 03:39:30:     '    at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)\n' +
+2025-11-23 03:39:30:     '    at file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:173:7\n' +
+2025-11-23 03:39:30:     '    at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)\n' +
+2025-11-23 03:39:30:     '    at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)\n' +
+2025-11-23 03:39:30:     '    at verifyToken (file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:80:5)\n' +
+2025-11-23 03:39:30:     '    at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)\n' +
+2025-11-23 03:39:30:     '    at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)\n' +
+2025-11-23 03:39:30:     '    at Route.dispatch (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:119:3)',
+2025-11-23 03:39:30:   timestamp: '2025-11-23T09:39:30.623Z',
+2025-11-23 03:39:30:   name: 'TypeError'
+2025-11-23 03:39:30: }
+2025-11-23 03:39:30: Error en getCuotasByDepartamento: Cuota.getById is not a function
+2025-11-23 03:40:07: Error capturado: {
+2025-11-23 03:40:07:   message: 'Cuota.getById is not a function',
+2025-11-23 03:40:07:   stack: 'TypeError: Cuota.getById is not a function\n' +
+2025-11-23 03:40:07:     '    at actualizarCuota (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cuotas.controller.js:113:31)\n' +
+2025-11-23 03:40:07:     '    at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)\n' +
+2025-11-23 03:40:07:     '    at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)\n' +
+2025-11-23 03:40:07:     '    at file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:140:16\n' +
+2025-11-23 03:40:07:     '    at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)\n' +
+2025-11-23 03:40:07:     '    at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)\n' +
+2025-11-23 03:40:07:     '    at verifyToken (file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:80:5)\n' +
+2025-11-23 03:40:07:     '    at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)\n' +
+2025-11-23 03:40:07:     '    at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)\n' +
+2025-11-23 03:40:07:     '    at Route.dispatch (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:119:3)',
+2025-11-23 03:40:07:   timestamp: '2025-11-23T09:40:07.846Z',
+2025-11-23 03:40:07:   name: 'TypeError'
+2025-11-23 03:40:07: }
+2025-11-23 03:40:07: Error en getCuotasByDepartamento: Cuota.getById is not a function
+2025-11-23 04:47:06: Error capturado: {
+2025-11-23 04:47:06:   message: 'Ya existe un cierre para Noviembre 2025',
+2025-11-23 04:47:06:   stack: 'Error: Ya existe un cierre para Noviembre 2025\n' +
+2025-11-23 04:47:06:     '    at Cierre.realizarCierreMensual (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Cierre.js:27:13)\n' +
+2025-11-23 04:47:06:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+2025-11-23 04:47:06:     '    at async realizarCierreMensual (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cierres.controller.js:65:20)',
+2025-11-23 04:47:06:   timestamp: '2025-11-23T10:47:06.907Z',
+2025-11-23 04:47:06:   name: 'Error'
+2025-11-23 04:47:06: }
+2025-11-23 04:47:06: Error en realizarCierreMensual: Ya existe un cierre para Noviembre 2025
+2025-11-23 05:08:44: Error capturado: {
+2025-11-23 05:08:44:   message: "Cannot read properties of undefined (reading 'pagos')",
+2025-11-23 05:08:44:   stack: "TypeError: Cannot read properties of undefined (reading 'pagos')\n" +
+2025-11-23 05:08:44:     '    at Parcialidad.registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Parcialidad.js:38:33)\n' +
+2025-11-23 05:08:44:     '    at registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/parcialidades.controller.js:85:36)\n' +
+2025-11-23 05:08:44:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+2025-11-23 05:08:44:   timestamp: '2025-11-23T11:08:44.382Z',
+2025-11-23 05:08:44:   name: 'TypeError'
+2025-11-23 05:08:44: }
+2025-11-23 05:08:44: Error en parcialidades: Cannot read properties of undefined (reading 'pagos')
+2025-11-23 05:08:57: Error capturado: {
+2025-11-23 05:08:57:   message: "Cannot read properties of undefined (reading 'pagos')",
+2025-11-23 05:08:57:   stack: "TypeError: Cannot read properties of undefined (reading 'pagos')\n" +
+2025-11-23 05:08:57:     '    at Parcialidad.registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Parcialidad.js:38:33)\n' +
+2025-11-23 05:08:57:     '    at registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/parcialidades.controller.js:85:36)\n' +
+2025-11-23 05:08:57:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+2025-11-23 05:08:57:   timestamp: '2025-11-23T11:08:57.909Z',
+2025-11-23 05:08:57:   name: 'TypeError'
+2025-11-23 05:08:57: }
+2025-11-23 05:08:57: Error en parcialidades: Cannot read properties of undefined (reading 'pagos')
+2025-11-23 05:09:02: Error capturado: {
+2025-11-23 05:09:02:   message: "Cannot read properties of undefined (reading 'pagos')",
+2025-11-23 05:09:02:   stack: "TypeError: Cannot read properties of undefined (reading 'pagos')\n" +
+2025-11-23 05:09:02:     '    at Parcialidad.registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Parcialidad.js:38:33)\n' +
+2025-11-23 05:09:02:     '    at registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/parcialidades.controller.js:85:36)\n' +
+2025-11-23 05:09:02:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+2025-11-23 05:09:02:   timestamp: '2025-11-23T11:09:02.183Z',
+2025-11-23 05:09:02:   name: 'TypeError'
+2025-11-23 05:09:02: }
+2025-11-23 05:09:02: Error en parcialidades: Cannot read properties of undefined (reading 'pagos')
+2025-11-23 05:09:22: Error capturado: {
+2025-11-23 05:09:22:   message: "Cannot read properties of undefined (reading 'pagos')",
+2025-11-23 05:09:22:   stack: "TypeError: Cannot read properties of undefined (reading 'pagos')\n" +
+2025-11-23 05:09:22:     '    at Parcialidad.registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Parcialidad.js:38:33)\n' +
+2025-11-23 05:09:22:     '    at registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/parcialidades.controller.js:85:36)\n' +
+2025-11-23 05:09:22:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+2025-11-23 05:09:22:   timestamp: '2025-11-23T11:09:22.374Z',
+2025-11-23 05:09:22:   name: 'TypeError'
+2025-11-23 05:09:22: }
+2025-11-23 05:09:22: Error en parcialidades: Cannot read properties of undefined (reading 'pagos')
+2025-11-23 05:10:44: Error capturado: {
+2025-11-23 05:10:44:   message: "Cannot read properties of undefined (reading 'pagos')",
+2025-11-23 05:10:44:   stack: "TypeError: Cannot read properties of undefined (reading 'pagos')\n" +
+2025-11-23 05:10:44:     '    at Parcialidad.registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Parcialidad.js:38:33)\n' +
+2025-11-23 05:10:44:     '    at registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/parcialidades.controller.js:85:36)\n' +
+2025-11-23 05:10:44:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+2025-11-23 05:10:44:   timestamp: '2025-11-23T11:10:44.935Z',
+2025-11-23 05:10:44:   name: 'TypeError'
+2025-11-23 05:10:44: }
+2025-11-23 05:10:44: Error en parcialidades: Cannot read properties of undefined (reading 'pagos')
+2025-11-23 05:10:58: Error capturado: {
+2025-11-23 05:10:58:   message: "Cannot read properties of undefined (reading 'pagos')",
+2025-11-23 05:10:58:   stack: "TypeError: Cannot read properties of undefined (reading 'pagos')\n" +
+2025-11-23 05:10:58:     '    at Parcialidad.registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Parcialidad.js:38:33)\n' +
+2025-11-23 05:10:58:     '    at registrarPago (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/parcialidades.controller.js:85:36)\n' +
+2025-11-23 05:10:58:     '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)',
+2025-11-23 05:10:58:   timestamp: '2025-11-23T11:10:58.016Z',
+2025-11-23 05:10:58:   name: 'TypeError'
+2025-11-23 05:10:58: }
+2025-11-23 05:10:58: Error en parcialidades: Cannot read properties of undefined (reading 'pagos')
+2025-11-23 05:25:44: Error al generar cuotas mensuales: Error: Ya existen cuotas generadas para Noviembre/2025
+2025-11-23 05:25:44:     at Cuota.generarCuotasMensuales (file:///home/sebastianvernis/Proyecto-EdificioActual/src/models/Cuota.js:48:15)
+2025-11-23 05:25:44:     at crearCuota (file:///home/sebastianvernis/Proyecto-EdificioActual/src/controllers/cuotas.controller.js:61:39)
+2025-11-23 05:25:44:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 05:25:44:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 05:25:44:     at file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:173:7
+2025-11-23 05:25:44:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 05:25:44:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)
+2025-11-23 05:25:44:     at verifyToken (file:///home/sebastianvernis/Proyecto-EdificioActual/src/middleware/auth.js:80:5)
+2025-11-23 05:25:44:     at Layer.handle [as handle_request] (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/layer.js:95:5)
+2025-11-23 05:25:44:     at next (/home/sebastianvernis/Proyecto-EdificioActual/node_modules/express/lib/router/route.js:149:13)

@@ -1,0 +1,390 @@
+================================================================================
+  PROMPTS PARA GENERACIÓN DE MULTIMEDIA - EDIFICIO ADMIN SAAS
+================================================================================
+
+Fecha: 2025-12-12
+Proyecto: EdificioAdmin - Sistema SaaS de Gestión de Condominios
+Paleta de colores: Azul primario #4a6de5, Acento naranja #ff7b00, Grises suaves
+Estilo general: Flat design moderno, profesional pero accesible, limpio
+
+
+================================================================================
+1. LOGO PRINCIPAL (logo.png)
+================================================================================
+
+Crea un logotipo profesional para EdificioAdmin, sistema SaaS de gestión de condominios.
+
+ESPECIFICACIONES:
+- Concepto: Edificio/condominio + tecnología/administración
+- Elementos sugeridos: 
+  * Silueta de edificio simplificada con ventanas/departamentos
+  * Elementos que sugieran organización (grid, checkmarks, gráficas)
+  * Puede incluir iniciales "EA" de forma creativa
+- Estilo: Moderno, minimalista, vectorial, flat design
+- Colores: Azul primario #4a6de5, puede usar gradiente sutil
+- Versatilidad: Debe funcionar en fondos claros y oscuros
+- Proporciones: Horizontal (marca + icono) para navbar
+
+VERSIONES REQUERIDAS:
+- logo.png - 800x200px (versión completa horizontal para navbar)
+- logo-icon.png - 512x512px (solo ícono cuadrado para favicon/app icon)
+- logo-white.png - 800x200px (versión en blanco para fondos oscuros)
+
+FORMATO: PNG con transparencia, alta resolución
+PROHIBIDO: Diseños muy corporativos, gradientes excesivos, efectos 3D realistas
+
+
+================================================================================
+2. DASHBOARD PREVIEW (dashboard-preview.png)
+================================================================================
+
+Crea un mockup ilustrativo del dashboard de EdificioAdmin para la sección hero de la landing page.
+
+ESPECIFICACIONES:
+- Vista: Dashboard administrativo en laptop/desktop
+- Elementos UI visibles:
+  * Sidebar izquierdo con navegación (Dashboard, Cuotas, Gastos, Residentes, Anuncios, Reportes)
+  * Header superior con nombre del edificio y perfil de usuario
+  * 4 tarjetas de métricas principales:
+    - Cuotas pendientes: $45,600 (con icono de dinero)
+    - Residentes activos: 48/50 (con icono de usuarios)
+    - Gastos del mes: $18,200 (con icono de recibo)
+    - Fondos disponibles: $125,000 (con icono de alcancía)
+  * Gráfica de barras mostrando ingresos vs gastos (6 meses)
+  * Tabla con últimos movimientos/transacciones
+  * Widget de anuncios recientes en sidebar derecho
+- Diseño: Interface clara, espacios bien definidos, shadows sutiles
+- Colores: Fondo blanco/gris claro, elementos en azul #4a6de5, acentos naranja
+- Datos: Usar líneas grises para simular texto (NO texto legible real)
+
+ESTILO:
+- Vista en perspectiva isométrica leve (15-20 grados)
+- Sombras modernas (drop shadow sutil)
+- Bordes redondeados en cards
+- Aspecto profesional pero friendly
+
+TAMAÑO: 1920x1080px
+FORMATO: PNG de alta calidad
+CONTEXTO: Será la imagen principal del hero section, debe verse atractiva y profesional
+
+
+================================================================================
+3. MOBILE DASHBOARD (dashboard-mobile.png) [OPCIONAL]
+================================================================================
+
+Versión móvil del dashboard anterior.
+
+ESPECIFICACIONES:
+- Vista: Smartphone mostrando versión responsive
+- Elementos: Mismas métricas pero en layout móvil apilado
+- Navegación: Menu hamburguesa, bottom navigation bar
+- Tamaño: 750x1334px (iPhone)
+- Mismo estilo flat, isométrico leve
+
+CONTEXTO: Para mostrar capacidad responsive en sección de features
+
+
+================================================================================
+4. TESTIMONIAL AVATARS (testimonial-1.jpg, testimonial-2.jpg, testimonial-3.jpg)
+================================================================================
+
+Crea 3 avatares ilustrativos para testimonios de clientes.
+
+PERSONAJE 1 - CARLOS RAMÍREZ (testimonial-1.jpg):
+- Rol: Administrador de Torre Esmeralda
+- Características: Hombre 45-55 años, latino, profesional, con lentes
+- Expresión: Confiable, satisfecho, serio pero amable
+- Vestimenta: Camisa formal/business casual
+- Fondo: Azul claro suave (#e8f0ff)
+- Estilo: Avatar ilustrativo flat design, rostro simplificado pero expresivo
+
+PERSONAJE 2 - ANA GARCÍA (testimonial-2.jpg):
+- Rol: Tesorera de Condominio Las Palmas
+- Características: Mujer 40-50 años, latina, cabello recogido
+- Expresión: Profesional, organizada, amigable
+- Vestimenta: Blusa profesional
+- Fondo: Verde menta suave (#e0f5f0)
+- Estilo: Mismo estilo que personaje 1
+
+PERSONAJE 3 - MIGUEL SÁNCHEZ (testimonial-3.jpg):
+- Rol: Presidente de Junta de Propietarios
+- Características: Hombre 35-45 años, latino, moderno, barba cuidada
+- Expresión: Joven profesional, innovador, confiado
+- Vestimenta: Casual smart (polo/henley)
+- Fondo: Lavanda suave (#f0e8ff)
+- Estilo: Mismo estilo que anteriores
+
+ESPECIFICACIONES GENERALES:
+- Tamaño: 400x400px cada uno, circular
+- Formato: JPG alta calidad
+- Estilo: Ilustración vectorial flat, NO fotografías reales
+- Diversidad: Diferentes edades, tonos de piel, estilos
+- Consistencia: Mismo nivel de detalle, misma técnica en los 3
+- Expresiones: Positivas, confiables, profesionales
+
+PROHIBIDO: Fotografías reales, caricaturas exageradas, anime, logos
+
+
+================================================================================
+5. FEATURE ICONS (PACK DE 6 ICONOS)
+================================================================================
+
+Crea 6 ilustraciones isométricas para las características principales.
+
+ÍCONO 1 - GESTIÓN FINANCIERA (icon-finance.png):
+- Elementos: Calculadora moderna + monedas + gráfica de barras ascendente
+- Ángulo: Isométrico suave
+- Colores: Azul #4a6de5 primario, verde #28a745 para gráfica positiva
+- Concepto: Claridad financiera, crecimiento, organización
+
+ÍCONO 2 - CONTROL DE ACCESO (icon-users.png):
+- Elementos: 3-4 figuras de usuarios con diferentes badges (admin, comité, residente)
+- Ángulo: Isométrico suave
+- Colores: Azul primario, badges en diferentes colores (oro, plata, azul claro)
+- Concepto: Roles diferenciados, jerarquía clara
+
+ÍCONO 3 - NOTIFICACIONES (icon-notifications.png):
+- Elementos: Campana grande + ondas de sonido + sobres de email flotando
+- Ángulo: Isométrico suave
+- Colores: Azul primario, naranja #ff7b00 para alertas
+- Concepto: Comunicación constante, avisos importantes
+
+ÍCONO 4 - REPORTES (icon-reports.png):
+- Elementos: Documento/reporte con gráficas (pie chart, barras) saliendo/flotando
+- Ángulo: Isométrico suave
+- Colores: Azul primario, gráficas en colores variados (verde, naranja, azul claro)
+- Concepto: Análisis de datos, insights, transparencia
+
+ÍCONO 5 - ACCESO MÓVIL (icon-mobile.png):
+- Elementos: Smartphone + laptop conectados con líneas/sincronización
+- Ángulo: Isométrico suave
+- Colores: Azul primario, pantallas iluminadas en azul claro
+- Concepto: Responsive, multi-dispositivo, acceso anywhere
+
+ÍCONO 6 - SEGURIDAD (icon-security.png):
+- Elementos: Escudo grande + candado cerrado + checkmark/tick
+- Ángulo: Isométrico suave
+- Colores: Azul primario, verde #28a745 para checkmark, candado dorado
+- Concepto: Protección de datos, confianza, privacidad
+
+ESPECIFICACIONES GENERALES PARA TODOS:
+- Tamaño: 512x512px cada uno
+- Formato: PNG con transparencia
+- Ángulo isométrico: Consistente en todos (30 grados estándar)
+- Grosor de líneas: Uniforme (3-4px)
+- Sombras: Sutiles, misma dirección de luz en todos
+- Estilo: Flat 3D (isométrico), NO realista
+- Paleta limitada: Máximo 4-5 colores por ícono
+- Fondo: Transparente
+- Uso: Se mostrarán en círculos de 60x60px con fondo azul claro
+
+CONSISTENCIA CRÍTICA: 
+Todos los íconos deben parecer del mismo set/familia. Mismo ángulo, mismo estilo de línea, misma complejidad de detalle.
+
+
+================================================================================
+6. PRICING PLAN DECORATIONS (OPCIONAL)
+================================================================================
+
+ÍCONO PLAN BÁSICO (plan-basic-icon.png):
+- Concepto: Edificio simple, minimalista, 1 torre
+- Tamaño: 200x200px, PNG transparente
+- Colores: Azul suave
+
+ÍCONO PLAN PROFESIONAL (plan-pro-icon.png):
+- Concepto: Edificio doble torre, más detallado, con jardín/amenidades
+- Tamaño: 200x200px, PNG transparente
+- Colores: Azul primario con acentos dorados
+
+ÍCONO PLAN EMPRESARIAL (plan-enterprise-icon.png):
+- Concepto: Complejo de múltiples edificios, skyline
+- Tamaño: 200x200px, PNG transparente
+- Colores: Azul oscuro, gradiente premium
+
+
+================================================================================
+7. BACKGROUND PATTERNS (OPCIONAL)
+================================================================================
+
+PATRÓN HERO SECTION (hero-pattern.svg):
+- Elementos: Grid sutil de edificios/departamentos en patrón repetitivo
+- Opacidad: Muy baja (5-10%), para usar como fondo
+- Colores: Azul #4a6de5 monocromático
+- Tamaño: 1920x1080px, SVG vectorial
+- Uso: Background pattern para hero section
+
+
+================================================================================
+8. FEATURE SCREENSHOTS (dashboard-features/)
+================================================================================
+
+Si deseas mostrar características específicas con más detalle:
+
+SCREENSHOT 1 - Gestión de Cuotas (feature-cuotas.png):
+- Vista: Tabla de cuotas con filtros, estados (pagado/pendiente/vencido)
+- Elementos: Badges de estado, botones de acción, búsqueda
+- 1600x900px
+
+SCREENSHOT 2 - Registro de Gastos (feature-gastos.png):
+- Vista: Formulario de gastos + lista de gastos recientes
+- Elementos: Categorías, comprobantes, aprobaciones
+- 1600x900px
+
+SCREENSHOT 3 - Panel de Residentes (feature-residentes.png):
+- Vista: Directorio de residentes por departamento
+- Elementos: Avatares, info de contacto, estado de cuenta
+- 1600x900px
+
+ESPECIFICACIONES:
+- Mismo estilo UI que dashboard principal
+- Datos simulados con líneas grises
+- Vista recta (no isométrica)
+- Bordes/sombras consistentes
+
+
+================================================================================
+9. FAVICON (favicon.ico)
+================================================================================
+
+Versiones del ícono del logo para favicon:
+
+TAMAÑOS REQUERIDOS:
+- 16x16px
+- 32x32px  
+- 48x48px
+- 64x64px
+
+DISEÑO:
+- Versión ultra simplificada del logo (solo ícono del edificio)
+- Reconocible a tamaño pequeño
+- Colores sólidos sin gradientes
+- Alto contraste
+
+FORMATO: .ico multi-resolución O PNG individuales
+
+
+================================================================================
+10. LOADING ANIMATIONS (OPCIONAL)
+================================================================================
+
+SPINNER DE CARGA (loader.svg):
+- Concepto: Edificio construyéndose o logo animado
+- Formato: SVG animado o GIF
+- Tamaño: 100x100px
+- Colores: Azul primario
+- Animación: Loop suave, 1-2 segundos
+
+
+================================================================================
+PRIORIDADES DE IMPLEMENTACIÓN:
+================================================================================
+
+🔴 CRÍTICO (necesarios para funcionamiento):
+1. Logo principal (logo.png) - Para navbar
+2. Dashboard preview (dashboard-preview.png) - Hero section
+
+🟡 IMPORTANTE (mejoran UX significativamente):
+3. Testimonial avatars (3 archivos) - Credibilidad social
+4. Feature icons (6 archivos) - Visualización de beneficios
+
+🟢 OPCIONAL (polish y profesionalismo):
+5. Pricing plan decorations
+6. Background patterns
+7. Feature screenshots detallados
+8. Favicon
+9. Loading animations
+
+
+================================================================================
+HERRAMIENTAS RECOMENDADAS:
+================================================================================
+
+IA Generativa:
+- DALL-E 3 / Midjourney - Para ilustraciones complejas (dashboard, testimonios)
+- Stable Diffusion - Alternativa open source
+
+Diseño vectorial:
+- Figma - Mockups y diseño UI
+- Canva Pro - Templates de mockups editables
+- Sketch / Adobe XD - Diseño profesional
+
+Iconografía:
+- Iconify / Heroicons - Íconos base para personalizar
+- Flaticon - Packs de íconos isométricos
+
+Placeholders temporales:
+- https://placeholder.com - Imágenes placeholder por tamaño
+- https://ui-avatars.com/api/ - Avatares generados por iniciales
+
+
+================================================================================
+UBICACIÓN DE ARCHIVOS:
+================================================================================
+
+cloudflare-saas/public/img/
+├── logo.svg ✅ (ya existe - versión básica)
+├── logo.png (pendiente - versión profesional)
+├── logo-icon.png (pendiente)
+├── logo-white.png (pendiente)
+├── dashboard-preview.png (pendiente) ⚠️ CRÍTICO
+├── dashboard-mobile.png (opcional)
+├── testimonial-1.jpg (pendiente) ⚠️ IMPORTANTE
+├── testimonial-2.jpg (pendiente) ⚠️ IMPORTANTE
+├── testimonial-3.jpg (pendiente) ⚠️ IMPORTANTE
+├── icons/
+│   ├── icon-finance.png (pendiente)
+│   ├── icon-users.png (pendiente)
+│   ├── icon-notifications.png (pendiente)
+│   ├── icon-reports.png (pendiente)
+│   ├── icon-mobile.png (pendiente)
+│   └── icon-security.png (pendiente)
+├── plans/
+│   ├── plan-basic-icon.png (opcional)
+│   ├── plan-pro-icon.png (opcional)
+│   └── plan-enterprise-icon.png (opcional)
+└── features/
+    ├── feature-cuotas.png (opcional)
+    ├── feature-gastos.png (opcional)
+    └── feature-residentes.png (opcional)
+
+
+================================================================================
+SOLUCIÓN TEMPORAL (mientras se generan imágenes reales):
+================================================================================
+
+Puedes usar placeholders con:
+
+```html
+<!-- Dashboard preview -->
+<img src="https://placehold.co/1920x1080/4a6de5/white?text=Dashboard+Preview" 
+     alt="Dashboard Preview">
+
+<!-- Testimonial avatars -->
+<img src="https://ui-avatars.com/api/?name=Carlos+Ramirez&size=400&background=4a6de5&color=fff" 
+     alt="Carlos Ramírez">
+
+<!-- Feature icons con Font Awesome (ya en uso) -->
+<i class="fas fa-money-bill-wave"></i>
+<i class="fas fa-users"></i>
+<i class="fas fa-bell"></i>
+<i class="fas fa-chart-line"></i>
+<i class="fas fa-mobile-alt"></i>
+<i class="fas fa-shield-alt"></i>
+```
+
+
+================================================================================
+NOTA FINAL:
+================================================================================
+
+Este archivo sirve como referencia para generar toda la multimedia faltante.
+Cada prompt está optimizado para herramientas de IA generativa (DALL-E, Midjourney)
+o puede ser usado como brief para diseñadores gráficos.
+
+Mantén consistencia en:
+- Paleta de colores (#4a6de5, #ff7b00)
+- Estilo visual (flat, moderno, profesional)
+- Nivel de detalle (minimalista pero expresivo)
+- Formato y resoluciones especificadas
+
+================================================================================

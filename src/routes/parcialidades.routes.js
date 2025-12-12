@@ -20,7 +20,11 @@ router.put('/config', [
 router.get('/pagos', verifyToken, getPagos);
 
 // Obtener pagos por departamento (admin o el propio inquilino)
-router.get('/pagos/departamento/:departamento', verifyToken, getPagosByDepartamento);
+// Obtener pagos por departamento
+router.get('/pagos/departamento/:departamento', [
+  verifyToken,
+  isOwner
+], getPagosByDepartamento);
 
 // Obtener mis parcialidades (inquilino)
 router.get('/mis-parcialidades', verifyToken, async (req, res) => {
@@ -54,6 +58,7 @@ router.post('/pagos', [
 // Alias para compatibilidad (admin o el propio inquilino)
 router.post('/', [
   verifyToken,
+  isAdmin,
   check('departamento', 'El departamento es obligatorio').not().isEmpty(),
   check('monto', 'El monto es obligatorio').isNumeric(),
   validarCampos
