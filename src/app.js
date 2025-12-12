@@ -15,6 +15,7 @@ import permisosRoutes from './routes/permisos.routes.js';
 import validationRoutes from './routes/validation.routes.js';
 import auditRoutes from './routes/audit.routes.js';
 import solicitudesRoutes from './routes/solicitudes.routes.js';
+import parcialidadesRoutes from './routes/parcialidades.routes.js';
 import { inicializarCuotasAnuales, actualizarCuotasVencidas } from './utils/cuotasInicializacion.js';
 
 // Configuración de variables de entorno
@@ -50,6 +51,7 @@ app.use('/api/permisos', permisosRoutes);
 app.use('/api/validation', validationRoutes);
 app.use('/api/audit', auditRoutes);
 app.use('/api/solicitudes', solicitudesRoutes);
+app.use('/api/parcialidades', parcialidadesRoutes);
 
 // Ruta para servir la aplicación frontend
 app.get('/', (req, res) => {
@@ -116,8 +118,9 @@ async function programarRespaldos() {
 
 // Iniciar servidor
 app.listen(PORT, async () => {
-  console.log(`Servidor corriendo en puerto ${PORT}`);
-  console.log('DNS configurado: http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com');
+  console.log(`\n🚀 Servidor corriendo en puerto ${PORT}`);
+  console.log(`📍 URL Local: http://localhost:${PORT}`);
+  console.log(`🌐 Acceso en red: http://${require('os').networkInterfaces()?.eth0?.[0]?.address || 'localhost'}:${PORT}\n`);
   
   // Inicializar sistema después de que el servidor esté corriendo
   await inicializarSistema();

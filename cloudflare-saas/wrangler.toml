@@ -1,0 +1,44 @@
+name = "edificio-admin-saas"
+main = "src/index.js"
+compatibility_date = "2023-11-12"
+
+# Assets configuration for static files
+[site]
+bucket = "./public"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "edificio_admin_db"
+database_id = "807560dd-74a4-43e4-81cb-f3486506fbfe"
+
+# KV Namespace para sesiones
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "08cfc405ae2640a59169aaaa21377c98"
+
+# KV Namespace para caché
+[[kv_namespaces]]
+binding = "CACHE"
+id = "9da6e4e22f534afc8ff4485831eb904e"
+
+# KV Namespace para rate limiting
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "5e4633c8e64c49989668f699ad601c16"
+
+# R2 Storage para archivos (uploads)
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "edificio-admin-uploads"
+
+# Variables de entorno
+[vars]
+ENVIRONMENT = "development"
+JWT_SECRET = "dev-secret-change-in-production"
+EMAIL_SENDER = "notificaciones@edificio-admin.com"
+
+# Configuración específica para producción
+[env.production]
+name = "edificio-admin-saas-prod"
+vars = { ENVIRONMENT = "production" }

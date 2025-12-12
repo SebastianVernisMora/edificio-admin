@@ -1,0 +1,22 @@
+{
+  "name": "edificio-admin-cloudflare",
+  "version": "2.0.0",
+  "description": "Edificio Admin SAAS - Cloudflare Workers",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:prod": "wrangler deploy --env production",
+    "migrate": "wrangler d1 execute edificio_admin_db --file=./migrations/0001_initial_schema.sql",
+    "test": "vitest",
+    "cf:setup": "./scripts/setup-cloudflare.sh"
+  },
+  "dependencies": {
+    "itty-router": "^4.0.0",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "vitest": "^1.0.0"
+  }
+}

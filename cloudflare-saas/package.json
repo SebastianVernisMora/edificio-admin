@@ -1,0 +1,36 @@
+{
+  "name": "edificio-admin-saas",
+  "version": "1.0.0",
+  "description": "Sistema de administración de edificios y condominios como servicio SaaS",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --persist-to .wrangler/state --port 8787 --assets ./public",
+    "deploy": "wrangler publish",
+    "migrate": "node scripts/migrate.js",
+    "seed": "node scripts/seed.js",
+    "setup": "sh scripts/setup-dev.sh",
+    "deploy:prod": "sh scripts/deploy.sh"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "d1",
+    "kv",
+    "r2",
+    "edificio",
+    "admin",
+    "saas"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.1",
+    "itty-router": "^4.0.20",
+    "jose": "^5.1.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "wrangler": "^3.22.0"
+  }
+}

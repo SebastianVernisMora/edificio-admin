@@ -1,65 +1,56 @@
-# Edificio Admin - Sistema Operacional
+# Edificio Admin - Modo Local
 
-**Fecha:** 2025-11-23 07:40 UTC  
-**Estado:** ✅ FUNCIONANDO - SIN LOOPS
+**Fecha:** 2025-12-11 23:00 UTC  
+**Estado:** ✅ Configurado para localhost
 
 ---
 
-## 🚀 PM2 Comandos
+## ⚡ Inicio Rápido
 
 ```bash
-pm2 status                  # Ver estado
-pm2 logs edificio-admin     # Ver logs
-pm2 restart edificio-admin  # Reiniciar
-pm2 save                    # Guardar config
+npm install        # Instalar dependencias
+./start-local.sh   # Iniciar servidor
 ```
+
+Abrir: **http://localhost:3000**
 
 ---
 
 ## 🔑 Credenciales
 
-**CONTRASEÑA: `Gemelo1` (todas las cuentas)**
-
 ```
-Admin: admin@edificio205.com / Gemelo1
-```
-
-**URL:** `http://ec2-18-223-32-141.us-east-2.compute.amazonaws.com`
-
----
-
-## 📊 Estado
-
-```yaml
-PM2: ✅ Online (PID 33450)
-Backend: ✅ Funcionando
-Frontend: ✅ Sin loops
-Módulos: Cuotas, Gastos, Fondos agregados
-DB: ✅ 41KB, 20 usuarios
+Usuario: admin@edificio205.com
+Password: Gemelo1
 ```
 
 ---
 
-## 🎯 Funcionalidades
+## 📍 URLs
 
-✅ Login/Logout  
-✅ Cuotas  
-✅ Gastos  
-✅ Fondos  
-❌ Dashboard (deshabilitado)  
-❌ Usuarios (deshabilitado)  
-❌ Anuncios (deshabilitado)
-
----
-
-## 🔧 Si hay loop
-
-```javascript
-// Console (F12):
-localStorage.clear();
-// Reload: Ctrl+Shift+R
+```
+Login:     http://localhost:3000
+Admin:     http://localhost:3000/admin
+Inquilino: http://localhost:3000/inquilino
 ```
 
 ---
 
-**Sistema operacional** ✅
+## 🛠️ Comandos
+
+```bash
+./start-local.sh         # Iniciar
+npm run dev              # Alternativa
+pkill -f "node src/app"  # Detener
+```
+
+---
+
+## 📚 Docs
+
+- **README_LOCAL.txt** - Guía rápida
+- **INSTRUCCIONES_LOCAL.md** - Guía completa
+- **LOCALHOST_SETUP.md** - Setup desarrollo
+
+---
+
+**Sistema listo** ✅

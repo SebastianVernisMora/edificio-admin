@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edificio-Admin | Login</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Edificio-Admin</h1>
+        <p>Sistema de Administración de Condominio</p>
+      </div>
+      
+      <div class="login-form">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </div>
+        </form>
+        
+        <div class="login-info">
+          <button id="show-credentials-btn" class="credentials-btn">
+            <i class="fas fa-key"></i>
+            Ver Credenciales de Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para credenciales -->
+  <div id="credentials-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-key"></i> Credenciales de Acceso Demo</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="credentials-grid">
+          <div class="credential-card admin">
+            <div class="role-header">
+              <i class="fas fa-crown"></i>
+              <h3>ADMINISTRADOR</h3>
+            </div>
+            <div class="credential-details">
+              <p><strong>Email:</strong> admin@edificio205.com</p>
+              <p><strong>Contraseña:</strong> Gemelo1</p>
+              <p class="role-desc">Acceso completo al sistema</p>
+            </div>
+          </div>
+
+          <div class="credential-card comite">
+            <div class="role-header">
+              <i class="fas fa-users"></i>
+              <h3>COMITÉ</h3>
+            </div>
+            <div class="credential-details">
+              <p><strong>Email:</strong> comite@edificio205.com</p>
+              <p><strong>Contraseña:</strong> Gemelo1</p>
+              <p class="role-desc">Gestión de gastos y presupuestos</p>
+            </div>
+          </div>
+
+          <div class="credential-card inquilino">
+            <div class="role-header">
+              <i class="fas fa-home"></i>
+              <h3>INQUILINOS</h3>
+            </div>
+            <div class="credential-details">
+              <div class="inquilino-list">
+                <div class="inquilino-item">
+                  <p><strong>María García (Depto 101):</strong></p>
+                  <p>maria.garcia@edificio205.com</p>
+                </div>
+                <div class="inquilino-item">
+                  <p><strong>Carlos López (Depto 102):</strong></p>
+                  <p>carlos.lopez@edificio205.com</p>
+                </div>
+                <div class="inquilino-item">
+                  <p><strong>Ana Martínez (Depto 201):</strong></p>
+                  <p>ana.martinez@edificio205.com</p>
+                </div>
+                <div class="inquilino-item">
+                  <p><strong>Roberto Silva (Depto 202):</strong></p>
+                  <p>roberto.silva@edificio205.com</p>
+                </div>
+              </div>
+              <p><strong>Contraseña universal:</strong> Gemelo1</p>
+              <p class="role-desc">Consulta de estado de cuenta</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <div class="notice">
+            <i class="fas fa-info-circle"></i>
+            <p>Sistema reiniciado con usuarios de demostración. Todas las contraseñas son temporales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/auth/auth.js"></script>
+</body>
+</html>
